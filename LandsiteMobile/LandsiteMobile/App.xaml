@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LandsiteMobile.App">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <!--#region Colors -->
+            <Color x:Key="Green">#00704a</Color>
+            <Color x:Key="Primary">#2196F3</Color>
+            <Color x:Key="DarkPrimary">#152c3c</Color>
+            <Color x:Key="SupperDarkPrimary">#0f2533</Color>
+            <Color x:Key="PrimaryLight">#283e4e</Color>
+            <Color x:Key="Yellow">#FFA700</Color>
+            <Color x:Key="Gray">#4a4b4d</Color>
+            <Color x:Key="Blue">#4476fc</Color>
+            <Color x:Key="BlueLight">#b2ccfb</Color>
+            <Color x:Key="SupperBlue">#0e1ff1</Color>
+            <Color x:Key="GrayLight">#97989b</Color>
+            <Color x:Key="SupperGray">#282a35</Color>
+            <Color x:Key="DialogBlack">#1b1b1b</Color>
+            <Color x:Key="DialogWhite">#1b1b1b</Color>
+            <Color x:Key="WhiteGray">#f2f2f2</Color>
+            <Color x:Key="Fuchsia">#ff00ff</Color>
+            <!--#endregion-->
+
+            <!--#region Styles -->
+            <Style TargetType="Button">
+                <Setter Property="TextColor" Value="White"></Setter>
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Disabled">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="#332196F3" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+            <!--#endregion-->
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
