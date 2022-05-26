@@ -7,7 +7,9 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using LandsiteMobile.Resources.Languages;
+using Plugin.Geolocator;
 using Xamarin.Forms;
+using Xamarin.Forms.GoogleMaps;
 using Xamarin.Forms.Xaml;
 
 namespace LandsiteMobile.Views
@@ -21,15 +23,28 @@ namespace LandsiteMobile.Views
         {
             InitializeComponent();
         }
-        private void picker_SelectedIndexChanged(object sender, EventArgs e)
+        //private void picker_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    if (index == picker.SelectedIndex)
+        //        return;
+        //    index = picker.SelectedIndex;
+        //    CultureInfo language = new CultureInfo(picker.SelectedIndex == 0 ? "" : "vi");
+        //    Thread.CurrentThread.CurrentUICulture = language;
+        //    LanguageResource.Culture = language;
+        //    Application.Current.MainPage = new AppShell();
+        //}
+
+        void init()
         {
-            if (index == picker.SelectedIndex)
-                return;
-            index = picker.SelectedIndex;
-            CultureInfo language = new CultureInfo(picker.SelectedIndex == 0 ? "" : "vi");
-            Thread.CurrentThread.CurrentUICulture = language;
-            LanguageResource.Culture = language;
-            Application.Current.MainPage = new AppShell();
+            getCurrentLocation();
+        }
+
+        async void getCurrentLocation()
+        {
+            var locator = CrossGeolocator.Current;
+            var position = await locator.GetPositionAsync(TimeSpan.FromSeconds(10));
+            map.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(position.Latitude, position.Longitude),
+                                                         Distance.FromMiles(1)));
         }
     }
 }

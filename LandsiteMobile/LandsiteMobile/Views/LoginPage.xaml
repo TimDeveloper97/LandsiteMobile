@@ -2,9 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              
+             Shell.NavBarIsVisible="False"
              xmlns:vm="clr-namespace:LandsiteMobile.ViewModels"
              xmlns:lang="clr-namespace:LandsiteMobile.Resources.Languages"
              xmlns:icon="clr-namespace:LandsiteMobile.Resources"
+             xmlns:mdc="clr-namespace:Plugin.MaterialDesignControls;assembly=Plugin.MaterialDesignControls"
+             x:Name="loginpage"
              
              x:Class="LandsiteMobile.Views.LoginPage">
 
@@ -13,8 +16,48 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical" VerticalOptions="Center">
-            <Image Source="logo"/>
-        </StackLayout>
+        <Grid>
+            <ActivityIndicator IsRunning="{Binding IsBusy}" VerticalOptions="Center" HorizontalOptions="Center" 
+                               Color="{StaticResource AppColor}"/>
+            <StackLayout Orientation="Vertical" VerticalOptions="Center">
+                <Image Source="logo" Aspect="AspectFill"
+                   WidthRequest="200" HeightRequest="200"/>
+
+                <mdc:MaterialEntry Type="Filled" LeadingIcon="{AppThemeBinding Dark=serverdark, Light=serverlight}"
+                               Placeholder="{Static lang:LanguageResource.loginEmailPlacehold}"
+                               MaxLength="20" Text="{Binding Email}"
+                               AssistiveText="{Binding ErrorEmail}" 
+                               AnimateError="True" TabIndex="0"
+                               LabelMargin="0,0,15,5" FontSize="{OnPlatform Android=18, iOS=16}"
+                               TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}"
+                               PlaceholderColor="{AppThemeBinding Dark={StaticResource GrayLight}, Light={StaticResource GrayLight}}"
+                               BackgroundColor="{AppThemeBinding Dark={StaticResource Black}, Light={StaticResource White}}"
+                               BorderColor="{AppThemeBinding Dark={StaticResource GrayLight}, Light={StaticResource GrayLight}}" 
+                               AssistiveTextColor="{StaticResource Red}" />
+
+                <mdc:MaterialEntry Type="Filled" LeadingIcon="{AppThemeBinding Dark=serverdark, Light=serverlight}"
+                               Placeholder="{Static lang:LanguageResource.loginPasswordPlacehold}"
+                               MaxLength="20" Text="{Binding Password}"
+                               AssistiveText="{Binding ErrorPassword}" 
+                               AnimateError="True" TabIndex="0"
+                               LabelMargin="0,0,15,5" FontSize="{OnPlatform Android=18, iOS=16}"
+                               TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}"
+                               PlaceholderColor="{AppThemeBinding Dark={StaticResource GrayLight}, Light={StaticResource GrayLight}}"
+                               BackgroundColor="{AppThemeBinding Dark={StaticResource Black}, Light={StaticResource White}}"
+                               BorderColor="{AppThemeBinding Dark={StaticResource GrayLight}, Light={StaticResource GrayLight}}" 
+                               AssistiveTextColor="{StaticResource Red}" />
+
+                <Label Text="{Static lang:LanguageResource.loginForgotPassword}" 
+                   FontSize="{OnPlatform Android=18, iOS=16}"
+                   TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}"
+                   TextDecorations="Underline">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" CommandParameter="{Binding .}"
+                                          Command="{Binding Path=BindingContext.ForgotPasswordCommand, Source={x:Reference Name=loginpage}}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -22,6 +22,9 @@ namespace LandsiteMobile.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            Plugin.MaterialDesignControls.iOS.Renderer.Init();
+            XF.Material.iOS.Material.Init();
+            Xamarin.FormsGoogleMaps.Init("AIzaSyDNI_ZWPqvdS6r6gPVO50I4TlYkfkZdXh8");
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 

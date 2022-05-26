@@ -5,34 +5,43 @@
     <Application.Resources>
         <ResourceDictionary>
 
+            <Color x:Key="AppColor">#d1542f</Color>
             <!--#region Colors -->
-            <Color x:Key="Green">#00704a</Color>
             <Color x:Key="Primary">#2196F3</Color>
+            <Color x:Key="WhiteSmoke">#f2f2f2</Color>
+            <Color x:Key="BlackSmoke">#212121</Color>
+            <Color x:Key="White">#ffffff</Color>
+            <Color x:Key="Black">#0d0d0d</Color>
+            <Color x:Key="Red">#ff471a</Color>
             <Color x:Key="DarkPrimary">#152c3c</Color>
             <Color x:Key="SupperDarkPrimary">#0f2533</Color>
             <Color x:Key="PrimaryLight">#283e4e</Color>
             <Color x:Key="Yellow">#FFA700</Color>
+            <Color x:Key="Green">#1fb141</Color>
             <Color x:Key="Gray">#4a4b4d</Color>
-            <Color x:Key="Blue">#4476fc</Color>
+            <Color x:Key="Blue">#2666CF</Color>
             <Color x:Key="BlueLight">#b2ccfb</Color>
-            <Color x:Key="SupperBlue">#0e1ff1</Color>
+            <Color x:Key="DarkBlue">#0e1ff1</Color>
             <Color x:Key="GrayLight">#97989b</Color>
-            <Color x:Key="SupperGray">#282a35</Color>
-            <Color x:Key="DialogBlack">#1b1b1b</Color>
-            <Color x:Key="DialogWhite">#1b1b1b</Color>
+            <Color x:Key="DarkGray">#282a35</Color>
+            <Color x:Key="Brown">#333300</Color>
             <Color x:Key="WhiteGray">#f2f2f2</Color>
             <Color x:Key="Fuchsia">#ff00ff</Color>
+            <Color x:Key="Violet">#9900ff</Color>
+            <Color x:Key="Stain">#EEEDDE</Color>
+            <Color x:Key="WhiteLight">#f2f2f2</Color>
             <!--#endregion-->
 
             <!--#region Styles -->
             <Style TargetType="Button">
-                <Setter Property="TextColor" Value="White"></Setter>
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource Black}, Light={StaticResource White}}"></Setter>
+                <Setter Property="FontSize" Value="{OnPlatform Android=16, iOS=14}"/>
                 <Setter Property="VisualStateManager.VisualStateGroups">
                     <VisualStateGroupList>
                         <VisualStateGroup x:Name="CommonStates">
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                                    <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource AppColor}, Light={StaticResource AppColor}}" />
                                 </VisualState.Setters>
                             </VisualState>
                             <VisualState x:Name="Disabled">

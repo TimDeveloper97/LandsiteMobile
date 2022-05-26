@@ -1,5 +1,4 @@
 using System;
-
 using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
@@ -13,7 +12,9 @@ namespace LandsiteMobile.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
+            Plugin.MaterialDesignControls.Android.Renderer.Init();
+            Xamarin.FormsGoogleMaps.Init(this, savedInstanceState);
+            XF.Material.Droid.Material.Init(this, savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
