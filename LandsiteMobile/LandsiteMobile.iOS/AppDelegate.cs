@@ -24,6 +24,7 @@ namespace LandsiteMobile.iOS
         {
             Plugin.MaterialDesignControls.iOS.Renderer.Init();
             XF.Material.iOS.Material.Init();
+            CrossCurrentActivity.Current.Init(this, savedInstanceState);
             Xamarin.FormsGoogleMaps.Init("AIzaSyDNI_ZWPqvdS6r6gPVO50I4TlYkfkZdXh8");
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());

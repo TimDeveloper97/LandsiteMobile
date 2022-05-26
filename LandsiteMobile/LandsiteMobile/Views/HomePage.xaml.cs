@@ -21,6 +21,7 @@ namespace LandsiteMobile.Views
         public HomePage()
         {
             InitializeComponent();
+            init();
         }
         //private void picker_SelectedIndexChanged(object sender, EventArgs e)
         //{

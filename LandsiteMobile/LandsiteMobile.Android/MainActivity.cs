@@ -3,6 +3,7 @@ using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
+using Plugin.CurrentActivity;
 
 namespace LandsiteMobile.Droid
 {
@@ -13,6 +14,7 @@ namespace LandsiteMobile.Droid
         {
             base.OnCreate(savedInstanceState);
             Plugin.MaterialDesignControls.Android.Renderer.Init();
+            CrossCurrentActivity.Current.Activity = this;
             Xamarin.FormsGoogleMaps.Init(this, savedInstanceState);
             XF.Material.Droid.Material.Init(this, savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
