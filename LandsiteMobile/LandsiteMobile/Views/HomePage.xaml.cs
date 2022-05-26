@@ -18,7 +18,6 @@ namespace LandsiteMobile.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HomePage : ContentPage
     {
-        static int index = -1;
         public HomePage()
         {
             InitializeComponent();
@@ -42,7 +41,7 @@ namespace LandsiteMobile.Views
         async void getCurrentLocation()
         {
             var locator = CrossGeolocator.Current;
-            var position = await locator.GetPositionAsync(TimeSpan.FromSeconds(10));
+            var position = await locator.GetPositionAsync(10000);
             map.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(position.Latitude, position.Longitude),
                                                          Distance.FromMiles(1)));
         }

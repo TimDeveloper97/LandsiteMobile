@@ -19,9 +19,8 @@
         <Grid>
             <ActivityIndicator IsRunning="{Binding IsBusy}" VerticalOptions="Center" HorizontalOptions="Center" 
                                Color="{StaticResource AppColor}"/>
-            <StackLayout Orientation="Vertical" VerticalOptions="Center">
-                <Image Source="logo" Aspect="AspectFill"
-                   WidthRequest="200" HeightRequest="200"/>
+            <StackLayout Orientation="Vertical" VerticalOptions="Center" Margin="50,0">
+                <Image Source="logo" Aspect="AspectFit" HeightRequest="150" Margin="0,40"/>
 
                 <mdc:MaterialEntry Type="Filled" LeadingIcon="{AppThemeBinding Dark=serverdark, Light=serverlight}"
                                Placeholder="{Static lang:LanguageResource.loginEmailPlacehold}"
@@ -48,15 +47,21 @@
                                AssistiveTextColor="{StaticResource Red}" />
 
                 <Label Text="{Static lang:LanguageResource.loginForgotPassword}" 
-                   FontSize="{OnPlatform Android=18, iOS=16}"
-                   TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}"
-                   TextDecorations="Underline">
+                       FontSize="{OnPlatform Android=18, iOS=16}"
+                       TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}"
+                       TextDecorations="Underline" HorizontalOptions="Center">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer NumberOfTapsRequired="1" CommandParameter="{Binding .}"
                                           Command="{Binding Path=BindingContext.ForgotPasswordCommand, Source={x:Reference Name=loginpage}}"/>
                     </Label.GestureRecognizers>
                 </Label>
 
+                <mdc:MaterialButton HorizontalOptions="FillAndExpand" 
+                                    Text="Sign in" 
+                                    BorderColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"
+                                    TextColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"
+                                    VerticalOptions="Center" Margin="20,10,20,0"
+                                    Command="{Binding LoginCommand}"/>
             </StackLayout>
         </Grid>
     </ContentPage.Content>
