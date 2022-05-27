@@ -1,4 +1,5 @@
-﻿using Firebase.Database.Query;
+﻿using Firebase.Auth;
+using Firebase.Database.Query;
 using LandsiteMobile.Domain;
 using LandsiteMobile.Models;
 using Newtonsoft.Json;
@@ -65,9 +66,18 @@ namespace LandsiteMobile.ViewModels
                     await Shell.Current.Navigation.PopToRootAsync();
                 }
             }
-            catch (Exception ex)
+            catch (FirebaseAuthException ex)
             {
+                if (ex.ResponseData == "N/A")
+                    await MaterialDialog.Instance.SnackbarAsync(message: "Internet connection error",
+                                     msDuration: MaterialSnackbar.DurationLong);
+                else
+                {
+                    var response = JsonConvert.DeserializeObject<BaseResponse>(ex.ResponseData);
 
+                    await MaterialDialog.Instance.SnackbarAsync(message: response.Error.Message,
+                                         msDuration: MaterialSnackbar.DurationLong);
+                }
             }
             finally
             {

@@ -17,8 +17,7 @@
 
     <ContentPage.Content>
         <Grid BackgroundColor="{AppThemeBinding Dark={StaticResource BlackSmoke}, Light={StaticResource WhiteSmoke}}">
-            <ActivityIndicator IsRunning="{Binding IsBusy}" VerticalOptions="Center" HorizontalOptions="Center" 
-                               Color="{StaticResource AppColor}"/>
+            
             <StackLayout Orientation="Vertical" VerticalOptions="Start" HorizontalOptions="Fill" Margin="30,0">
                 <Image Source="logo" Aspect="AspectFit" HeightRequest="150" Margin="0,50,0,30"/>
 
@@ -65,7 +64,8 @@
                                     VerticalOptions="Center" CornerRadius="20" HeightRequest="50"
                                     Command="{Binding LoginCommand}"/>
             </StackLayout>
-            
+            <ActivityIndicator IsRunning="{Binding IsBusy}" VerticalOptions="Center" HorizontalOptions="Center" 
+                               Color="{StaticResource AppColor}"/>
             <StackLayout VerticalOptions="End">
                 <BoxView HeightRequest="1" BackgroundColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"/>
 
