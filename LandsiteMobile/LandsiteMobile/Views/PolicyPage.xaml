@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             xmlns:vm="clr-namespace:LandsiteMobile.ViewModels"
+             xmlns:lang="clr-namespace:LandsiteMobile.Resources.Languages"
+             xmlns:icon="clr-namespace:LandsiteMobile.Resources"
+             xmlns:mdc="clr-namespace:Plugin.MaterialDesignControls;assembly=Plugin.MaterialDesignControls"
+             Title="{Binding Title}"
+             Shell.NavBarIsVisible="False"
+             xmlns:control="clr-namespace:LandsiteMobile.Controls"
+             
+             x:Class="LandsiteMobile.Views.PolicyPage">
+
+    <ContentPage.BindingContext>
+        <vm:PolicyViewModel />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="{AppThemeBinding Dark={StaticResource BlackSmoke} ,Light={StaticResource WhiteSmoke}}">
+            <StackLayout Margin="30,0">
+                <Label Text="{Static lang:LanguageResource.signupDisclaimer}"
+                       TextColor="{AppThemeBinding Dark={StaticResource AppColor}, Light={StaticResource AppColor}}" 
+                       FontAttributes="Bold" TextTransform="Uppercase"
+                       FontSize="{OnPlatform Android=22, iOS=20}" 
+                       HorizontalOptions="Center" Margin="0,25"/>
+                <control:TitleDesView Heading="{Static lang:LanguageResource.signupPrivacyPolicyForLandslidesSurvey}" 
+                                  Description="{Static lang:LanguageResource.signupPrivacyPolicyForLandslidesSurveyDes}"/>
+                <control:TitleDesView Heading="{Static lang:LanguageResource.signupGDPR}" 
+                                  Description="{Static lang:LanguageResource.signupGDPRDes}" />
+                <control:TitleDesView Heading="{Static lang:LanguageResource.signupLogFiles}" 
+                                  Description="{Static lang:LanguageResource.signupLogFilesDes}"/>
+                <control:TitleDesView Heading="{Static lang:LanguageResource.signupPrivacyPolicies}" 
+                                  Description="{Static lang:LanguageResource.signupPrivacyPoliciesDes}"/>
+                <control:TitleDesView Heading="{Static lang:LanguageResource.signupThirdPartyPrivacyPolicies}" 
+                                  Description="{Static lang:LanguageResource.signupThirdPartyPrivacyPoliciesDes}"/>
+                <control:TitleDesView Heading="{Static lang:LanguageResource.signupChildrenInformation}" 
+                                  Description="{Static lang:LanguageResource.signupChildrenInformationDes}"/>
+                <control:TitleDesView Heading="{Static lang:LanguageResource.signupOnlinePrivacyPolicyOnly}" 
+                                  Description="{Static lang:LanguageResource.signupOnlinePrivacyPolicyOnlyDes}"/>
+                <control:TitleDesView Heading="{Static lang:LanguageResource.signupConsentDes}" 
+                                  Description="{Static lang:LanguageResource.signupConsentDes}"/>
+
+                <mdc:MaterialButton HorizontalOptions="FillAndExpand" 
+                                    Text="{Static lang:LanguageResource.signupAccept}" Margin="0,30,0,0"
+                                    BackgroundColor="{StaticResource AppColor}"
+                                    FontSize="{OnPlatform Android=18, iOS=16}"
+                                    BorderColor="{AppThemeBinding Dark={StaticResource BlackSmoke} ,Light={StaticResource WhiteSmoke}}"
+                                    TextColor="{AppThemeBinding Dark={StaticResource Black} ,Light={StaticResource White}}"
+                                    VerticalOptions="Center" CornerRadius="20" HeightRequest="50"
+                                    Command="{Binding AcceptCommand}"/>
+
+                <mdc:MaterialButton HorizontalOptions="FillAndExpand" 
+                                    Text="{Static lang:LanguageResource.signupGoBack}" Margin="0,10,0,20"
+                                    BackgroundColor="{AppThemeBinding Dark={StaticResource BlackSmoke} ,Light={StaticResource WhiteSmoke}}"
+                                    FontSize="{OnPlatform Android=18, iOS=16}" 
+                                    BorderColor="{AppThemeBinding Dark={StaticResource BlackSmoke} ,Light={StaticResource WhiteSmoke}}"
+                                    TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource Black}}"
+                                    VerticalOptions="Center" CornerRadius="20" HeightRequest="50"
+                                    Command="{Binding GoBackCommand}"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

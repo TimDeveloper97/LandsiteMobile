@@ -2,6 +2,7 @@
 using Firebase.Auth;
 using Firebase.Database;
 using Firebase.Storage;
+using LandsiteMobile.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,7 +20,7 @@ namespace LandsiteMobile.Domain
         protected readonly FirebaseClient _firebaseDatabase;
         protected readonly FirebaseAuthProvider _firebaseAuthProvider;
         protected readonly FirebaseStorage _firebaseStorage;
-        protected static User _user;
+        protected static UserModel _usermodel;
 
         bool isBusy = false;
         public bool IsBusy

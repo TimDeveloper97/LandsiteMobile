@@ -23,28 +23,24 @@ namespace LandsiteMobile.Views
             InitializeComponent();
             init();
         }
-        //private void picker_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    if (index == picker.SelectedIndex)
-        //        return;
-        //    index = picker.SelectedIndex;
-        //    CultureInfo language = new CultureInfo(picker.SelectedIndex == 0 ? "" : "vi");
-        //    Thread.CurrentThread.CurrentUICulture = language;
-        //    LanguageResource.Culture = language;
-        //    Application.Current.MainPage = new AppShell();
-        //}
 
+        [Obsolete]
         void init()
         {
             getCurrentLocation();
         }
 
+        [Obsolete]
         async void getCurrentLocation()
         {
             var locator = CrossGeolocator.Current;
+            map.IsShowingUser = true;
+            double zoomLevel = 10;
+            double latlongDegrees = 360 / (Math.Pow(2, zoomLevel));
             var position = await locator.GetPositionAsync(10000);
-            map.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(position.Latitude, position.Longitude),
-                                                         Distance.FromMiles(1)));
+            map.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(21.023857, 105.789279),
+                                                         Distance.FromMiles(latlongDegrees)));
+            map.Pins.Add(new Pin { Position = new Position(21.023857, 105.789279), Label = "SAMSUNG" });
         }
     }
 }

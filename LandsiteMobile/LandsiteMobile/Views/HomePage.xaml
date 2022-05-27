@@ -7,6 +7,7 @@
              xmlns:icon="clr-namespace:LandsiteMobile.Resources"
              xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
              xmlns:bindings="clr-namespace:Xamarin.Forms.GoogleMaps.Bindings;assembly=Xamarin.Forms.GoogleMaps.Bindings"
+             Title="{Binding Title}"
              
              x:Class="LandsiteMobile.Views.HomePage">
 
@@ -15,7 +16,7 @@
     </ContentPage.BindingContext>
     
     <ContentPage.Content>
-        <StackLayout BackgroundColor="WhiteSmoke">
+        <!--<StackLayout BackgroundColor="WhiteSmoke">-->
             <!--<Picker x:Name="picker"
                 SelectedIndexChanged="picker_SelectedIndexChanged" 
                 Margin="20,0,20,20">
@@ -31,17 +32,28 @@
                                               CommandParameter="{Binding .}" />
                 </Label.GestureRecognizers>--><!--
             </Label>
-            <Label Text="{Static lang:LanguageResource.Wellcome}"
+            <Label Text="{Static lang:LanguageResource.Wellcome}" 
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />-->
 
-            <Grid>
-                <maps:Map x:Name="map" MapType="Satellite" HasZoomEnabled="True" MyLocationEnabled="True">
+            <!--<Grid>
+                <maps:Map x:Name="map" MapType="Street" HasZoomEnabled="True" MyLocationEnabled="True"
+                          HorizontalOptions="Fill" VerticalOptions="Fill">
                     <maps:Map.Behaviors>
                         <bindings:BindingPinsBehavior Value="{Binding Pins}" />
                     </maps:Map.Behaviors>
                 </maps:Map>
-            </Grid>
-        </StackLayout>
+            </Grid>-->
+        <!--</StackLayout>-->
+
+        <Grid>
+            <maps:Map x:Name="map" MapType="Street" 
+                      IsShowingUser="True"  HasZoomEnabled="True" MyLocationEnabled="True"
+                      HorizontalOptions="Fill" VerticalOptions="Fill">
+                <maps:Map.Behaviors>
+                    <bindings:BindingPinsBehavior Value="{Binding Pins}" />
+                </maps:Map.Behaviors>
+            </maps:Map>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

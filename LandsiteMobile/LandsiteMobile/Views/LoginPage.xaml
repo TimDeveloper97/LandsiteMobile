@@ -16,17 +16,17 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-        <Grid>
+        <Grid BackgroundColor="{AppThemeBinding Dark={StaticResource BlackSmoke}, Light={StaticResource WhiteSmoke}}">
             <ActivityIndicator IsRunning="{Binding IsBusy}" VerticalOptions="Center" HorizontalOptions="Center" 
                                Color="{StaticResource AppColor}"/>
-            <StackLayout Orientation="Vertical" VerticalOptions="Center" Margin="50,0">
-                <Image Source="logo" Aspect="AspectFit" HeightRequest="150" Margin="0,40"/>
+            <StackLayout Orientation="Vertical" VerticalOptions="Start" HorizontalOptions="Fill" Margin="30,0">
+                <Image Source="logo" Aspect="AspectFit" HeightRequest="150" Margin="0,50,0,30"/>
 
-                <mdc:MaterialEntry Type="Filled" LeadingIcon="{AppThemeBinding Dark=serverdark, Light=serverlight}"
+                <mdc:MaterialEntry Type="Filled" LeadingIcon="{AppThemeBinding Dark=emailLight, Light=emailLight}"
                                Placeholder="{Static lang:LanguageResource.loginEmailPlacehold}"
                                MaxLength="20" Text="{Binding Email}"
                                AssistiveText="{Binding ErrorEmail}" 
-                               AnimateError="True" TabIndex="0"
+                               AnimateError="True" TabIndex="0" CornerRadius="5"
                                LabelMargin="0,0,15,5" FontSize="{OnPlatform Android=18, iOS=16}"
                                TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}"
                                PlaceholderColor="{AppThemeBinding Dark={StaticResource GrayLight}, Light={StaticResource GrayLight}}"
@@ -34,12 +34,12 @@
                                BorderColor="{AppThemeBinding Dark={StaticResource GrayLight}, Light={StaticResource GrayLight}}" 
                                AssistiveTextColor="{StaticResource Red}" />
 
-                <mdc:MaterialEntry Type="Filled" LeadingIcon="{AppThemeBinding Dark=serverdark, Light=serverlight}"
+                <mdc:MaterialEntry Type="Filled" LeadingIcon="{AppThemeBinding Dark=passwordLight, Light=passwordLight}"
                                Placeholder="{Static lang:LanguageResource.loginPasswordPlacehold}"
-                               MaxLength="20" Text="{Binding Password}"
-                               AssistiveText="{Binding ErrorPassword}" 
-                               AnimateError="True" TabIndex="0"
-                               LabelMargin="0,0,15,5" FontSize="{OnPlatform Android=18, iOS=16}"
+                               MaxLength="20" Text="{Binding Password}" IsPassword="True"
+                               AssistiveText="{Binding ErrorPassword}" CornerRadius="5"
+                               AnimateError="True" TabIndex="1" Margin="0,10,0,0"
+                               LabelMargin="0,0,15,5" FontSize="{OnPlatform Android=18, iOS=16}" 
                                TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}"
                                PlaceholderColor="{AppThemeBinding Dark={StaticResource GrayLight}, Light={StaticResource GrayLight}}"
                                BackgroundColor="{AppThemeBinding Dark={StaticResource Black}, Light={StaticResource White}}"
@@ -47,9 +47,9 @@
                                AssistiveTextColor="{StaticResource Red}" />
 
                 <Label Text="{Static lang:LanguageResource.loginForgotPassword}" 
-                       FontSize="{OnPlatform Android=18, iOS=16}"
+                       FontSize="{OnPlatform Android=18, iOS=16}" IsVisible="false"
                        TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}"
-                       TextDecorations="Underline" HorizontalOptions="Center">
+                       TextDecorations="Underline" HorizontalOptions="End">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer NumberOfTapsRequired="1" CommandParameter="{Binding .}"
                                           Command="{Binding Path=BindingContext.ForgotPasswordCommand, Source={x:Reference Name=loginpage}}"/>
@@ -57,11 +57,33 @@
                 </Label>
 
                 <mdc:MaterialButton HorizontalOptions="FillAndExpand" 
-                                    Text="Sign in" 
-                                    BorderColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"
-                                    TextColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"
-                                    VerticalOptions="Center" Margin="20,10,20,0"
+                                    Text="Sign in" Margin="0,30,0,0"
+                                    BackgroundColor="{StaticResource AppColor}"
+                                    FontSize="{OnPlatform Android=18, iOS=16}"
+                                    BorderColor="{AppThemeBinding Dark={StaticResource BlackSmoke} ,Light={StaticResource WhiteSmoke}}"
+                                    TextColor="{AppThemeBinding Dark={StaticResource Black} ,Light={StaticResource White}}"
+                                    VerticalOptions="Center" CornerRadius="20" HeightRequest="50"
                                     Command="{Binding LoginCommand}"/>
+            </StackLayout>
+            
+            <StackLayout VerticalOptions="End">
+                <BoxView HeightRequest="1" BackgroundColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"/>
+
+                <StackLayout Orientation="Horizontal" Margin="0,20" HorizontalOptions="Center">
+                    <Label Text="{Static lang:LanguageResource.loginDontHaveAccount}" 
+                       FontSize="{OnPlatform Android=18, iOS=16}"
+                       TextColor="{AppThemeBinding Dark={StaticResource GrayLight}, Light={StaticResource GrayLight}}"/>
+                    
+                    <Label Text="{Static lang:LanguageResource.loginSignup}" 
+                       FontSize="{OnPlatform Android=18, iOS=16}"
+                       TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}"
+                       TextDecorations="Underline" HorizontalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" CommandParameter="{Binding .}"
+                                          Command="{Binding Path=BindingContext.SignUpCommand, Source={x:Reference Name=loginpage}}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
             </StackLayout>
         </Grid>
     </ContentPage.Content>

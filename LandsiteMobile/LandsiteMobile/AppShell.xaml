@@ -4,8 +4,7 @@
        xmlns:view="clr-namespace:LandsiteMobile.Views" 
        
        Shell.FlyoutBehavior="Disabled"
-       Shell.TabBarIsVisible="False"
-       Shell.TabBarBackgroundColor="{StaticResource AppColor}"
+       Shell.TabBarIsVisible="true"
        xmlns:lang="clr-namespace:LandsiteMobile.Resources.Languages"
        
        x:Class="LandsiteMobile.AppShell">

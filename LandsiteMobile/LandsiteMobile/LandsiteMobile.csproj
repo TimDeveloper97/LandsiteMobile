@@ -34,15 +34,24 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Compile Update="Controls\TitleDesView.xaml.cs">
+		  <DependentUpon>TitleDesView.xaml</DependentUpon>
+		</Compile>
 		<Compile Update="Resources\Languages\LanguageResource.Designer.cs">
 			<DesignTime>True</DesignTime>
 			<AutoGen>True</AutoGen>
 			<DependentUpon>LanguageResource.resx</DependentUpon>
 		</Compile>
+		<Compile Update="Views\PolicyPage.xaml.cs">
+		  <DependentUpon>PolicyPage.xaml</DependentUpon>
+		</Compile>
 	</ItemGroup>
 
 	<ItemGroup>
 		<EmbeddedResource Update="AppShell.xaml">
+		  <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Controls\TitleDesView.xaml">
 		  <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
 		</EmbeddedResource>
 		<EmbeddedResource Update="Resources\Languages\LanguageResource.resx">
@@ -53,6 +62,12 @@
 		  <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
 		</EmbeddedResource>
 		<EmbeddedResource Update="Views\LoginPage.xaml">
+		  <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Views\PolicyPage.xaml">
+		  <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Views\SignUpPage.xaml">
 		  <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
 		</EmbeddedResource>
 	</ItemGroup>

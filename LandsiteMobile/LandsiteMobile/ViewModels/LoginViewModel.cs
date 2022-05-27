@@ -42,6 +42,14 @@ namespace LandsiteMobile.ViewModels
                 await ExecuteLoadLoginCommand();
             }
         });
+        public ICommand ForgotPasswordCommand => new Command(async () =>
+        {
+            await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
+        });
+        public ICommand SignUpCommand => new Command(async () =>
+        {
+            await Shell.Current.GoToAsync(nameof(PolicyPage));
+        });
         #endregion
 
 
@@ -88,26 +96,26 @@ namespace LandsiteMobile.ViewModels
 
             try
             {
-                //var auth = await _firebaseAuthProvider.SignInWithEmailAndPasswordAsync(Email, Password);
-                //var content = await auth.GetFreshAuthAsync();
-                //if (!content.User.IsEmailVerified)
-                //{
-                //    var json = JsonConvert.SerializeObject(new BaseResponse { Error = new Error { Message = "Email is not verified" } });
-                //    throw new FirebaseAuthException(null, null, json, null);
-                //}
+                var auth = await _firebaseAuthProvider.SignInWithEmailAndPasswordAsync(Email, Password);
+                var content = await auth.GetFreshAuthAsync();
+                if (!content.User.IsEmailVerified)
+                {
+                    var json = JsonConvert.SerializeObject(new BaseResponse { Error = new Error { Message = "Email is not verified" } });
+                    throw new FirebaseAuthException(null, null, json, null);
+                }
 
-                //var user = (await _firebaseDatabase.Child("Users")
-                //                    .OnceAsync<User>()).FirstOrDefault(x => x.Object.LocalId == content.User.LocalId);
-                //if (user != null)
-                //{
-                //    _user = user.Object;
+                var user = (await _firebaseDatabase.Child("Users")
+                                    .OnceAsync<UserModel>()).FirstOrDefault(x => x.Object.LocalId == content.User.LocalId);
+                if (user != null)
+                {
+                    _usermodel = user.Object;
 
-                //    await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
-                //    await Shell.Current.Navigation.PopToRootAsync();
-                //}
+                    await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
+                    await Shell.Current.Navigation.PopToRootAsync();
+                }
 
-                await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
-                await Shell.Current.Navigation.PopToRootAsync();
+                //await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
+                //await Shell.Current.Navigation.PopToRootAsync();
             }
             catch (FirebaseAuthException ex)
             {

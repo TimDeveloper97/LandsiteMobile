@@ -15,6 +15,11 @@ namespace LandsiteMobile.Droid
             base.OnCreate(savedInstanceState);
             Plugin.MaterialDesignControls.Android.Renderer.Init();
             CrossCurrentActivity.Current.Activity = this;
+
+            App.ScreenHeight = (int)(Resources.DisplayMetrics.HeightPixels / Resources.DisplayMetrics.Density);
+            App.ScreenWidth = (int)(Resources.DisplayMetrics.WidthPixels / Resources.DisplayMetrics.Density);
+
+
             Xamarin.FormsGoogleMaps.Init(this, savedInstanceState);
             XF.Material.Droid.Material.Init(this, savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);

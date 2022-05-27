@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LandsiteMobile.Services.Temp;
+using LandsiteMobile.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -27,7 +28,8 @@ namespace LandsiteMobile
 
         void InitRoute()
         {
-            //Routing.RegisterRoute(nameof(NotificationPage), typeof(NotificationPage));
+            Routing.RegisterRoute(nameof(SignUpPage), typeof(SignUpPage));
+            Routing.RegisterRoute(nameof(PolicyPage), typeof(PolicyPage));
         }
 
         private async void OnMenuItemClicked(object sender, EventArgs e)

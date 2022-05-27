@@ -133,13 +133,123 @@
     <value>Password is required</value>
   </data>
   <data name="loginForgotPassword" xml:space="preserve">
-    <value>Forgot your password</value>
+    <value>Forgot your password?</value>
   </data>
   <data name="loginPasswordPlacehold" xml:space="preserve">
     <value>Password</value>
   </data>
   <data name="loginSignup" xml:space="preserve">
     <value>SIGN UP</value>
+  </data>
+  <data name="signupAccept" xml:space="preserve">
+    <value>Accept</value>
+  </data>
+  <data name="signupAge" xml:space="preserve">
+    <value>Age</value>
+  </data>
+  <data name="signupChildrenInformation" xml:space="preserve">
+    <value>Children's Information</value>
+  </data>
+  <data name="signupChildrenInformationDes" xml:space="preserve">
+    <value>Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity.
+
+LandslidesSurvey does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.</value>
+  </data>
+  <data name="signupConfirm" xml:space="preserve">
+    <value>Confirm password *</value>
+  </data>
+  <data name="signupConsent" xml:space="preserve">
+    <value>Consent</value>
+  </data>
+  <data name="signupConsentDes" xml:space="preserve">
+    <value>By using our website, you hereby consent to our Privacy Policy and agree to its terms.</value>
+  </data>
+  <data name="signupDisclaimer" xml:space="preserve">
+    <value>Disclaimer</value>
+  </data>
+  <data name="signupEmail" xml:space="preserve">
+    <value>Email address *</value>
+  </data>
+  <data name="signupGDPR" xml:space="preserve">
+    <value>General Data Protection Regulation (GDPR)</value>
+  </data>
+  <data name="signupGDPRDes" xml:space="preserve">
+    <value>We are a Data Controller of your information.
+LandslidesSurvey legal basis for collecting and using the personal information described in this Privacy Policy depends on the Personal Information we collect and the specific context in which we collect the information:
+          - LandslidesSurvey needs to perform a contract with you
+          - You have given LandslidesSurvey permission to do so
+          - Processing your personal information is in LandslidesSurvey legitimate interests
+          - LandslidesSurvey needs to comply with the law
+
+LandslidesSurvey will retain your personal information only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use your information to the extent necessary to comply with our legal obligations, resolve disputes, and enforce our policies. Our Privacy Policy was generated with the help of GDPR Privacy Policy Generator and the Privacy Policy Generator.
+
+If you are a resident of the European Economic Area (EEA), you have certain data protection rights. If you wish to be informed what Personal Information we hold about you and if you want it to be removed from our systems, please contact us.
+
+In certain circumstances, you have the following data protection rights:
+          - The right to access, update or to delete the information we have on you.
+          - The right of rectification.
+          - The right to object.
+          - The right of restriction.
+          - The right to data portability
+          - The right to withdraw consent</value>
+  </data>
+  <data name="signupGender" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="signupGoBack" xml:space="preserve">
+    <value>Go back</value>
+  </data>
+  <data name="signupHaveAccount" xml:space="preserve">
+    <value>Already have an account?</value>
+  </data>
+  <data name="signupLogFiles" xml:space="preserve">
+    <value>Log Files</value>
+  </data>
+  <data name="signupLogFilesDes" xml:space="preserve">
+    <value>LandslidesSurvey follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this and a part of hosting services' analytics. The information collected by log files include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends, administering the site, tracking users' movement on the website, and gathering demographic information.</value>
+  </data>
+  <data name="signupLogin" xml:space="preserve">
+    <value>Log In</value>
+  </data>
+  <data name="signupOccupation" xml:space="preserve">
+    <value>Occupation</value>
+  </data>
+  <data name="signupOnlinePrivacyPolicyOnly" xml:space="preserve">
+    <value>Online Privacy Policy Only</value>
+  </data>
+  <data name="signupOnlinePrivacyPolicyOnlyDes" xml:space="preserve">
+    <value>Our Privacy Policy applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in LandslidesSurvey. This policy is not applicable to any information collected offline or via channels other than this website.</value>
+  </data>
+  <data name="signupPassword" xml:space="preserve">
+    <value>Password *</value>
+  </data>
+  <data name="signupPrivacyPolicies" xml:space="preserve">
+    <value>Privacy Policies</value>
+  </data>
+  <data name="signupPrivacyPoliciesDes" xml:space="preserve">
+    <value>Third-party ad servers or ad networks uses technologies like cookies, JavaScript, or Web Beacons that are used in their respective advertisements and links that appear on LandslidesSurvey, which are sent directly to users' browser. They automatically receive your IP address when this occurs. These technologies are used to measure the effectiveness of their advertising campaigns and/or to personalize the advertising content that you see on websites that you visit.
+
+Note that LandslidesSurvey has no access to or control over these cookies that are used by third-party advertisers.</value>
+  </data>
+  <data name="signupPrivacyPolicyForLandslidesSurvey" xml:space="preserve">
+    <value>Privacy Policy for LandslidesSurvey</value>
+  </data>
+  <data name="signupPrivacyPolicyForLandslidesSurveyDes" xml:space="preserve">
+    <value>At LandslidesSurvey, accessible from https://github.com/epessina/LandslidesSurvey, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by LandslidesSurvey and how we use it.\nIf you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us.</value>
+  </data>
+  <data name="signupRequired" xml:space="preserve">
+    <value>* Indicateds a required field</value>
+  </data>
+  <data name="signupThirdPartyPrivacyPolicies" xml:space="preserve">
+    <value>Third Party Privacy Policies</value>
+  </data>
+  <data name="signupThirdPartyPrivacyPoliciesDes" xml:space="preserve">
+    <value>LandslidesSurvey's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options. You may find a complete list of these Privacy Policies and their links here: Privacy Policy Links.
+
+You can choose to disable cookies through your individual browser options. To know more detailed information about cookie management with specific web browsers, it can be found at the browsers' respective websites. What Are Cookies?</value>
+  </data>
+  <data name="signupTitle" xml:space="preserve">
+    <value>- Sign up -</value>
   </data>
   <data name="Wellcome" xml:space="preserve">
     <value>Wellcome</value>
