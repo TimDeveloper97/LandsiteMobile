@@ -135,6 +135,96 @@
   <data name="loginSignup" xml:space="preserve">
     <value>Đăng ký</value>
   </data>
+  <data name="settingLanguage" xml:space="preserve">
+    <value>Ngôn ngữ</value>
+  </data>
+  <data name="signupAccept" xml:space="preserve">
+    <value>signupAccept</value>
+  </data>
+  <data name="signupAge" xml:space="preserve">
+    <value>signupAge</value>
+  </data>
+  <data name="signupChildrenInformation" xml:space="preserve">
+    <value>signupChildrenInformation</value>
+  </data>
+  <data name="signupChildrenInformationDes" xml:space="preserve">
+    <value>signupChildrenInformationDes</value>
+  </data>
+  <data name="signupConfirm" xml:space="preserve">
+    <value>signupConfirm</value>
+  </data>
+  <data name="signupConsent" xml:space="preserve">
+    <value>signupConsent</value>
+  </data>
+  <data name="signupConsentDes" xml:space="preserve">
+    <value>signupConsentDes</value>
+  </data>
+  <data name="signupDisclaimer" xml:space="preserve">
+    <value>signupDisclaimer</value>
+  </data>
+  <data name="signupEmail" xml:space="preserve">
+    <value>signupEmail</value>
+  </data>
+  <data name="signupGDPR" xml:space="preserve">
+    <value>signupGDPR</value>
+  </data>
+  <data name="signupGDPRDes" xml:space="preserve">
+    <value>signupGDPRDes</value>
+  </data>
+  <data name="signupGender" xml:space="preserve">
+    <value>signupGender</value>
+  </data>
+  <data name="signupGoBack" xml:space="preserve">
+    <value>signupGoBack</value>
+  </data>
+  <data name="signupHaveAccount" xml:space="preserve">
+    <value>signupHaveAccount</value>
+  </data>
+  <data name="signupLogFiles" xml:space="preserve">
+    <value>signupLogFiles</value>
+  </data>
+  <data name="signupLogFilesDes" xml:space="preserve">
+    <value>signupLogFilesDes</value>
+  </data>
+  <data name="signupLogin" xml:space="preserve">
+    <value>signupLogin</value>
+  </data>
+  <data name="signupOccupation" xml:space="preserve">
+    <value>signupOccupation</value>
+  </data>
+  <data name="signupOnlinePrivacyPolicyOnly" xml:space="preserve">
+    <value>signupOnlinePrivacyPolicyOnly</value>
+  </data>
+  <data name="signupOnlinePrivacyPolicyOnlyDes" xml:space="preserve">
+    <value>signupOnlinePrivacyPolicyOnlyDes</value>
+  </data>
+  <data name="signupPassword" xml:space="preserve">
+    <value>signupPassword</value>
+  </data>
+  <data name="signupPrivacyPolicies" xml:space="preserve">
+    <value>signupPrivacyPolicies</value>
+  </data>
+  <data name="signupPrivacyPoliciesDes" xml:space="preserve">
+    <value>signupPrivacyPoliciesDes</value>
+  </data>
+  <data name="signupPrivacyPolicyForLandslidesSurvey" xml:space="preserve">
+    <value>signupPrivacyPolicyForLandslidesSurvey</value>
+  </data>
+  <data name="signupPrivacyPolicyForLandslidesSurveyDes" xml:space="preserve">
+    <value>signupPrivacyPolicyForLandslidesSurveyDes</value>
+  </data>
+  <data name="signupRequired" xml:space="preserve">
+    <value>signupRequired</value>
+  </data>
+  <data name="signupThirdPartyPrivacyPolicies" xml:space="preserve">
+    <value>signupThirdPartyPrivacyPolicies</value>
+  </data>
+  <data name="signupThirdPartyPrivacyPoliciesDes" xml:space="preserve">
+    <value>signupThirdPartyPrivacyPoliciesDes</value>
+  </data>
+  <data name="signupTitle" xml:space="preserve">
+    <value>signupTitle</value>
+  </data>
   <data name="Wellcome" xml:space="preserve">
     <value>Xin chao</value>
   </data>

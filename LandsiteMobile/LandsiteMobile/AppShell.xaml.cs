@@ -30,6 +30,9 @@ namespace LandsiteMobile
         {
             Routing.RegisterRoute(nameof(SignUpPage), typeof(SignUpPage));
             Routing.RegisterRoute(nameof(PolicyPage), typeof(PolicyPage));
+            Routing.RegisterRoute(nameof(SettingPage), typeof(SettingPage));
+            Routing.RegisterRoute(nameof(AccountSettingPage), typeof(AccountSettingPage));
+            Routing.RegisterRoute(nameof(DetailAccountPage), typeof(DetailAccountPage));
         }
 
         private async void OnMenuItemClicked(object sender, EventArgs e)

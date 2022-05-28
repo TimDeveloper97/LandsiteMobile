@@ -7,10 +7,13 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.CommunityToolkit.Helpers;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using XF.Material.Forms.UI.Dialogs;
@@ -30,6 +33,7 @@ namespace LandsiteMobile.ViewModels
         #endregion
 
         #region Command 
+
         public ICommand PageAppearingCommand => new Command(() =>
         {
             Init();
@@ -57,13 +61,19 @@ namespace LandsiteMobile.ViewModels
         {
             Title = "Login";
             Email = "timbkhn@gmail.com";
-            Password = "1234456";
+            Password = "12345678";
         }
 
         #region Method
         void Init()
         {
             Reset();
+            ChangeLanguage(Preferences.Get("language", ""));
+        }
+
+        void ChangeLanguage(string lang)
+        {
+            LocalizationResourceManager.Current.SetCulture(lang == null ? CultureInfo.CurrentCulture : new CultureInfo(lang));
         }
 
         void Reset()
@@ -98,11 +108,11 @@ namespace LandsiteMobile.ViewModels
             {
                 var auth = await _firebaseAuthProvider.SignInWithEmailAndPasswordAsync(Email, Password);
                 var content = await auth.GetFreshAuthAsync();
-                if (!content.User.IsEmailVerified)
-                {
-                    var json = JsonConvert.SerializeObject(new BaseResponse { Error = new Error { Message = "Email is not verified" } });
-                    throw new FirebaseAuthException(null, null, json, null);
-                }
+                //if (!content.User.IsEmailVerified)
+                //{
+                //    var json = JsonConvert.SerializeObject(new BaseResponse { Error = new Error { Message = "Email is not verified" } });
+                //    throw new FirebaseAuthException(null, null, json, null);
+                //}
 
                 var user = (await _firebaseDatabase.Child("Users")
                                     .OnceAsync<UserModel>()).FirstOrDefault(x => x.Object.LocalId == content.User.LocalId);

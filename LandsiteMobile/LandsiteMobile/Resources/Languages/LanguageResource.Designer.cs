@@ -133,6 +133,15 @@ namespace LandsiteMobile.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Language.
+        /// </summary>
+        internal static string settingLanguage {
+            get {
+                return ResourceManager.GetString("settingLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Accept.
         /// </summary>
         internal static string signupAccept {

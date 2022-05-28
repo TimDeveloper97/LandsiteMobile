@@ -7,13 +7,23 @@
              xmlns:icon="clr-namespace:LandsiteMobile.Resources"
              xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
              xmlns:bindings="clr-namespace:Xamarin.Forms.GoogleMaps.Bindings;assembly=Xamarin.Forms.GoogleMaps.Bindings"
+             xmlns:mdc="clr-namespace:Plugin.MaterialDesignControls;assembly=Plugin.MaterialDesignControls"
+             xmlns:control="clr-namespace:LandsiteMobile.Controls"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              Title="{Binding Title}"
+             Shell.NavBarIsVisible="False"
+             Shell.TabBarIsVisible="False"
              
              x:Class="LandsiteMobile.Views.HomePage">
 
     <ContentPage.BindingContext>
         <vm:HomeViewModel />
     </ContentPage.BindingContext>
+    <ContentPage.Behaviors>
+        <xct:EventToCommandBehavior
+                EventName="Appearing"
+                Command="{Binding PageAppearingCommand}" />
+    </ContentPage.Behaviors>
     
     <ContentPage.Content>
         <!--<StackLayout BackgroundColor="WhiteSmoke">-->
@@ -46,14 +56,47 @@
             </Grid>-->
         <!--</StackLayout>-->
 
-        <Grid>
-            <maps:Map x:Name="map" MapType="Street" 
-                      IsShowingUser="True"  HasZoomEnabled="True" MyLocationEnabled="True"
-                      HorizontalOptions="Fill" VerticalOptions="Fill">
+        <Grid BackgroundColor="{AppThemeBinding Dark={StaticResource BlackSmoke} ,Light={StaticResource WhiteSmoke}}">
+            <control:BindableMap x:Name="map" MapType="Street" 
+                      IsShowingUser="True" MyLocationEnabled="True" IsTrafficEnabled="True" 
+                      HorizontalOptions="Fill" VerticalOptions="Fill"
+                      MapSpan="{Binding ClinicMapSpan}">
                 <maps:Map.Behaviors>
                     <bindings:BindingPinsBehavior Value="{Binding Pins}" />
                 </maps:Map.Behaviors>
-            </maps:Map>
+            </control:BindableMap>
+
+            <Grid HorizontalOptions="Start" VerticalOptions="Start" Margin="20,20,0,0">
+                <StackLayout>
+                    <mdc:MaterialFlatButton Icon="{AppThemeBinding Dark=settingLight, Light=settingLight}" CornerRadius="30"
+                                            WidthRequest="50" HeightRequest="50" Command="{Binding SettingCommand}" IconSize="20"
+                                            Padding="10,0,0,0"
+                                            BackgroundColor="{AppThemeBinding Dark={StaticResource Black} ,Light={StaticResource White}}"
+                                            BorderColor="{AppThemeBinding Dark={StaticResource BlackSmoke} ,Light={StaticResource WhiteSmoke}}"/>
+                    <mdc:MaterialFlatButton Icon="{AppThemeBinding Dark=loading, Light=loading}" CornerRadius="30" IconSize="20"
+                                            WidthRequest="50" HeightRequest="50" Command="{Binding LoadingCommand}"
+                                            Padding="10,0,0,0"
+                                            BackgroundColor="{AppThemeBinding Dark={StaticResource Black} ,Light={StaticResource White}}"
+                                            BorderColor="{AppThemeBinding Dark={StaticResource BlackSmoke} ,Light={StaticResource WhiteSmoke}}"/>
+                </StackLayout>
+            </Grid>
+
+            <Grid HorizontalOptions="End" VerticalOptions="Start" Margin="0,20,20,0">
+                <mdc:MaterialFlatButton Icon="{AppThemeBinding Dark=location, Light=location}" CornerRadius="30" 
+                                        WidthRequest="50" HeightRequest="50" Command="{Binding LocationCommand}" IconSize="20"
+                                        Padding="10,0,0,0"
+                                        BackgroundColor="{AppThemeBinding Dark={StaticResource Black} ,Light={StaticResource White}}"
+                                        BorderColor="{AppThemeBinding Dark={StaticResource BlackSmoke} ,Light={StaticResource WhiteSmoke}}"/>
+            </Grid>
+
+            <mdc:MaterialButton HorizontalOptions="Fill" 
+                                Text="New Landsite" Margin="60,0,60,30" 
+                                BackgroundColor="{StaticResource AppColor}"
+                                FontSize="{OnPlatform Android=18, iOS=16}"
+                                BorderColor="{AppThemeBinding Dark={StaticResource Black} ,Light={StaticResource White}}"
+                                TextColor="{AppThemeBinding Dark={StaticResource Black} ,Light={StaticResource White}}"
+                                VerticalOptions="End" CornerRadius="20" HeightRequest="50"
+                                Command="{Binding LoginCommand}"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

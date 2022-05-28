@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             xmlns:vm="clr-namespace:LandsiteMobile.ViewModels"
+             xmlns:lang="clr-namespace:LandsiteMobile.Resources.Languages"
+             xmlns:icon="clr-namespace:LandsiteMobile.Resources"
+             xmlns:mdc="clr-namespace:Plugin.MaterialDesignControls;assembly=Plugin.MaterialDesignControls"
+             Title="{Binding Title}"
+             Shell.NavBarIsVisible="true"
+             Shell.NavBarHasShadow="True"
+             Shell.TabBarIsVisible="False"
+             x:Name="settingpage"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:control="clr-namespace:LandsiteMobile.Controls"
+             
+             x:Class="LandsiteMobile.Views.SettingPage">
+    <ContentPage.BindingContext>
+        <vm:SettingViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Behaviors>
+        <xct:EventToCommandBehavior
+                EventName="Appearing"
+                Command="{Binding PageAppearingCommand}" />
+    </ContentPage.Behaviors>
+    
+    <ContentPage.Content >
+        <Grid BackgroundColor="{AppThemeBinding Dark={StaticResource BlackSmoke} ,Light={StaticResource WhiteSmoke}}">
+            <Grid>
+                <StackLayout Margin="0,20">
+                    <Grid VerticalOptions="Center" ColumnDefinitions="50, *, auto" Margin="20,10">
+                        <Label FontFamily="MaterialIcons" Text="{x:Static icon:FontIcons.Account}" FontSize="30"
+                               VerticalOptions="Center" HorizontalOptions="Center" 
+                               TextColor="{AppThemeBinding Dark={StaticResource AppColor} ,Light={StaticResource AppColor}}"/>
+                        <Label Text="Account" FontSize="{OnPlatform Android=22, iOS=20}" Grid.Column="1" Margin="20,0"
+                               TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource Black}}"/>
+                        <Label FontFamily="MaterialIcons" Text="{x:Static icon:FontIcons.ChevronRight}" FontSize="30"
+                               VerticalOptions="Center" HorizontalOptions="Center"  Grid.Column="2"
+                               TextColor="{AppThemeBinding Dark={StaticResource AppColor} ,Light={StaticResource AppColor}}"/>
+                        
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" CommandParameter="{Binding .}"
+                                          Command="{Binding Path=BindingContext.AccountSettingCommand, Source={x:Reference Name=settingpage}}"/>
+                        </Grid.GestureRecognizers>
+                    </Grid>
+
+                    <BoxView HeightRequest="0.5" BackgroundColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"/>
+
+                    <Grid VerticalOptions="Center" ColumnDefinitions="50, *, auto" Margin="20,10">
+                        <Label FontFamily="MaterialIcons" Text="{x:Static icon:FontIcons.Check}" FontSize="30"
+                               VerticalOptions="Center" HorizontalOptions="Center" 
+                               TextColor="{AppThemeBinding Dark={StaticResource AppColor} ,Light={StaticResource AppColor}}"/>
+                        <Label Text="Expert" FontSize="{OnPlatform Android=22, iOS=20}" Grid.Column="1" Margin="20,0"
+                               TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource Black}}"/>
+                        <mdc:MaterialSwitch IsToggled="{Binding IsExpert}" Grid.Column="2" OnColor="{StaticResource AppColor}" Margin="20,0,0,0"/>
+                        
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" CommandParameter="{Binding .}"
+                                          Command="{Binding Path=BindingContext.ExpertCommand, Source={x:Reference Name=settingpage}}"/>
+                        </Grid.GestureRecognizers>
+                    </Grid>
+
+                    <BoxView HeightRequest="0.5" BackgroundColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"/>
+
+                    <Grid VerticalOptions="Center" ColumnDefinitions="50, *, auto" Margin="20,10">
+                        <Label FontFamily="MaterialIcons" Text="{x:Static icon:FontIcons.Earth}" FontSize="30"
+                               VerticalOptions="Center" HorizontalOptions="Center" 
+                               TextColor="{AppThemeBinding Dark={StaticResource AppColor} ,Light={StaticResource AppColor}}"/>
+                        <Label Text="{xct:Translate settingLanguage}" FontSize="{OnPlatform Android=22, iOS=20}" Grid.Column="1" Margin="20,0"
+                               TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource Black}}"/>
+                        <Label FontFamily="MaterialIcons" Text="{x:Static icon:FontIcons.ChevronRight}" FontSize="30"
+                               VerticalOptions="Center" HorizontalOptions="Center"  Grid.Column="2"
+                               TextColor="{AppThemeBinding Dark={StaticResource AppColor} ,Light={StaticResource AppColor}}"/>
+
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" CommandParameter="{Binding .}"
+                                          Command="{Binding Path=BindingContext.LanguageCommand, Source={x:Reference Name=settingpage}}"/>
+                        </Grid.GestureRecognizers>
+                    </Grid>
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

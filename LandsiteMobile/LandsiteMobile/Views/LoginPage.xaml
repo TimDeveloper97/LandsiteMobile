@@ -8,13 +8,19 @@
              xmlns:icon="clr-namespace:LandsiteMobile.Resources"
              xmlns:mdc="clr-namespace:Plugin.MaterialDesignControls;assembly=Plugin.MaterialDesignControls"
              x:Name="loginpage"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:helper="clr-namespace:Xamarin.CommunityToolkit.Helpers;assembly=Xamarin.CommunityToolkit"
              
              x:Class="LandsiteMobile.Views.LoginPage">
 
     <ContentPage.BindingContext>
         <vm:LoginViewModel />
     </ContentPage.BindingContext>
-
+    <ContentPage.Behaviors>
+        <xct:EventToCommandBehavior
+                EventName="Appearing"
+                Command="{Binding PageAppearingCommand}" />
+    </ContentPage.Behaviors>
     <ContentPage.Content>
         <Grid BackgroundColor="{AppThemeBinding Dark={StaticResource BlackSmoke}, Light={StaticResource WhiteSmoke}}">
             
@@ -25,7 +31,7 @@
                                Placeholder="{Static lang:LanguageResource.loginEmailPlacehold}"
                                MaxLength="20" Text="{Binding Email}"
                                AssistiveText="{Binding ErrorEmail}" 
-                               AnimateError="True" TabIndex="0" CornerRadius="5"
+                               AnimateError="True" CornerRadius="5"
                                LabelMargin="0,0,15,5" FontSize="{OnPlatform Android=18, iOS=16}"
                                TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}"
                                PlaceholderColor="{AppThemeBinding Dark={StaticResource GrayLight}, Light={StaticResource GrayLight}}"
@@ -37,7 +43,7 @@
                                Placeholder="{Static lang:LanguageResource.loginPasswordPlacehold}"
                                MaxLength="20" Text="{Binding Password}" IsPassword="True"
                                AssistiveText="{Binding ErrorPassword}" CornerRadius="5"
-                               AnimateError="True" TabIndex="1" Margin="0,10,0,0"
+                               AnimateError="True" Margin="0,10,0,0"
                                LabelMargin="0,0,15,5" FontSize="{OnPlatform Android=18, iOS=16}" 
                                TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}"
                                PlaceholderColor="{AppThemeBinding Dark={StaticResource GrayLight}, Light={StaticResource GrayLight}}"
@@ -64,13 +70,14 @@
                                     VerticalOptions="Center" CornerRadius="20" HeightRequest="50"
                                     Command="{Binding LoginCommand}"/>
             </StackLayout>
+            
             <ActivityIndicator IsRunning="{Binding IsBusy}" VerticalOptions="Center" HorizontalOptions="Center" 
-                               Color="{StaticResource AppColor}"/>
+                               Color="{StaticResource Gray}"/>
             <StackLayout VerticalOptions="End">
-                <BoxView HeightRequest="1" BackgroundColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"/>
+                <BoxView HeightRequest="0.5" BackgroundColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"/>
 
                 <StackLayout Orientation="Horizontal" Margin="0,20" HorizontalOptions="Center">
-                    <Label Text="{Static lang:LanguageResource.loginDontHaveAccount}" 
+                    <Label Text="{xct:Translate loginDontHaveAccount}" 
                        FontSize="{OnPlatform Android=18, iOS=16}"
                        TextColor="{AppThemeBinding Dark={StaticResource GrayLight}, Light={StaticResource GrayLight}}"/>
                     

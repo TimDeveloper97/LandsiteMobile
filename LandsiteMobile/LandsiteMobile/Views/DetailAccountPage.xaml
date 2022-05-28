@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             xmlns:vm="clr-namespace:LandsiteMobile.ViewModels"
+             xmlns:lang="clr-namespace:LandsiteMobile.Resources.Languages"
+             xmlns:icon="clr-namespace:LandsiteMobile.Resources"
+             xmlns:mdc="clr-namespace:Plugin.MaterialDesignControls;assembly=Plugin.MaterialDesignControls"
+             Title="{Binding Title}"
+             Shell.NavBarIsVisible="true"
+             Shell.NavBarHasShadow="True"
+             Shell.TabBarIsVisible="False"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Name="detailaccountpage"
+             xmlns:control="clr-namespace:LandsiteMobile.Controls"
+             
+             x:Class="LandsiteMobile.Views.DetailAccountPage">
+    <Shell.TitleView>
+        <Grid>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                <Label  Text="{x:Static icon:FontIcons.Check}" 
+                        TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource White}}"
+                        FontSize="Title" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="0,0,20,0"
+                        VerticalOptions="CenterAndExpand" FontFamily="MaterialIcons" IsVisible="{Binding IsHostUser}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" CommandParameter="{Binding .}"
+                                          Command="{Binding Path=BindingContext.UploadProfileUserCommand, Source={x:Reference Name=detailaccountpage}}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+        </Grid>
+    </Shell.TitleView>
+    
+    <ContentPage.BindingContext>
+        <vm:DetailAccountViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Behaviors>
+        <xct:EventToCommandBehavior
+                EventName="Appearing"
+                Command="{Binding PageAppearingCommand}" />
+    </ContentPage.Behaviors>
+    <ContentPage.Content>
+        <Grid BackgroundColor="{AppThemeBinding Dark={StaticResource BlackSmoke}, Light={StaticResource WhiteSmoke}}">
+            <StackLayout Margin="30,30">
+                <mdc:MaterialPicker ItemsSource="{Binding Ages}" SelectedItem="{Binding SelectAge}"
+                                        LeadingIcon="{AppThemeBinding Dark=ageLight, Light=ageLight}"
+                                        TrailingIcon="{AppThemeBinding Dark=down, Light=down}" CornerRadius="5"
+                                        FontSize="{OnPlatform Android=18, iOS=16}"
+                                        BackgroundColor="{AppThemeBinding Dark={StaticResource BlackSmoke}, Light={StaticResource WhiteSmoke}}"
+                                        BorderColor="{AppThemeBinding Dark={StaticResource GrayLight}, Light={StaticResource GrayLight}}"
+                                        Type="Outlined" Placeholder="{Static lang:LanguageResource.signupAge}" Margin="0,5"/>
+                <mdc:MaterialPicker ItemsSource="{Binding Genders}" SelectedItem="{Binding SelectGender}"
+                                        BackgroundColor="{AppThemeBinding Dark={StaticResource BlackSmoke}, Light={StaticResource WhiteSmoke}}"
+                                        LeadingIcon="{AppThemeBinding Dark=genderLight, Light=genderLight}"
+                                        TrailingIcon="{AppThemeBinding Dark=down, Light=down}" CornerRadius="5"
+                                        FontSize="{OnPlatform Android=18, iOS=16}"
+                                        BorderColor="{AppThemeBinding Dark={StaticResource GrayLight}, Light={StaticResource GrayLight}}"
+                                        Type="Outlined" Placeholder="{Static lang:LanguageResource.signupGender}" Margin="0,5"/>
+                <mdc:MaterialPicker ItemsSource="{Binding Occupations}" SelectedItem="{Binding SelectOccupation}"
+                                        BackgroundColor="{AppThemeBinding Dark={StaticResource BlackSmoke}, Light={StaticResource WhiteSmoke}}"
+                                        BorderColor="{AppThemeBinding Dark={StaticResource GrayLight}, Light={StaticResource GrayLight}}"
+                                        LeadingIcon="{AppThemeBinding Dark=occupationLight, Light=occupationLight}"
+                                        TrailingIcon="{AppThemeBinding Dark=down, Light=down}" CornerRadius="5"
+                                        FontSize="{OnPlatform Android=18, iOS=16}"
+                                        Type="Outlined" Placeholder="{Static lang:LanguageResource.signupOccupation}" Margin="0,5"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

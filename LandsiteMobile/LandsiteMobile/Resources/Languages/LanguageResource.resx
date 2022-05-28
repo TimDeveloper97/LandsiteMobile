@@ -141,6 +141,9 @@
   <data name="loginSignup" xml:space="preserve">
     <value>SIGN UP</value>
   </data>
+  <data name="settingLanguage" xml:space="preserve">
+    <value>Language</value>
+  </data>
   <data name="signupAccept" xml:space="preserve">
     <value>Accept</value>
   </data>

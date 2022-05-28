@@ -21,7 +21,7 @@ namespace LandsiteMobile.Views
         public HomePage()
         {
             InitializeComponent();
-            init();
+            //init();
         }
 
         [Obsolete]

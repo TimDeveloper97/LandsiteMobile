@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             xmlns:vm="clr-namespace:LandsiteMobile.ViewModels"
+             xmlns:lang="clr-namespace:LandsiteMobile.Resources.Languages"
+             xmlns:icon="clr-namespace:LandsiteMobile.Resources"
+             xmlns:mdc="clr-namespace:Plugin.MaterialDesignControls;assembly=Plugin.MaterialDesignControls"
+             Title="{Binding Title}"
+             Shell.NavBarIsVisible="true"
+             Shell.NavBarHasShadow="True"
+             Shell.TabBarIsVisible="False"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Name="landsidepage"
+             xmlns:control="clr-namespace:LandsiteMobile.Controls"
+             
+             x:Class="LandsiteMobile.Views.LandsitePage">
+    <Shell.TitleView>
+        <Grid>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                <Label  Text="{x:Static icon:FontIcons.Check}" 
+                        TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource White}}"
+                        FontSize="Title" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="0,0,20,0"
+                        VerticalOptions="CenterAndExpand" FontFamily="MaterialIcons" IsVisible="{Binding IsHostUser}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" CommandParameter="{Binding .}"
+                                          Command="{Binding Path=BindingContext.UploadProfileUserCommand, Source={x:Reference Name=landsidepage}}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+        </Grid>
+    </Shell.TitleView>
+    <ContentPage.BindingContext>
+        <vm:LandsiteViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Behaviors>
+        <xct:EventToCommandBehavior
+                EventName="Appearing"
+                Command="{Binding PageAppearingCommand}" />
+    </ContentPage.Behaviors>
+    
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
