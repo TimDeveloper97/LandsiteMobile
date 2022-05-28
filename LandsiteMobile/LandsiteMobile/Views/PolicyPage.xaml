@@ -9,6 +9,7 @@
              Title="{Binding Title}"
              Shell.NavBarIsVisible="False"
              xmlns:control="clr-namespace:LandsiteMobile.Controls"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              
              x:Class="LandsiteMobile.Views.PolicyPage">
 
@@ -19,30 +20,30 @@
     <ContentPage.Content>
         <ScrollView BackgroundColor="{AppThemeBinding Dark={StaticResource BlackSmoke} ,Light={StaticResource WhiteSmoke}}">
             <StackLayout Margin="30,0">
-                <Label Text="{Static lang:LanguageResource.signupDisclaimer}"
+                <Label Text="{xct:Translate signupDisclaimer}"
                        TextColor="{AppThemeBinding Dark={StaticResource AppColor}, Light={StaticResource AppColor}}" 
                        FontAttributes="Bold" TextTransform="Uppercase"
                        FontSize="{OnPlatform Android=22, iOS=20}" 
                        HorizontalOptions="Center" Margin="0,25"/>
-                <control:TitleDesView Heading="{Static lang:LanguageResource.signupPrivacyPolicyForLandslidesSurvey}" 
-                                  Description="{Static lang:LanguageResource.signupPrivacyPolicyForLandslidesSurveyDes}"/>
-                <control:TitleDesView Heading="{Static lang:LanguageResource.signupGDPR}" 
-                                  Description="{Static lang:LanguageResource.signupGDPRDes}" />
-                <control:TitleDesView Heading="{Static lang:LanguageResource.signupLogFiles}" 
-                                  Description="{Static lang:LanguageResource.signupLogFilesDes}"/>
-                <control:TitleDesView Heading="{Static lang:LanguageResource.signupPrivacyPolicies}" 
-                                  Description="{Static lang:LanguageResource.signupPrivacyPoliciesDes}"/>
-                <control:TitleDesView Heading="{Static lang:LanguageResource.signupThirdPartyPrivacyPolicies}" 
-                                  Description="{Static lang:LanguageResource.signupThirdPartyPrivacyPoliciesDes}"/>
-                <control:TitleDesView Heading="{Static lang:LanguageResource.signupChildrenInformation}" 
-                                  Description="{Static lang:LanguageResource.signupChildrenInformationDes}"/>
-                <control:TitleDesView Heading="{Static lang:LanguageResource.signupOnlinePrivacyPolicyOnly}" 
-                                  Description="{Static lang:LanguageResource.signupOnlinePrivacyPolicyOnlyDes}"/>
-                <control:TitleDesView Heading="{Static lang:LanguageResource.signupConsentDes}" 
-                                  Description="{Static lang:LanguageResource.signupConsentDes}"/>
+                <control:TitleDesView Heading="{xct:Translate signupPrivacyPolicyForLandslidesSurvey}" 
+                                  Description="{xct:Translate signupPrivacyPolicyForLandslidesSurveyDes}"/>
+                <control:TitleDesView Heading="{xct:Translate signupGDPR}" 
+                                  Description="{xct:Translate signupGDPRDes}" />
+                <control:TitleDesView Heading="{xct:Translate signupLogFiles}" 
+                                  Description="{xct:Translate signupLogFilesDes}"/>
+                <control:TitleDesView Heading="{xct:Translate signupPrivacyPolicies}" 
+                                  Description="{xct:Translate signupPrivacyPoliciesDes}"/>
+                <control:TitleDesView Heading="{xct:Translate signupThirdPartyPrivacyPolicies}" 
+                                  Description="{xct:Translate signupThirdPartyPrivacyPoliciesDes}"/>
+                <control:TitleDesView Heading="{xct:Translate signupChildrenInformation}" 
+                                  Description="{xct:Translate signupChildrenInformationDes}"/>
+                <control:TitleDesView Heading="{xct:Translate signupOnlinePrivacyPolicyOnly}" 
+                                  Description="{xct:Translate signupOnlinePrivacyPolicyOnlyDes}"/>
+                <control:TitleDesView Heading="{xct:Translate signupConsentDes}" 
+                                  Description="{xct:Translate signupConsentDes}"/>
 
                 <mdc:MaterialButton HorizontalOptions="FillAndExpand" 
-                                    Text="{Static lang:LanguageResource.signupAccept}" Margin="0,30,0,0"
+                                    Text="{xct:Translate signupAccept}" Margin="0,30,0,0"
                                     BackgroundColor="{StaticResource AppColor}"
                                     FontSize="{OnPlatform Android=18, iOS=16}"
                                     BorderColor="{AppThemeBinding Dark={StaticResource BlackSmoke} ,Light={StaticResource WhiteSmoke}}"
@@ -51,7 +52,7 @@
                                     Command="{Binding AcceptCommand}"/>
 
                 <mdc:MaterialButton HorizontalOptions="FillAndExpand" 
-                                    Text="{Static lang:LanguageResource.signupGoBack}" Margin="0,10,0,20"
+                                    Text="{xct:Translate signupGoBack}" Margin="0,10,0,20"
                                     BackgroundColor="{AppThemeBinding Dark={StaticResource BlackSmoke} ,Light={StaticResource WhiteSmoke}}"
                                     FontSize="{OnPlatform Android=18, iOS=16}" 
                                     BorderColor="{AppThemeBinding Dark={StaticResource BlackSmoke} ,Light={StaticResource WhiteSmoke}}"

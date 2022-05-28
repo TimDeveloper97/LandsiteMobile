@@ -28,7 +28,7 @@
                 <Image Source="logo" Aspect="AspectFit" HeightRequest="150" Margin="0,50,0,30"/>
 
                 <mdc:MaterialEntry Type="Filled" LeadingIcon="{AppThemeBinding Dark=emailLight, Light=emailLight}"
-                               Placeholder="{Static lang:LanguageResource.loginEmailPlacehold}"
+                               Placeholder="{xct:Translate loginEmailPlacehold}"
                                MaxLength="20" Text="{Binding Email}"
                                AssistiveText="{Binding ErrorEmail}" 
                                AnimateError="True" CornerRadius="5"
@@ -40,7 +40,7 @@
                                AssistiveTextColor="{StaticResource Red}" />
 
                 <mdc:MaterialEntry Type="Filled" LeadingIcon="{AppThemeBinding Dark=passwordLight, Light=passwordLight}"
-                               Placeholder="{Static lang:LanguageResource.loginPasswordPlacehold}"
+                               Placeholder="{xct:Translate loginPasswordPlacehold}"
                                MaxLength="20" Text="{Binding Password}" IsPassword="True"
                                AssistiveText="{Binding ErrorPassword}" CornerRadius="5"
                                AnimateError="True" Margin="0,10,0,0"
@@ -51,7 +51,7 @@
                                BorderColor="{AppThemeBinding Dark={StaticResource GrayLight}, Light={StaticResource GrayLight}}" 
                                AssistiveTextColor="{StaticResource Red}" />
 
-                <Label Text="{Static lang:LanguageResource.loginForgotPassword}" 
+                <Label Text="{xct:Translate loginForgotPassword}" 
                        FontSize="{OnPlatform Android=18, iOS=16}" IsVisible="false"
                        TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}"
                        TextDecorations="Underline" HorizontalOptions="End">
@@ -62,7 +62,7 @@
                 </Label>
 
                 <mdc:MaterialButton HorizontalOptions="FillAndExpand" 
-                                    Text="Sign in" Margin="0,30,0,0"
+                                    Text="{xct:Translate loginButtonLogin}" Margin="0,30,0,0"
                                     BackgroundColor="{StaticResource AppColor}"
                                     FontSize="{OnPlatform Android=18, iOS=16}"
                                     BorderColor="{AppThemeBinding Dark={StaticResource BlackSmoke} ,Light={StaticResource WhiteSmoke}}"
@@ -80,8 +80,8 @@
                     <Label Text="{xct:Translate loginDontHaveAccount}" 
                        FontSize="{OnPlatform Android=18, iOS=16}"
                        TextColor="{AppThemeBinding Dark={StaticResource GrayLight}, Light={StaticResource GrayLight}}"/>
-                    
-                    <Label Text="{Static lang:LanguageResource.loginSignup}" 
+
+                    <Label Text="{xct:Translate loginSignup}" 
                        FontSize="{OnPlatform Android=18, iOS=16}"
                        TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}"
                        TextDecorations="Underline" HorizontalOptions="Center">

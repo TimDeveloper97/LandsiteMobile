@@ -6,7 +6,8 @@
              xmlns:lang="clr-namespace:LandsiteMobile.Resources.Languages"
              xmlns:icon="clr-namespace:LandsiteMobile.Resources"
              xmlns:mdc="clr-namespace:Plugin.MaterialDesignControls;assembly=Plugin.MaterialDesignControls"
-             Title="{Binding Title}"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             Title="{xct:Translate signupTitle}"
              Shell.NavBarIsVisible="False" x:Name="signuppage"
              xmlns:control="clr-namespace:LandsiteMobile.Controls"
              
@@ -19,14 +20,14 @@
         <ScrollView>
             <Grid BackgroundColor="{AppThemeBinding Dark={StaticResource BlackSmoke}, Light={StaticResource WhiteSmoke}}">
                 <StackLayout Margin="30,0">
-                    <Label Text="{Static lang:LanguageResource.signupTitle}" HorizontalOptions="Center" Margin="0,20"
+                    <Label Text="{xct:Translate signupTitle}" HorizontalOptions="Center" Margin="0,20"
                            FontSize="{OnPlatform Android=22, iOS=20}"
                            FontAttributes="Bold"
                            TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}"/>
 
                     <mdc:MaterialEntry Type="Filled" LeadingIcon="{AppThemeBinding Dark=emailLight, Light=emailLight}"
-                                   LabelText="{Static lang:LanguageResource.signupRequired}"
-                                   Placeholder="{Static lang:LanguageResource.signupEmail}"
+                                   LabelText="{xct:Translate signupRequired}"
+                                   Placeholder="{xct:Translate signupEmail}"
                                    MaxLength="30" Text="{Binding Email}" Margin="0,5" CornerRadius="5"
                                    LabelMargin="0,0,15,5" FontSize="{OnPlatform Android=18, iOS=16}"
                                    TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}"
@@ -35,7 +36,7 @@
                                    BorderColor="{AppThemeBinding Dark={StaticResource GrayLight}, Light={StaticResource GrayLight}}"/>
 
                     <mdc:MaterialEntry Type="Filled" LeadingIcon="{AppThemeBinding Dark=passwordLight, Light=passwordLight}"
-                                   Placeholder="{Static lang:LanguageResource.signupPassword}"
+                                   Placeholder="{xct:Translate signupPassword}"
                                    MaxLength="30" Text="{Binding Password}" Margin="0,5" CornerRadius="5"
                                    FontSize="{OnPlatform Android=18, iOS=16}" IsPassword="True"
                                    TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}"
@@ -44,7 +45,7 @@
                                    BorderColor="{AppThemeBinding Dark={StaticResource GrayLight}, Light={StaticResource GrayLight}}"/>
 
                     <mdc:MaterialEntry Type="Filled" LeadingIcon="{AppThemeBinding Dark=passwordLight, Light=passwordLight}"
-                                   Placeholder="{Static lang:LanguageResource.signupConfirm}"
+                                   Placeholder="{xct:Translate signupConfirm}"
                                    MaxLength="30" Text="{Binding Confirm}" Margin="0,5" CornerRadius="5"
                                    FontSize="{OnPlatform Android=18, iOS=16}" IsPassword="True"
                                    TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}"
@@ -58,24 +59,24 @@
                                         FontSize="{OnPlatform Android=18, iOS=16}"
                                         BackgroundColor="{AppThemeBinding Dark={StaticResource BlackSmoke}, Light={StaticResource WhiteSmoke}}"
                                         BorderColor="{AppThemeBinding Dark={StaticResource GrayLight}, Light={StaticResource GrayLight}}"
-                                        Type="Outlined" Placeholder="{Static lang:LanguageResource.signupAge}" Margin="0,5"/>
+                                        Type="Outlined" Placeholder="{xct:Translate signupAge}" Margin="0,5"/>
                     <mdc:MaterialPicker ItemsSource="{Binding Genders}" SelectedItem="{Binding SelectGender}"
                                         BackgroundColor="{AppThemeBinding Dark={StaticResource BlackSmoke}, Light={StaticResource WhiteSmoke}}"
                                         LeadingIcon="{AppThemeBinding Dark=genderLight, Light=genderLight}"
                                         TrailingIcon="{AppThemeBinding Dark=down, Light=down}" CornerRadius="5"
                                         FontSize="{OnPlatform Android=18, iOS=16}"
                                         BorderColor="{AppThemeBinding Dark={StaticResource GrayLight}, Light={StaticResource GrayLight}}"
-                                        Type="Outlined" Placeholder="{Static lang:LanguageResource.signupGender}" Margin="0,5"/>
+                                        Type="Outlined" Placeholder="{xct:Translate signupGender}" Margin="0,5"/>
                     <mdc:MaterialPicker ItemsSource="{Binding Occupations}" SelectedItem="{Binding SelectOccupation}"
                                         BackgroundColor="{AppThemeBinding Dark={StaticResource BlackSmoke}, Light={StaticResource WhiteSmoke}}"
                                         BorderColor="{AppThemeBinding Dark={StaticResource GrayLight}, Light={StaticResource GrayLight}}"
                                         LeadingIcon="{AppThemeBinding Dark=occupationLight, Light=occupationLight}"
                                         TrailingIcon="{AppThemeBinding Dark=down, Light=down}" CornerRadius="5"
                                         FontSize="{OnPlatform Android=18, iOS=16}"
-                                        Type="Outlined" Placeholder="{Static lang:LanguageResource.signupOccupation}" Margin="0,5"/>
+                                        Type="Outlined" Placeholder="{xct:Translate signupOccupation}" Margin="0,5"/>
 
                     <mdc:MaterialButton HorizontalOptions="FillAndExpand" 
-                                    Text="Sign up" Margin="0,30,0,0"
+                                    Text="{xct:Translate signupButton}" Margin="0,30,0,0"
                                     BackgroundColor="{StaticResource AppColor}"
                                     FontSize="{OnPlatform Android=18, iOS=16}"
                                     BorderColor="{AppThemeBinding Dark={StaticResource BlackSmoke} ,Light={StaticResource WhiteSmoke}}"
@@ -88,11 +89,11 @@
                     <BoxView HeightRequest="1" BackgroundColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"/>
 
                     <StackLayout Orientation="Horizontal" Margin="0,20" HorizontalOptions="Center">
-                        <Label Text="{Static lang:LanguageResource.signupHaveAccount}" 
+                        <Label Text="{xct:Translate signupHaveAccount}" 
                            FontSize="{OnPlatform Android=18, iOS=16}"
                            TextColor="{AppThemeBinding Dark={StaticResource GrayLight}, Light={StaticResource GrayLight}}"/>
 
-                        <Label Text="{Static lang:LanguageResource.signupLogin}" 
+                        <Label Text="{xct:Translate signupLogin}" 
                            FontSize="{OnPlatform Android=18, iOS=16}"
                            TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}"
                            TextDecorations="Underline" HorizontalOptions="Center">

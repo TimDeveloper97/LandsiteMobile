@@ -6,7 +6,7 @@
              xmlns:lang="clr-namespace:LandsiteMobile.Resources.Languages"
              xmlns:icon="clr-namespace:LandsiteMobile.Resources"
              xmlns:mdc="clr-namespace:Plugin.MaterialDesignControls;assembly=Plugin.MaterialDesignControls"
-             Title="{Binding Title}"
+             Title="{xct:Translate settingAccount}"
              Shell.NavBarIsVisible="true"
              Shell.NavBarHasShadow="True"
              Shell.TabBarIsVisible="False"
@@ -32,7 +32,7 @@
                         <Label FontFamily="MaterialIcons" Text="{x:Static icon:FontIcons.Pencil}" FontSize="30"
                                VerticalOptions="Center" HorizontalOptions="Center"
                                TextColor="{AppThemeBinding Dark={StaticResource AppColor} ,Light={StaticResource AppColor}}"/>
-                        <Label Text="Edit profile" FontSize="{OnPlatform Android=22, iOS=20}" Grid.Column="1" Margin="20,0"
+                        <Label Text="{xct:Translate accountEditProfile}" FontSize="{OnPlatform Android=22, iOS=20}" Grid.Column="1" Margin="20,0"
                                TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource Black}}"/>
                         <Label FontFamily="MaterialIcons" Text="{x:Static icon:FontIcons.ChevronRight}" FontSize="30"
                                VerticalOptions="Center" HorizontalOptions="Center"  Grid.Column="2"
@@ -50,7 +50,7 @@
                         <Label FontFamily="MaterialIcons" Text="{x:Static icon:FontIcons.Logout}" FontSize="30"
                                VerticalOptions="Center" HorizontalOptions="Center" 
                                TextColor="{AppThemeBinding Dark={StaticResource AppColor} ,Light={StaticResource AppColor}}"/>
-                        <Label Text="Logout" FontSize="{OnPlatform Android=22, iOS=20}" Grid.Column="1" Margin="20,0"
+                        <Label Text="{xct:Translate accountLogout}" FontSize="{OnPlatform Android=22, iOS=20}" Grid.Column="1" Margin="20,0"
                                TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource Black}}"/>
                         <Label FontFamily="MaterialIcons" Text="{x:Static icon:FontIcons.ChevronRight}" FontSize="30"
                                VerticalOptions="Center" HorizontalOptions="Center"  Grid.Column="2"

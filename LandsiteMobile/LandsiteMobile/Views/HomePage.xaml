@@ -90,13 +90,13 @@
             </Grid>
 
             <mdc:MaterialButton HorizontalOptions="Fill" 
-                                Text="New Landsite" Margin="60,0,60,30" 
+                                Text="{xct:Translate homeNewLandside}" Margin="60,0,60,30" 
                                 BackgroundColor="{StaticResource AppColor}"
                                 FontSize="{OnPlatform Android=18, iOS=16}"
                                 BorderColor="{AppThemeBinding Dark={StaticResource Black} ,Light={StaticResource White}}"
                                 TextColor="{AppThemeBinding Dark={StaticResource Black} ,Light={StaticResource White}}"
                                 VerticalOptions="End" CornerRadius="20" HeightRequest="50"
-                                Command="{Binding LoginCommand}"/>
+                                Command="{Binding NewLandslideCommand}"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

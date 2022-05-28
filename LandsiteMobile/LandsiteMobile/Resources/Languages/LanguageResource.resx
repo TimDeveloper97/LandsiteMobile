@@ -117,6 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="accountEditProfile" xml:space="preserve">
+    <value>Edit profile</value>
+  </data>
+  <data name="accountLogout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="homeNewLandside" xml:space="preserve">
+    <value>New Landslide</value>
+  </data>
   <data name="loginButtonLogin" xml:space="preserve">
     <value>Login</value>
   </data>
@@ -141,14 +150,26 @@
   <data name="loginSignup" xml:space="preserve">
     <value>SIGN UP</value>
   </data>
+  <data name="settingAccount" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="settingExpert" xml:space="preserve">
+    <value>Expert</value>
+  </data>
   <data name="settingLanguage" xml:space="preserve">
     <value>Language</value>
+  </data>
+  <data name="settingTitle" xml:space="preserve">
+    <value>Settings</value>
   </data>
   <data name="signupAccept" xml:space="preserve">
     <value>Accept</value>
   </data>
   <data name="signupAge" xml:space="preserve">
     <value>Age</value>
+  </data>
+  <data name="signupButton" xml:space="preserve">
+    <value>Sign Up</value>
   </data>
   <data name="signupChildrenInformation" xml:space="preserve">
     <value>Children's Information</value>

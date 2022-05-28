@@ -117,6 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="accountEditProfile" xml:space="preserve">
+    <value>Chỉnh sửa hồ sơ</value>
+  </data>
+  <data name="accountLogout" xml:space="preserve">
+    <value>Đăng xuất</value>
+  </data>
+  <data name="homeNewLandside" xml:space="preserve">
+    <value>Thông kế sạt nở đất</value>
+  </data>
   <data name="loginButtonLogin" xml:space="preserve">
     <value>Đăng nhập</value>
   </data>
@@ -135,95 +144,126 @@
   <data name="loginSignup" xml:space="preserve">
     <value>Đăng ký</value>
   </data>
+  <data name="settingAccount" xml:space="preserve">
+    <value>Tài khoản</value>
+  </data>
+  <data name="settingExpert" xml:space="preserve">
+    <value>Chuyên gia</value>
+  </data>
   <data name="settingLanguage" xml:space="preserve">
     <value>Ngôn ngữ</value>
   </data>
+  <data name="settingTitle" xml:space="preserve">
+    <value>Cài đặt</value>
+  </data>
   <data name="signupAccept" xml:space="preserve">
-    <value>signupAccept</value>
+    <value>Chấp thuận</value>
   </data>
   <data name="signupAge" xml:space="preserve">
-    <value>signupAge</value>
+    <value>Tuổi</value>
+  </data>
+  <data name="signupButton" xml:space="preserve">
+    <value>Đăng ký tài khoản</value>
   </data>
   <data name="signupChildrenInformation" xml:space="preserve">
-    <value>signupChildrenInformation</value>
+    <value>Thông tin trẻ em</value>
   </data>
   <data name="signupChildrenInformationDes" xml:space="preserve">
-    <value>signupChildrenInformationDes</value>
+    <value>Một phần ưu tiên khác của chúng tôi là tăng cường bảo vệ trẻ em khi sử dụng Internet. Chúng tôi khuyến khích cha mẹ và người giám hộ quan sát, tham gia và / hoặc giám sát và hướng dẫn hoạt động trực tuyến của họ.
+
+LandslidesSurvey không cố ý thu thập bất kỳ Thông tin Nhận dạng Cá nhân nào từ trẻ em dưới 13 tuổi. Nếu bạn cho rằng con bạn đã cung cấp loại thông tin này trên trang web của chúng tôi, chúng tôi đặc biệt khuyến khích bạn liên hệ với chúng tôi ngay lập tức và chúng tôi sẽ nỗ lực hết sức để loại bỏ kịp thời thông tin đó từ hồ sơ của chúng tôi.</value>
   </data>
   <data name="signupConfirm" xml:space="preserve">
-    <value>signupConfirm</value>
+    <value>Nhập lại mật khẩu *</value>
   </data>
   <data name="signupConsent" xml:space="preserve">
-    <value>signupConsent</value>
+    <value>Tán thành</value>
   </data>
   <data name="signupConsentDes" xml:space="preserve">
-    <value>signupConsentDes</value>
+    <value>Bằng cách sử dụng trang web của chúng tôi, bạn đồng ý với Chính sách bảo mật của chúng tôi và đồng ý với các điều khoản của nó.</value>
   </data>
   <data name="signupDisclaimer" xml:space="preserve">
-    <value>signupDisclaimer</value>
+    <value>Tuyên bố từ chối trách nhiệm</value>
   </data>
   <data name="signupEmail" xml:space="preserve">
-    <value>signupEmail</value>
+    <value>Nhập địa chỉ Email *</value>
   </data>
   <data name="signupGDPR" xml:space="preserve">
-    <value>signupGDPR</value>
+    <value>Quy định chung về bảo vệ dữ liệu (GDPR)</value>
   </data>
   <data name="signupGDPRDes" xml:space="preserve">
-    <value>signupGDPRDes</value>
+    <value>Chúng tôi là Người kiểm soát dữ liệu thông tin của bạn.
+
+LandslidesSurvey cơ sở pháp lý để thu thập và sử dụng thông tin cá nhân được mô tả trong Chính sách quyền riêng tư này phụ thuộc vào Thông tin cá nhân mà chúng tôi thu thập và bối cảnh cụ thể mà chúng tôi thu thập thông tin:
+- LandslidesSurvey cần thực hiện hợp đồng với bạn
+- Bạn đã cho phép LandslidesSurvey làm như vậy
+- Xử lý thông tin cá nhân của bạn là trong LandslidesSurvey lợi ích hợp pháp
+- LandslidesSurvey cần tuân thủ pháp luật
+LandslidesSurvey sẽ chỉ lưu giữ thông tin cá nhân của bạn chừng nào cần thiết cho các mục đích được nêu trong Chính sách Bảo mật này. Chúng tôi sẽ lưu giữ và sử dụng thông tin của bạn trong phạm vi cần thiết để tuân thủ các nghĩa vụ pháp lý, giải quyết tranh chấp và thực thi các chính sách của chúng tôi. Chính sách quyền riêng tư của chúng tôi được tạo ra với sự trợ giúp của Trình tạo chính sách bảo mật GDPR và Trình tạo chính sách bảo mật.
+Nếu bạn là cư dân của Khu vực Kinh tế Châu Âu (EEA), bạn có một số quyền bảo vệ dữ liệu nhất định. Nếu bạn muốn được thông báo về Thông tin cá nhân mà chúng tôi nắm giữ về bạn và nếu bạn muốn xóa thông tin đó khỏi hệ thống của chúng tôi, vui lòng liên hệ với chúng tôi.
+Trong một số trường hợp nhất định, bạn có các quyền bảo vệ dữ liệu sau:
+- Quyền truy cập, cập nhật hoặc xóa thông tin chúng tôi có về bạn.
+- Quyền sửa sai.
+- Quyền phản đối.
+- Quyền hạn chế.
+- Quyền đối với tính khả chuyển của dữ liệu
+- Quyền rút lại sự đồng ý</value>
   </data>
   <data name="signupGender" xml:space="preserve">
-    <value>signupGender</value>
+    <value>Giới tính</value>
   </data>
   <data name="signupGoBack" xml:space="preserve">
-    <value>signupGoBack</value>
+    <value>Quay lại</value>
   </data>
   <data name="signupHaveAccount" xml:space="preserve">
-    <value>signupHaveAccount</value>
+    <value>Bạn đã có tài khoản?</value>
   </data>
   <data name="signupLogFiles" xml:space="preserve">
-    <value>signupLogFiles</value>
+    <value>Tệp ghi chú</value>
   </data>
   <data name="signupLogFilesDes" xml:space="preserve">
-    <value>signupLogFilesDes</value>
+    <value>LandslidesSurvey tuân theo một quy trình tiêu chuẩn của việc sử dụng các tệp nhật ký. Các tệp này ghi nhật ký khách truy cập khi họ truy cập các trang web. Tất cả các công ty lưu trữ đều làm điều này và một phần của phân tích dịch vụ lưu trữ. Thông tin được thu thập bởi các tệp nhật ký bao gồm địa chỉ giao thức internet (IP), loại trình duyệt, Nhà cung cấp dịch vụ Internet (ISP), dấu ngày và giờ, các trang giới thiệu / thoát và có thể cả số lần nhấp chuột. Chúng không được liên kết với bất kỳ thông tin nào có thể nhận dạng cá nhân. Mục đích của thông tin là để phân tích xu hướng, quản trị trang web, theo dõi chuyển động của người dùng trên trang web và thu thập thông tin nhân khẩu học.</value>
   </data>
   <data name="signupLogin" xml:space="preserve">
-    <value>signupLogin</value>
+    <value>Đăng nhập</value>
   </data>
   <data name="signupOccupation" xml:space="preserve">
-    <value>signupOccupation</value>
+    <value>Nghề nghiệp</value>
   </data>
   <data name="signupOnlinePrivacyPolicyOnly" xml:space="preserve">
-    <value>signupOnlinePrivacyPolicyOnly</value>
+    <value>Chỉ Chính sách Bảo mật Trực tuyến</value>
   </data>
   <data name="signupOnlinePrivacyPolicyOnlyDes" xml:space="preserve">
-    <value>signupOnlinePrivacyPolicyOnlyDes</value>
+    <value>Chính sách Bảo mật của chúng tôi chỉ áp dụng cho các hoạt động trực tuyến của chúng tôi và có giá trị đối với khách truy cập vào trang web của chúng tôi liên quan đến thông tin mà họ đã chia sẻ và / hoặc thu thập trong LandslidesSurvey. Chính sách này không áp dụng cho bất kỳ thông tin nào được thu thập ngoại tuyến hoặc qua các kênh khác ngoài trang web này.</value>
   </data>
   <data name="signupPassword" xml:space="preserve">
-    <value>signupPassword</value>
+    <value>Mật khẩu *</value>
   </data>
   <data name="signupPrivacyPolicies" xml:space="preserve">
-    <value>signupPrivacyPolicies</value>
+    <value>Chính sách quyền riêng tư</value>
   </data>
   <data name="signupPrivacyPoliciesDes" xml:space="preserve">
-    <value>signupPrivacyPoliciesDes</value>
+    <value>Máy chủ quảng cáo hoặc mạng quảng cáo của bên thứ ba sử dụng các công nghệ như cookie, JavaScript hoặc Web Beacons được sử dụng trong các quảng cáo và liên kết tương ứng của chúng xuất hiện trên LandslidesSurvey, được gửi trực tiếp đến trình duyệt của người dùng. Họ tự động nhận địa chỉ IP của bạn khi điều này xảy ra. Những công nghệ này được sử dụng để đo lường hiệu quả của các chiến dịch quảng cáo của họ và / hoặc để cá nhân hóa nội dung quảng cáo mà bạn thấy trên các trang web mà bạn truy cập.
+Lưu ý rằng LandslidesSurvey không có quyền truy cập hoặc kiểm soát các cookie được các nhà quảng cáo bên thứ ba sử dụng.</value>
   </data>
   <data name="signupPrivacyPolicyForLandslidesSurvey" xml:space="preserve">
-    <value>signupPrivacyPolicyForLandslidesSurvey</value>
+    <value>Chính sách quyền riêng tư cho Landslides</value>
   </data>
   <data name="signupPrivacyPolicyForLandslidesSurveyDes" xml:space="preserve">
-    <value>signupPrivacyPolicyForLandslidesSurveyDes</value>
+    <value>Tại LandslidesSurvey, có thể truy cập từ https://github.com/epessina/LandslidesSurvey, một trong những ưu tiên chính của chúng tôi là quyền riêng tư của khách truy cập. Tài liệu Chính sách Bảo mật này chứa các loại thông tin được LandslidesSurvey thu thập và ghi lại cũng như cách chúng tôi sử dụng nó. \ NNếu bạn có thêm câu hỏi hoặc yêu cầu thêm thông tin về Chính sách Bảo mật của chúng tôi, vui lòng liên hệ với chúng tôi.</value>
   </data>
   <data name="signupRequired" xml:space="preserve">
-    <value>signupRequired</value>
+    <value>* Tất cả các trường đều bắt buộc</value>
   </data>
   <data name="signupThirdPartyPrivacyPolicies" xml:space="preserve">
-    <value>signupThirdPartyPrivacyPolicies</value>
+    <value>Chính sách quyền riêng tư của bên thứ ba</value>
   </data>
   <data name="signupThirdPartyPrivacyPoliciesDes" xml:space="preserve">
-    <value>signupThirdPartyPrivacyPoliciesDes</value>
+    <value>Chính sách Bảo mật của LandslidesSurvey không áp dụng cho các nhà quảng cáo hoặc trang web khác. Do đó, chúng tôi khuyên bạn nên tham khảo Chính sách Bảo mật tương ứng của các máy chủ quảng cáo của bên thứ ba này để biết thêm thông tin chi tiết. Nó có thể bao gồm các thực hành và hướng dẫn của họ về cách chọn không tham gia các tùy chọn nhất định. Bạn có thể tìm thấy danh sách đầy đủ các Chính sách Bảo mật này và các liên kết của chúng tại đây: Liên kết Chính sách Bảo mật.
+Bạn có thể chọn tắt cookie thông qua các tùy chọn trình duyệt cá nhân của mình. Để biết thêm thông tin chi tiết về quản lý cookie với các trình duyệt web cụ thể, bạn có thể tìm thấy thông tin này tại các trang web tương ứng của trình duyệt. Cookie là gì?</value>
   </data>
   <data name="signupTitle" xml:space="preserve">
-    <value>signupTitle</value>
+    <value>- Đăng ký -</value>
   </data>
   <data name="Wellcome" xml:space="preserve">
     <value>Xin chao</value>

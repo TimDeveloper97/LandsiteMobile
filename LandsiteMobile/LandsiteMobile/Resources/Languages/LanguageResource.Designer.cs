@@ -61,6 +61,33 @@ namespace LandsiteMobile.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit profile.
+        /// </summary>
+        internal static string accountEditProfile {
+            get {
+                return ResourceManager.GetString("accountEditProfile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Logout.
+        /// </summary>
+        internal static string accountLogout {
+            get {
+                return ResourceManager.GetString("accountLogout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Landslide.
+        /// </summary>
+        internal static string homeNewLandside {
+            get {
+                return ResourceManager.GetString("homeNewLandside", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login.
         /// </summary>
         internal static string loginButtonLogin {
@@ -133,11 +160,38 @@ namespace LandsiteMobile.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Account.
+        /// </summary>
+        internal static string settingAccount {
+            get {
+                return ResourceManager.GetString("settingAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expert.
+        /// </summary>
+        internal static string settingExpert {
+            get {
+                return ResourceManager.GetString("settingExpert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Language.
         /// </summary>
         internal static string settingLanguage {
             get {
                 return ResourceManager.GetString("settingLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        internal static string settingTitle {
+            get {
+                return ResourceManager.GetString("settingTitle", resourceCulture);
             }
         }
         
@@ -156,6 +210,15 @@ namespace LandsiteMobile.Resources.Languages {
         internal static string signupAge {
             get {
                 return ResourceManager.GetString("signupAge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sign Up.
+        /// </summary>
+        internal static string signupButton {
+            get {
+                return ResourceManager.GetString("signupButton", resourceCulture);
             }
         }
         
