@@ -52,6 +52,11 @@ namespace LandsiteMobile.ViewModels
               }).ToList();
         });
 
+        public ICommand NewLandslideCommand => new Command(async () =>
+        {
+            await Shell.Current.GoToAsync(nameof(LandsitePage));
+        });
+
         public ICommand SettingCommand => new Command(async () =>
         {
             await Shell.Current.GoToAsync(nameof(SettingPage));

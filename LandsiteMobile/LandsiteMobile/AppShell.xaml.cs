@@ -32,6 +32,7 @@ namespace LandsiteMobile
             Routing.RegisterRoute(nameof(PolicyPage), typeof(PolicyPage));
             Routing.RegisterRoute(nameof(SettingPage), typeof(SettingPage));
             Routing.RegisterRoute(nameof(AccountSettingPage), typeof(AccountSettingPage));
+            Routing.RegisterRoute(nameof(LandsitePage), typeof(LandsitePage));
             Routing.RegisterRoute(nameof(DetailAccountPage), typeof(DetailAccountPage));
         }
 

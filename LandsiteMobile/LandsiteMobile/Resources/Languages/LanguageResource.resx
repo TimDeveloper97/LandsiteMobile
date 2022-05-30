@@ -123,8 +123,68 @@
   <data name="accountLogout" xml:space="preserve">
     <value>Logout</value>
   </data>
+  <data name="homeDamages" xml:space="preserve">
+    <value>Damages</value>
+  </data>
+  <data name="homeDamagesPlaceholder" xml:space="preserve">
+    <value>Evaluate the damages</value>
+  </data>
+  <data name="homeHill" xml:space="preserve">
+    <value>Position along the hill</value>
+  </data>
+  <data name="homeHillPlaceholder" xml:space="preserve">
+    <value>Specify the position of the landslide</value>
+  </data>
+  <data name="homeLandslide" xml:space="preserve">
+    <value>Type of landslide *</value>
+  </data>
+  <data name="homeLandslidePlaceholder" xml:space="preserve">
+    <value>Specify the type of the landslide</value>
+  </data>
+  <data name="homeMaterial" xml:space="preserve">
+    <value>Type of material</value>
+  </data>
+  <data name="homeMaterialPlaceholder" xml:space="preserve">
+    <value>Specify the type of the material</value>
+  </data>
+  <data name="homeMeasures" xml:space="preserve">
+    <value>Mitigation measures</value>
+  </data>
+  <data name="homeMeasuresPlaceholder" xml:space="preserve">
+    <value>Evaluate the mitigation measures</value>
+  </data>
   <data name="homeNewLandside" xml:space="preserve">
     <value>New Landslide</value>
+  </data>
+  <data name="homeNote" xml:space="preserve">
+    <value>Additional notes</value>
+  </data>
+  <data name="homeNotePlaceholder" xml:space="preserve">
+    <value>Add additional notes</value>
+  </data>
+  <data name="homePhoto" xml:space="preserve">
+    <value>Photo *</value>
+  </data>
+  <data name="homeRequired" xml:space="preserve">
+    <value>* Indicates a required field</value>
+  </data>
+  <data name="homeSystem" xml:space="preserve">
+    <value>Monitoring systems</value>
+  </data>
+  <data name="homeSystemPlaceholder" xml:space="preserve">
+    <value>Evaluate the monitoring systems</value>
+  </data>
+  <data name="homeVegetation" xml:space="preserve">
+    <value>Presence of vegetation</value>
+  </data>
+  <data name="homeVegetationPlaceholder" xml:space="preserve">
+    <value>Evaluate the presence of vegetation</value>
+  </data>
+  <data name="homeWater" xml:space="preserve">
+    <value>Presence of water</value>
+  </data>
+  <data name="homeWaterPlaceholder" xml:space="preserve">
+    <value>Evaluate the presence of water</value>
   </data>
   <data name="loginButtonLogin" xml:space="preserve">
     <value>Login</value>

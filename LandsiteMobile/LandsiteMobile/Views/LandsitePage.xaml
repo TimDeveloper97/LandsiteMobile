@@ -6,7 +6,8 @@
              xmlns:lang="clr-namespace:LandsiteMobile.Resources.Languages"
              xmlns:icon="clr-namespace:LandsiteMobile.Resources"
              xmlns:mdc="clr-namespace:Plugin.MaterialDesignControls;assembly=Plugin.MaterialDesignControls"
-             Title="{Binding Title}"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             Title="{xct:Translate homeNewLandside}"
              Shell.NavBarIsVisible="true"
              Shell.NavBarHasShadow="True"
              Shell.TabBarIsVisible="False"
@@ -17,6 +18,11 @@
              x:Class="LandsiteMobile.Views.LandsitePage">
     <Shell.TitleView>
         <Grid>
+            <Label  Text="{xct:Translate homeNewLandside}"
+                    TextColor="{AppThemeBinding Dark={StaticResource Black} ,Light={StaticResource White}}"
+                    FontSize="Title" Margin="0,0,70,0"
+                    HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                    HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
             <StackLayout Orientation="Horizontal" HorizontalOptions="End">
                 <Label  Text="{x:Static icon:FontIcons.Check}" 
                         TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource White}}"
@@ -38,13 +44,77 @@
                 EventName="Appearing"
                 Command="{Binding PageAppearingCommand}" />
     </ContentPage.Behaviors>
-    
-    
+
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView BackgroundColor="{AppThemeBinding Dark={StaticResource BlackSmoke} ,Light={StaticResource WhiteSmoke}}">
+            <Grid>
+                <StackLayout Margin="10,10">
+                    <Label TextColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"
+                           FontSize="{OnPlatform Android=17, iOS=15}" HorizontalOptions="Start" Margin="0,0,0,10"
+                           Text="{xct:Translate homeRequired}"/>
+
+                    <control:FieldAreaView Type="{xct:Translate homeLandslide}" ValueType="{Binding ValueLandslide}" Source="landsite_black"
+                                           OnPressCommand="{Binding TypeLandslideCommand}"/>
+                    <control:FieldAreaView Type="{xct:Translate homeMaterial}" ValueType="{Binding ValueMaterial}" Source="material"
+                                           OnPressCommand="{Binding TypeLandslideCommand}"/>
+                    <control:FieldAreaView Type="{xct:Translate homeHill}" ValueType="{Binding ValueHill}" Source="hill"
+                                           OnPressCommand="{Binding TypeLandslideCommand}"/>
+
+                    <control:FieldAreaView Type="{xct:Translate homeWater}" ValueType="{Binding ValueWater}" Source="water"
+                                           OnPressCommand="{Binding TypeLandslideCommand}"/>
+                    <control:FieldAreaView Type="{xct:Translate homeVegetation}" ValueType="{Binding ValueVegetation}" Source="vegetation"
+                                           OnPressCommand="{Binding TypeLandslideCommand}"/>
+                    <control:FieldAreaView Type="{xct:Translate homeMeasures}" ValueType="{Binding ValueMeasures}" Source="measure"
+                                           OnPressCommand="{Binding TypeLandslideCommand}"/>
+
+                    <control:FieldAreaView Type="{xct:Translate homeSystem}" ValueType="{Binding ValueSystem}" Source="system"
+                                           OnPressCommand="{Binding TypeLandslideCommand}"/>
+                    <control:FieldAreaView Type="{xct:Translate homeDamages}" ValueType="{Binding ValueDamages}" Source="damage"
+                                           OnPressCommand="{Binding TypeLandslideCommand}"/>
+                    <control:FieldAreaView Type="{xct:Translate homeNote}" ValueType="{Binding ValueNote}" Source="note"
+                                           OnPressCommand="{Binding TypeLandslideCommand}"/>
+
+                    <Grid ColumnDefinitions="40, *">
+                        <Image Grid.Column="0" HeightRequest='20' WidthRequest='20' Source="photo"/>
+                        <Label Grid.Column="1" FontSize="{OnPlatform Android=17, iOS=15}"
+                               TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}"
+                               FontAttributes="Bold" Text="{xct:Translate homePhoto}"/>
+                    </Grid>
+
+                    <Grid>
+                        <material:MaterialCard CornerRadius="10" Elevation="1" HeightRequest="150" WidthRequest="150" 
+                                           HasShadow="False" IsClickable="True" Padding="0"
+                                           HorizontalOptions="Center" BackgroundColor="Transparent" ClickCommand="{Binding TakePictureCommand}"
+                                           BorderColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}">
+                            <Grid>
+                                <Label  Text="{x:Static icon:FontIcons.CameraPlus}" 
+                                TextColor="{AppThemeBinding Dark={StaticResource AppColor} ,Light={StaticResource AppColor}}"
+                                FontSize="50" HorizontalOptions="Center" VerticalOptions="Center"
+                                FontFamily="MaterialIcons"/>
+                                
+                            </Grid>
+                        </material:MaterialCard>
+
+                        <Image HorizontalOptions="Center" VerticalOptions="FillAndExpand" Source="{Binding Source}"
+                               HeightRequest="150" WidthRequest="150" IsVisible="{Binding IsTaked}" Aspect="AspectFill"/>
+
+                        <material:MaterialCard HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" IsVisible="{Binding IsTaked}"
+                                               HeightRequest="40" WidthRequest="40" IsClickable="True" Margin="0,-15,-150,0"
+                                               ClickCommand="{Binding RemoveImageCommand}" Padding="0" CornerRadius="20">
+                            <Label  Text="{x:Static icon:FontIcons.Delete}" 
+                                    TextColor="{AppThemeBinding Dark={StaticResource AppColor} ,Light={StaticResource AppColor}}"
+                                    FontSize="Title" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                                    VerticalOptions="CenterAndExpand" FontFamily="MaterialIcons" IsVisible="{Binding IsHostUser}">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" CommandParameter="{Binding .}"
+                                                          Command="{Binding Path=BindingContext.RemoveImageCommand, Source={x:Reference Name=landsidepage}}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </material:MaterialCard>
+                    </Grid>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

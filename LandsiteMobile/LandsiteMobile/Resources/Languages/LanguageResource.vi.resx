@@ -123,8 +123,68 @@
   <data name="accountLogout" xml:space="preserve">
     <value>Đăng xuất</value>
   </data>
+  <data name="homeDamages" xml:space="preserve">
+    <value>Thiệt hại</value>
+  </data>
+  <data name="homeDamagesPlaceholder" xml:space="preserve">
+    <value>Đánh giá thiệt hại</value>
+  </data>
+  <data name="homeHill" xml:space="preserve">
+    <value>Vị trí dọc theo đồi</value>
+  </data>
+  <data name="homeHillPlaceholder" xml:space="preserve">
+    <value>Chỉ định vị trí sạt lở</value>
+  </data>
+  <data name="homeLandslide" xml:space="preserve">
+    <value>Loại lở đất *</value>
+  </data>
+  <data name="homeLandslidePlaceholder" xml:space="preserve">
+    <value>Chỉ định loại lở đất</value>
+  </data>
+  <data name="homeMaterial" xml:space="preserve">
+    <value>Loại vật liệu</value>
+  </data>
+  <data name="homeMaterialPlaceholder" xml:space="preserve">
+    <value>Chỉ định loại vật liệu</value>
+  </data>
+  <data name="homeMeasures" xml:space="preserve">
+    <value>Các biện pháp giảm thiểu</value>
+  </data>
+  <data name="homeMeasuresPlaceholder" xml:space="preserve">
+    <value>Đánh giá các biện pháp giảm thiểu</value>
+  </data>
   <data name="homeNewLandside" xml:space="preserve">
     <value>Thông kế sạt nở đất</value>
+  </data>
+  <data name="homeNote" xml:space="preserve">
+    <value>Thông tin thêm</value>
+  </data>
+  <data name="homeNotePlaceholder" xml:space="preserve">
+    <value>Thêm thông tin ghi chú</value>
+  </data>
+  <data name="homePhoto" xml:space="preserve">
+    <value>Ảnh *</value>
+  </data>
+  <data name="homeRequired" xml:space="preserve">
+    <value>* Biểu thị trường bắt buộc</value>
+  </data>
+  <data name="homeSystem" xml:space="preserve">
+    <value>Hệ thống giám sát</value>
+  </data>
+  <data name="homeSystemPlaceholder" xml:space="preserve">
+    <value>Đánh giá hệ thống giám sát</value>
+  </data>
+  <data name="homeVegetation" xml:space="preserve">
+    <value>Mật độ của thảm thực vật</value>
+  </data>
+  <data name="homeVegetationPlaceholder" xml:space="preserve">
+    <value>Đánh giá mật độ của thảm thực vật</value>
+  </data>
+  <data name="homeWater" xml:space="preserve">
+    <value>Mực của nước</value>
+  </data>
+  <data name="homeWaterPlaceholder" xml:space="preserve">
+    <value>Đánh giá sự mức độ nước</value>
   </data>
   <data name="loginButtonLogin" xml:space="preserve">
     <value>Đăng nhập</value>

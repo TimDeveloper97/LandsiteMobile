@@ -79,11 +79,191 @@ namespace LandsiteMobile.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Damages.
+        /// </summary>
+        internal static string homeDamages {
+            get {
+                return ResourceManager.GetString("homeDamages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Evaluate the damages.
+        /// </summary>
+        internal static string homeDamagesPlaceholder {
+            get {
+                return ResourceManager.GetString("homeDamagesPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Position along the hill.
+        /// </summary>
+        internal static string homeHill {
+            get {
+                return ResourceManager.GetString("homeHill", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Specify the position of the landslide.
+        /// </summary>
+        internal static string homeHillPlaceholder {
+            get {
+                return ResourceManager.GetString("homeHillPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type of landslide *.
+        /// </summary>
+        internal static string homeLandslide {
+            get {
+                return ResourceManager.GetString("homeLandslide", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Specify the type of the landslide.
+        /// </summary>
+        internal static string homeLandslidePlaceholder {
+            get {
+                return ResourceManager.GetString("homeLandslidePlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type of material.
+        /// </summary>
+        internal static string homeMaterial {
+            get {
+                return ResourceManager.GetString("homeMaterial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Specify the type of the material.
+        /// </summary>
+        internal static string homeMaterialPlaceholder {
+            get {
+                return ResourceManager.GetString("homeMaterialPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mitigation measures.
+        /// </summary>
+        internal static string homeMeasures {
+            get {
+                return ResourceManager.GetString("homeMeasures", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Evaluate the mitigation measures.
+        /// </summary>
+        internal static string homeMeasuresPlaceholder {
+            get {
+                return ResourceManager.GetString("homeMeasuresPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New Landslide.
         /// </summary>
         internal static string homeNewLandside {
             get {
                 return ResourceManager.GetString("homeNewLandside", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Additional notes.
+        /// </summary>
+        internal static string homeNote {
+            get {
+                return ResourceManager.GetString("homeNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add additional notes.
+        /// </summary>
+        internal static string homeNotePlaceholder {
+            get {
+                return ResourceManager.GetString("homeNotePlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Photo *.
+        /// </summary>
+        internal static string homePhoto {
+            get {
+                return ResourceManager.GetString("homePhoto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to * Indicates a required field.
+        /// </summary>
+        internal static string homeRequired {
+            get {
+                return ResourceManager.GetString("homeRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Monitoring systems.
+        /// </summary>
+        internal static string homeSystem {
+            get {
+                return ResourceManager.GetString("homeSystem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Evaluate the monitoring systems.
+        /// </summary>
+        internal static string homeSystemPlaceholder {
+            get {
+                return ResourceManager.GetString("homeSystemPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Presence of vegetation.
+        /// </summary>
+        internal static string homeVegetation {
+            get {
+                return ResourceManager.GetString("homeVegetation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Evaluate the presence of vegetation.
+        /// </summary>
+        internal static string homeVegetationPlaceholder {
+            get {
+                return ResourceManager.GetString("homeVegetationPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Presence of water.
+        /// </summary>
+        internal static string homeWater {
+            get {
+                return ResourceManager.GetString("homeWater", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Evaluate the presence of water.
+        /// </summary>
+        internal static string homeWaterPlaceholder {
+            get {
+                return ResourceManager.GetString("homeWaterPlaceholder", resourceCulture);
             }
         }
         

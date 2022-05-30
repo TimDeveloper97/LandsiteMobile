@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Name="fieldareaview"
+             x:Class="LandsiteMobile.Controls.FieldAreaView">
+    <ContentView.Content>
+        <Grid BindingContext="{Binding .}" RowDefinitions="*, *" ColumnDefinitions="40, *">
+            <Image Grid.Row="0" Grid.Column="0" x:Name="img" HeightRequest='20' WidthRequest='20'/>
+            <Label Grid.Row="0" Grid.Column="1" FontSize="{OnPlatform Android=17, iOS=15}" x:Name="type"
+                   TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}"
+                   FontAttributes="Bold"/>
+            <StackLayout Grid.Row="1" Grid.Column="1" Margin="0,-5,0,0">
+                <Label x:Name="valueType" FontSize="{OnPlatform Android=14, iOS=12}"
+                       TextColor="{AppThemeBinding Dark={StaticResource AppColor}, Light={StaticResource AppColor}}"
+                       FontAttributes="Bold" Margin="0,0,0,-5"/>
+                <BoxView HeightRequest="0.3" BackgroundColor="{AppThemeBinding Dark={StaticResource WhiteSmoke}, Light={StaticResource BlackSmoke}}"/>
+            </StackLayout>
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding Source={x:Reference fieldareaview}, Path=OnPressCommand}"/>
+            </Grid.GestureRecognizers>
+        </Grid>
+    </ContentView.Content>
+</ContentView>
