@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -50,13 +52,13 @@ namespace LandsiteMobile.Controls
         public string Source
         {
             get => (string)GetValue(FieldAreaView.TypeProperty);
-            set => SetValue(FieldAreaView.TypeProperty, value);
+            set { SetValue(FieldAreaView.TypeProperty, value); }
         }
 
         public string ValueType
         {
             get => (string)GetValue(FieldAreaView.ValueTypeProperty);
-            set => SetValue(FieldAreaView.ValueTypeProperty, value);
+            set { SetValue(FieldAreaView.ValueTypeProperty, value); }
         }
 
         private static void HandleTypePropertyChanged(
@@ -84,7 +86,7 @@ namespace LandsiteMobile.Controls
         {
             FieldAreaView td = (FieldAreaView)bindable;
             if (td != null)
-                td.valueType.Text = (string)newValue;
+                td.ValueType = (string)newValue;
 
         }
 

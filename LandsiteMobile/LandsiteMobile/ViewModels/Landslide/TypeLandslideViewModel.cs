@@ -9,12 +9,23 @@ using Xamarin.Forms;
 
 namespace LandsiteMobile.ViewModels.Landslide
 {
+    [QueryProperty(nameof(ValueLandslide), nameof(ValueLandslide))]
     class TypeLandslideViewModel : BaseViewModel
     {
         #region Properties
         private double widthCard, heightCard;
+        private string valueLandslide;
         ObservableCollection<TypeLandslideModel> _typeLandslides;
 
+
+        public string ValueLandslide
+        {
+            get => valueLandslide; set
+            {
+                valueLandslide = Uri.UnescapeDataString(value ?? string.Empty);
+                SetProperty(ref valueLandslide, value);
+            }
+        }
         public ObservableCollection<TypeLandslideModel> TypeLandslides
         {
             get => _typeLandslides;
@@ -28,8 +39,21 @@ namespace LandsiteMobile.ViewModels.Landslide
         #region Command 
         public ICommand PageAppearingCommand => new Command(async () =>
         {
+            if(!string.IsNullOrEmpty(ValueLandslide))
+            {
+                foreach (var item in TypeLandslides)
+                {
+                    if (item.Type == ValueLandslide)
+                        item.IsCheck = true;
+                }
+            }
             
-            
+        });
+
+        public ICommand CheckCommand => new Command(async () =>
+        {
+            await Shell.Current.GoToAsync($"..?{nameof(LandsiteViewModel.ValueLandslide)}={ValueLandslide}");
+
         });
 
         public ICommand SelectTypeLandslideCommand => new Command<TypeLandslideModel>(async (model) =>
@@ -39,6 +63,7 @@ namespace LandsiteMobile.ViewModels.Landslide
                 item.IsCheck = false;
             }
             model.IsCheck = true;
+            ValueLandslide = model.Type;
         });
 
         

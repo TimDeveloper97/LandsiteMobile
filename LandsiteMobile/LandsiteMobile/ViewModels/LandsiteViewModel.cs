@@ -1,5 +1,6 @@
 ﻿using LandsiteMobile.Domain;
 using LandsiteMobile.Resources.Languages;
+using LandsiteMobile.ViewModels.Landslide;
 using LandsiteMobile.Views.Landslide;
 using System;
 using System.Collections.Generic;
@@ -13,14 +14,22 @@ using XF.Material.Forms.UI.Dialogs.Configurations;
 
 namespace LandsiteMobile.ViewModels
 {
+    [QueryProperty(nameof(ValueLandslide), nameof(ValueLandslide))]
     class LandsiteViewModel : BaseViewModel
     {
-        #region Command 
+        #region Properties 
         private string valueLandslide, valueMaterial, valueNote, valueSystem, valueWater, valueHill, valueVegetation, valueMeasures, valueDamages;
         private ImageSource source;
         private bool isTaked;
 
-        public string ValueLandslide { get => valueLandslide; set => SetProperty(ref valueLandslide, value); }
+        public string ValueLandslide
+        {
+            get => valueLandslide; set
+            {
+                valueLandslide = Uri.UnescapeDataString(value ?? string.Empty);
+                SetProperty(ref valueLandslide, value);
+            }
+        }
         public string ValueMaterial { get => valueMaterial; set => SetProperty(ref valueMaterial, value); }
         public string ValueNote { get => valueNote; set => SetProperty(ref valueNote, value); }
         public string ValueSystem { get => valueSystem; set => SetProperty(ref valueSystem, value); }
@@ -42,7 +51,7 @@ namespace LandsiteMobile.ViewModels
 
         public ICommand TypeLandslideCommand => new Command(async () =>
         {
-            await Shell.Current.GoToAsync(nameof(TypeLandslidePage));
+            await Shell.Current.GoToAsync($"{nameof(TypeLandslidePage)}?{nameof(TypeLandslideViewModel.ValueLandslide)}={ValueLandslide}");
         });
 
         public ICommand TypeMaterialCommand => new Command(async () =>
@@ -53,6 +62,9 @@ namespace LandsiteMobile.ViewModels
                 "Rock", "Debris", "Dỉrt", "Mixed", "Cannot determine",
             };
             var result = await ShowDialog(LanguageResource.homeMaterialPlaceholder, materials);
+            if (result < 0) return;
+
+            ValueMaterial = materials[result];
         });
 
         public ICommand HillCommand => new Command(async () =>
@@ -63,6 +75,9 @@ namespace LandsiteMobile.ViewModels
                 "At the top", "Uphill", "Midslope", "Downhill", "In the valley",
             };
             var result = await ShowDialog(LanguageResource.homeHillPlaceholder, hills);
+            if (result < 0) return;
+
+            ValueHill = hills[result];
         });
 
         public ICommand WaterCommand => new Command(async () =>
@@ -73,6 +88,9 @@ namespace LandsiteMobile.ViewModels
                 "Dry", "Humid", "Wet", "Very wet", "Cannot determine",
             };
             var result = await ShowDialog(LanguageResource.homeWaterPlaceholder, waters);
+            if (result < 0) return;
+
+            ValueWater = waters[result];
         });
 
         public ICommand VegetationCommand => new Command(async () =>
@@ -83,6 +101,9 @@ namespace LandsiteMobile.ViewModels
                 "Grass", "Low-growing plants", "Trees", "Mixed", "Absent",
             };
             var result = await ShowDialog(LanguageResource.homeVegetationPlaceholder, vegetations);
+            if (result < 0) return;
+
+            ValueVegetation = vegetations[result];
         });
 
         public ICommand DamagesCommand => new Command(async () =>
@@ -93,18 +114,24 @@ namespace LandsiteMobile.ViewModels
                 "No damages", "Direct damage", "Obstruction of water course", "Collapsed bank or dam", "Cannot determine",
             };
             var result = await ShowDialog(LanguageResource.homeDamagesPlaceholder, damages);
+            if (result < 0) return;
+
+            ValueDamages = damages[result];
         });
 
         public ICommand NoteCommand => new Command(async () =>
         {
-            var config = new MaterialInputDialogConfiguration 
-            { 
-                ButtonAllCaps = true, 
+            var config = new MaterialInputDialogConfiguration
+            {
+                ButtonAllCaps = true,
                 InputMaxLength = 500,
                 TintColor = Color.FromHex("#d1542f"),
                 InputType = XF.Material.Forms.UI.MaterialTextFieldInputType.Text,
             };
             var input = await MaterialDialog.Instance.InputAsync(title: LanguageResource.homeNotePlaceholder, inputPlaceholder: " Max 500 characters...", configuration: config);
+            if (string.IsNullOrEmpty(input)) return;
+
+            ValueNote = input;
         });
 
         public ICommand RemoveImageCommand => new Command(() => Source = null);
@@ -119,7 +146,6 @@ namespace LandsiteMobile.ViewModels
                 Source = ImageSource.FromStream(() => stream);
             }
         });
-
 
         #endregion
 

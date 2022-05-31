@@ -54,7 +54,7 @@
                            FontSize="{OnPlatform Android=17, iOS=15}" HorizontalOptions="Start" Margin="0,0,0,10"
                            Text="{xct:Translate homeRequired}"/>
 
-                    <control:FieldAreaView Type="{xct:Translate homeLandslide}" ValueType="{Binding ValueLandslide}" Source="landsite_black"
+                    <control:FieldAreaView Type="{xct:Translate homeLandslide}" ValueType="{Binding ValueLandslide, Mode=TwoWay, Source={x:Reference landsidepage}}" Source="landsite_black"
                                            OnPressCommand="{Binding TypeLandslideCommand}"/>
                     <control:FieldAreaView Type="{xct:Translate homeMaterial}" ValueType="{Binding ValueMaterial}" Source="material"
                                            OnPressCommand="{Binding TypeMaterialCommand}"/>
