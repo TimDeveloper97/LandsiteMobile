@@ -57,23 +57,23 @@
                     <control:FieldAreaView Type="{xct:Translate homeLandslide}" ValueType="{Binding ValueLandslide}" Source="landsite_black"
                                            OnPressCommand="{Binding TypeLandslideCommand}"/>
                     <control:FieldAreaView Type="{xct:Translate homeMaterial}" ValueType="{Binding ValueMaterial}" Source="material"
-                                           OnPressCommand="{Binding TypeLandslideCommand}"/>
+                                           OnPressCommand="{Binding TypeMaterialCommand}"/>
                     <control:FieldAreaView Type="{xct:Translate homeHill}" ValueType="{Binding ValueHill}" Source="hill"
-                                           OnPressCommand="{Binding TypeLandslideCommand}"/>
+                                           OnPressCommand="{Binding HillCommand}"/>
 
                     <control:FieldAreaView Type="{xct:Translate homeWater}" ValueType="{Binding ValueWater}" Source="water"
-                                           OnPressCommand="{Binding TypeLandslideCommand}"/>
+                                           OnPressCommand="{Binding WaterCommand}"/>
                     <control:FieldAreaView Type="{xct:Translate homeVegetation}" ValueType="{Binding ValueVegetation}" Source="vegetation"
-                                           OnPressCommand="{Binding TypeLandslideCommand}"/>
+                                           OnPressCommand="{Binding VegetationCommand}"/>
                     <control:FieldAreaView Type="{xct:Translate homeMeasures}" ValueType="{Binding ValueMeasures}" Source="measure"
-                                           OnPressCommand="{Binding TypeLandslideCommand}"/>
+                                           OnPressCommand="{Binding MeasuresCommand}"/>
 
                     <control:FieldAreaView Type="{xct:Translate homeSystem}" ValueType="{Binding ValueSystem}" Source="system"
-                                           OnPressCommand="{Binding TypeLandslideCommand}"/>
+                                           OnPressCommand="{Binding SystemCommand}"/>
                     <control:FieldAreaView Type="{xct:Translate homeDamages}" ValueType="{Binding ValueDamages}" Source="damage"
-                                           OnPressCommand="{Binding TypeLandslideCommand}"/>
+                                           OnPressCommand="{Binding DamagesCommand}"/>
                     <control:FieldAreaView Type="{xct:Translate homeNote}" ValueType="{Binding ValueNote}" Source="note"
-                                           OnPressCommand="{Binding TypeLandslideCommand}"/>
+                                           OnPressCommand="{Binding NoteCommand}"/>
 
                     <Grid ColumnDefinitions="40, *">
                         <Image Grid.Column="0" HeightRequest='20' WidthRequest='20' Source="photo"/>

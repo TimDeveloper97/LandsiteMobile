@@ -24,7 +24,7 @@
                         VerticalOptions="CenterAndExpand" FontFamily="MaterialIcons" IsVisible="{Binding IsHostUser}">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer NumberOfTapsRequired="1" CommandParameter="{Binding .}"
-                                          Command="{Binding Path=BindingContext.UploadProfileUserCommand, Source={x:Reference Name=detailaccountpage}}"/>
+                                          Command="{Binding Path=BindingContext.CheckCommand, Source={x:Reference Name=detailaccountpage}}"/>
                     </Label.GestureRecognizers>
                 </Label>
             </StackLayout>

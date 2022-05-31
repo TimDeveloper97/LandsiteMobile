@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LandsiteMobile.Services.Temp;
 using LandsiteMobile.Views;
+using LandsiteMobile.Views.Landslide;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -34,6 +35,7 @@ namespace LandsiteMobile
             Routing.RegisterRoute(nameof(AccountSettingPage), typeof(AccountSettingPage));
             Routing.RegisterRoute(nameof(LandsitePage), typeof(LandsitePage));
             Routing.RegisterRoute(nameof(DetailAccountPage), typeof(DetailAccountPage));
+            Routing.RegisterRoute(nameof(TypeLandslidePage), typeof(TypeLandslidePage));
         }
 
         private async void OnMenuItemClicked(object sender, EventArgs e)

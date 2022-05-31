@@ -1,11 +1,15 @@
 ﻿using LandsiteMobile.Domain;
 using LandsiteMobile.Resources.Languages;
+using LandsiteMobile.Views.Landslide;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
+using XF.Material.Forms.UI.Dialogs;
+using XF.Material.Forms.UI.Dialogs.Configurations;
 
 namespace LandsiteMobile.ViewModels
 {
@@ -38,7 +42,69 @@ namespace LandsiteMobile.ViewModels
 
         public ICommand TypeLandslideCommand => new Command(async () =>
         {
-            await Shell.Current.DisplayAlert("TypeLandslideCommand", "Click", "Cancle");
+            await Shell.Current.GoToAsync(nameof(TypeLandslidePage));
+        });
+
+        public ICommand TypeMaterialCommand => new Command(async () =>
+        {
+            //Create choices
+            var materials = new string[]
+            {
+                "Rock", "Debris", "Dỉrt", "Mixed", "Cannot determine",
+            };
+            var result = await ShowDialog(LanguageResource.homeMaterialPlaceholder, materials);
+        });
+
+        public ICommand HillCommand => new Command(async () =>
+        {
+            //Create choices
+            var hills = new string[]
+            {
+                "At the top", "Uphill", "Midslope", "Downhill", "In the valley",
+            };
+            var result = await ShowDialog(LanguageResource.homeHillPlaceholder, hills);
+        });
+
+        public ICommand WaterCommand => new Command(async () =>
+        {
+            //Create choices
+            var waters = new string[]
+            {
+                "Dry", "Humid", "Wet", "Very wet", "Cannot determine",
+            };
+            var result = await ShowDialog(LanguageResource.homeWaterPlaceholder, waters);
+        });
+
+        public ICommand VegetationCommand => new Command(async () =>
+        {
+            //Create choices
+            var vegetations = new string[]
+            {
+                "Grass", "Low-growing plants", "Trees", "Mixed", "Absent",
+            };
+            var result = await ShowDialog(LanguageResource.homeVegetationPlaceholder, vegetations);
+        });
+
+        public ICommand DamagesCommand => new Command(async () =>
+        {
+            //Create choices
+            var damages = new string[]
+            {
+                "No damages", "Direct damage", "Obstruction of water course", "Collapsed bank or dam", "Cannot determine",
+            };
+            var result = await ShowDialog(LanguageResource.homeDamagesPlaceholder, damages);
+        });
+
+        public ICommand NoteCommand => new Command(async () =>
+        {
+            var config = new MaterialInputDialogConfiguration 
+            { 
+                ButtonAllCaps = true, 
+                InputMaxLength = 500,
+                TintColor = Color.FromHex("#d1542f"),
+                InputType = XF.Material.Forms.UI.MaterialTextFieldInputType.Text,
+            };
+            var input = await MaterialDialog.Instance.InputAsync(title: LanguageResource.homeNotePlaceholder, inputPlaceholder: " Max 500 characters...", configuration: config);
         });
 
         public ICommand RemoveImageCommand => new Command(() => Source = null);
@@ -69,6 +135,14 @@ namespace LandsiteMobile.ViewModels
             ValueVegetation = LanguageResource.homeVegetationPlaceholder;
             ValueMeasures = LanguageResource.homeMeasuresPlaceholder;
             ValueDamages = LanguageResource.homeDamagesPlaceholder;
+        }
+
+        async Task<int> ShowDialog(string title, string[] inputs)
+        {
+            var config = new MaterialConfirmationDialogConfiguration { ButtonAllCaps = true, ControlSelectedColor = Color.FromHex("#d1542f"), TintColor = Color.FromHex("#d1542f"), };
+
+            return await MaterialDialog.Instance.SelectChoiceAsync(title: title,
+                                                                         choices: inputs, configuration: config);
         }
     }
 }
