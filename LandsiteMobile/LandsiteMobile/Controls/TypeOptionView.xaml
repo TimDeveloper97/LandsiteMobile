@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             xmlns:mdc="clr-namespace:Plugin.MaterialDesignControls;assembly=Plugin.MaterialDesignControls"
+             xmlns:icon="clr-namespace:LandsiteMobile.Resources"
+             x:Name="typeoptionview"
+             
+             x:Class="LandsiteMobile.Controls.TypeOptionView">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="titleRadio" 
+                   FontSize="{OnPlatform Android=18, iOS=16}" Margin="0,0,0,20"
+                   TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource Black}}"/>
+            <mdc:MaterialRadioButtons x:Name="radios" Color="{StaticResource AppColor}"
+                                      TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource Black}}"
+                                      FontSize="{OnPlatform Android=18, iOS=16}" Margin="0,0,0,20"/>
+
+            <Label x:Name="addType" Margin="0,20,0,10"
+                   FontSize="{OnPlatform Android=18, iOS=16}"
+                   TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource Black}}"/>
+
+            <ScrollView>
+                <ListView  x:Name="listView">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <BoxView HeightRequest="0.3" BackgroundColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"/>
+                                    <StackLayout Orientation="Horizontal" Margin="10,2">
+                                        <Label Text="Type"/>
+                                        <Label Text=""/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" Margin="10,2">
+                                        <Label Text="Status"/>
+                                        <Label Text=""/>
+                                    </StackLayout>
+                                    <BoxView HeightRequest="0.3" BackgroundColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+
+            <StackLayout Orientation="Horizontal">
+                <Label  Text="{x:Static icon:FontIcons.PlusMinusBox}" 
+                        TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource White}}"
+                        FontSize="Title" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="0,0,20,0"
+                        VerticalOptions="CenterAndExpand" FontFamily="MaterialIcons"/>
+                <Label x:Name="titleRadio" 
+                       FontSize="{OnPlatform Android=18, iOS=16}" Margin="0,0,0,20"
+                       TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource Black}}"/>
+
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" CommandParameter="{Binding .}"
+                                          Command="{Binding Path=BindingContext.AddCommand, Source={x:Reference Name=typeoptionview}}"/>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

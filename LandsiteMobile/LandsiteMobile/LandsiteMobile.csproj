@@ -58,6 +58,9 @@
 		<EmbeddedResource Update="Controls\TitleDesView.xaml">
 		  <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
 		</EmbeddedResource>
+		<EmbeddedResource Update="Controls\TypeOptionView.xaml">
+		  <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+		</EmbeddedResource>
 		<EmbeddedResource Update="Resources\Languages\LanguageResource.resx">
 			<Generator>ResXFileCodeGenerator</Generator>
 			<LastGenOutput>LanguageResource.Designer.cs</LastGenOutput>
