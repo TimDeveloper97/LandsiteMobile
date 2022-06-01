@@ -86,7 +86,7 @@ namespace LandsiteMobile.Controls
         {
             FieldAreaView td = (FieldAreaView)bindable;
             if (td != null)
-                td.ValueType = (string)newValue;
+                td.valuetype.Text = (string)newValue;
 
         }
 

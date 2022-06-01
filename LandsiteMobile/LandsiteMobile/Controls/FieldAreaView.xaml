@@ -10,7 +10,7 @@
                    TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}"
                    FontAttributes="Bold"/>
             <StackLayout Grid.Row="1" Grid.Column="1" Margin="0,-5,0,0">
-                <Label FontSize="{OnPlatform Android=14, iOS=12}" Text="{Binding ValueType}"
+                <Label x:Name="valuetype" FontSize="{OnPlatform Android=14, iOS=12}"
                        TextColor="{AppThemeBinding Dark={StaticResource AppColor}, Light={StaticResource AppColor}}"
                        FontAttributes="Bold" Margin="0,0,0,-5" LineBreakMode="CharacterWrap" MaxLines="2"/>
                 <BoxView HeightRequest="0.3" BackgroundColor="{AppThemeBinding Dark={StaticResource WhiteSmoke}, Light={StaticResource BlackSmoke}}"/>

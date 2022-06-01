@@ -28,6 +28,7 @@ namespace LandsiteMobile.ViewModels
             {
                 valueLandslide = Uri.UnescapeDataString(value ?? string.Empty);
                 SetProperty(ref valueLandslide, value);
+                OnPropertyChanged();
             }
         }
         public string ValueMaterial { get => valueMaterial; set => SetProperty(ref valueMaterial, value); }
