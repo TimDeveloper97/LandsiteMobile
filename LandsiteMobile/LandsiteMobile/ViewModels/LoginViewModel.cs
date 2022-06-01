@@ -123,9 +123,6 @@ namespace LandsiteMobile.ViewModels
                     await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
                     await Shell.Current.Navigation.PopToRootAsync();
                 }
-
-                //await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
-                //await Shell.Current.Navigation.PopToRootAsync();
             }
             catch (FirebaseAuthException ex)
             {
