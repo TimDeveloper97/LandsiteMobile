@@ -21,9 +21,21 @@ namespace LandsiteMobile.ViewModels.Landslide
         #region Properties
         private ObservableCollection<string> radios;
         private ObservableCollection<TypeModel> types;
+        private string selectItemRadio;
+        private bool hasType;
 
         public ObservableCollection<string> Radios { get => radios; set => SetProperty(ref radios, value); }
         public ObservableCollection<TypeModel> Types { get => types; set => SetProperty(ref types, value); }
+        public string SelectItemRadio
+        { get => selectItemRadio; set 
+            { 
+                SetProperty(ref selectItemRadio, value);
+                HasType = selectItemRadio == "Yes" || string.IsNullOrEmpty(selectItemRadio) ? true : false; 
+            } 
+        }
+        public bool HasType { get => hasType; set => SetProperty(ref hasType, value); }
+
+
         #endregion
 
         #region Command 
@@ -76,9 +88,7 @@ namespace LandsiteMobile.ViewModels.Landslide
 
         public TypeMeasureViewModel()
         {
-            Radios = new ObservableCollection<string>();
-            Radios.Add("Yes");
-            Radios.Add("No");
+            Radios = new ObservableCollection<string> { "Yes", "No" };
             Types = new ObservableCollection<TypeModel>();
         }
 

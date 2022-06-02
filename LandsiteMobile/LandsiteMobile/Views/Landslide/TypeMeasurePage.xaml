@@ -47,7 +47,10 @@
     <ContentPage.Content>
         <Grid BackgroundColor="{AppThemeBinding Dark={StaticResource BlackSmoke} ,Light={StaticResource WhiteSmoke}}">
             <control:TypeOptionView LabelRadios="Is there any mitigation measures?" LabelListView="Specify the mitigation measure(s)" LabelAddItem="Add a mitigation measure"
-                                    ItemSourceRadios="{Binding Radios}" ItemSourceListView="{Binding Types}" Margin="20" OnPressAddTypeCommand="{Binding AddCommand}" RemoveCommand="{Binding RemoveCommand}"/>
+                                    ItemSourceRadios="{Binding Radios}" ItemSourceListView="{Binding Types}" 
+                                    Margin="20" OnPressAddTypeCommand="{Binding AddCommand}" 
+                                    RemoveCommand="{Binding RemoveCommand}"
+                                    HasTypes="{Binding HasType}" SelectItemRadio="{Binding SelectItemRadio}"/>
             <!--<control:TypeOptionView/>-->
         </Grid>
     </ContentPage.Content>

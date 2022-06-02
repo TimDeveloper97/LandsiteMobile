@@ -58,6 +58,33 @@ namespace LandsiteMobile.Controls
            BindingMode.TwoWay,
            propertyChanged: (_b, _old, _new) => ((TypeOptionView)_b).lvItem.ItemsSource = (IList)_new);
 
+        public static readonly BindableProperty SelectItemRadioProperty = BindableProperty.Create(
+           "SelectItemRadio",
+           typeof(string),
+           typeof(TypeOptionView),
+           string.Empty,
+           BindingMode.TwoWay);
+
+        public static readonly BindableProperty HasTypesProperty = BindableProperty.Create(
+           "HasTypes",
+           typeof(bool),
+           typeof(TypeOptionView),
+           true,
+           BindingMode.TwoWay,
+           propertyChanged: (_b, _old, _new) => ((TypeOptionView)_b).stList.IsVisible = (bool)_new);
+
+        public bool HasTypes
+        {
+            get => (bool)GetValue(TypeOptionView.HasTypesProperty);
+            set => SetValue(TypeOptionView.HasTypesProperty, value);
+        }
+
+        public string SelectItemRadio
+        {
+            get => (string)GetValue(TypeOptionView.SelectItemRadioProperty);
+            set => SetValue(TypeOptionView.SelectItemRadioProperty, value);
+        }
+
         public string LabelRadios
         {
             get => (string)GetValue(TypeOptionView.LabelRadiosProperty);
