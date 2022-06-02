@@ -110,12 +110,12 @@ namespace LandsiteMobile.ViewModels
 
         public ICommand MeasuresCommand => new Command(async () =>
         {
-            await Shell.Current.GoToAsync(nameof(TypeOptionView));
+            await Shell.Current.GoToAsync(nameof(TypeMeasurePage));
         });
 
         public ICommand SystemCommand => new Command(async () =>
         {
-            await Shell.Current.GoToAsync(nameof(TypeOptionView));
+            await Shell.Current.GoToAsync(nameof(TypeSystemPage));
         });
 
         public ICommand DamagesCommand => new Command(async () =>

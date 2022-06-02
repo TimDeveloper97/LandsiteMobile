@@ -38,16 +38,17 @@
                         VerticalOptions="CenterAndExpand" FontFamily="MaterialIcons" IsVisible="{Binding IsHostUser}">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer NumberOfTapsRequired="1" CommandParameter="{Binding .}"
-                                          Command="{Binding Path=BindingContext.CheckCommand, Source={x:Reference Name=typelandslidepage}}"/>
+                                          Command="{Binding Path=BindingContext.CheckCommand, Source={x:Reference Name=typemeasurepage}}"/>
                     </Label.GestureRecognizers>
                 </Label>
             </StackLayout>
         </Grid>
     </Shell.TitleView>
     <ContentPage.Content>
-        <Grid>
+        <Grid BackgroundColor="{AppThemeBinding Dark={StaticResource BlackSmoke} ,Light={StaticResource WhiteSmoke}}">
             <control:TypeOptionView LabelRadios="Is there any mitigation measures?" LabelListView="Specify the mitigation measure(s)" LabelAddItem="Add a mitigation measure"
-                                    ItemSourceRadios="{Binding Radios}" ItemSourceListView="{Binding Types}"/>
+                                    ItemSourceRadios="{Binding Radios}" ItemSourceListView="{Binding Types}" Margin="20" OnPressAddTypeCommand="{Binding AddCommand}"/>
+            <!--<control:TypeOptionView/>-->
         </Grid>
     </ContentPage.Content>
 </ContentPage>

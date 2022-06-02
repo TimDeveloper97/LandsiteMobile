@@ -23,16 +23,23 @@ namespace LandsiteMobile.ViewModels.Landslide
         {
         });
 
+        public ICommand CheckCommand => new Command(async () =>
+        {
+        });
 
+        public ICommand AddCommand => new Command(async () =>
+        {
+            
+        });
 
         #endregion
 
         public TypeMeasureViewModel()
         {
-            //Radios = new ObservableCollection<string>();
-            //Radios.Add("Yes");
-            //Radios.Add("No");
-            //Types = new ObservableCollection<string>();
+            Radios = new ObservableCollection<string>();
+            Radios.Add("Yes");
+            Radios.Add("No");
+            Types = new ObservableCollection<string>();
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -110,6 +110,14 @@ namespace LandsiteMobile.Controls
             TypeOptionView obj = (TypeOptionView)bindable;
             if (obj != null)
                 obj.lRadio.Text = (string)newValue;
+        }
+
+        public static BindableProperty OnPressAddTypeCommandProperty =
+            BindableProperty.Create(nameof(OnPressAddTypeCommand), typeof(ICommand), typeof(TypeOptionView));
+        public ICommand OnPressAddTypeCommand
+        {
+            get => (ICommand)GetValue(OnPressAddTypeCommandProperty);
+            set => SetValue(OnPressAddTypeCommandProperty, value);
         }
     }
 }

@@ -4,59 +4,57 @@
              
              xmlns:mdc="clr-namespace:Plugin.MaterialDesignControls;assembly=Plugin.MaterialDesignControls"
              xmlns:icon="clr-namespace:LandsiteMobile.Resources"
+             x:Name="typeoptionview"
              
              x:Class="LandsiteMobile.Controls.TypeOptionView">
 
     <ContentView.Content>
         <StackLayout>
             <Label x:Name="lOption"
-                   FontSize="{OnPlatform Android=18, iOS=16}" Margin="0,0,0,20"
+                   FontSize="{OnPlatform Android=18, iOS=16}" Margin="0,0,0,10"
                    TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource Black}}"/>
-            <mdc:MaterialRadioButtons x:Name="radios" Color="{StaticResource AppColor}"
+            <mdc:MaterialRadioButtons x:Name="radios" Color="{StaticResource AppColor}" Animation="Scale"
                                       TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource Black}}"
-                                      FontSize="{OnPlatform Android=18, iOS=16}" Margin="0,0,0,20"/>
+                                      FontSize="{OnPlatform Android=18, iOS=16}" Margin="0,0,0,10"/>
 
-            <Label x:Name="llistview" Margin="0,20,0,10"
+            <Label x:Name="llistview" Margin="0,10,0,10"
                    FontSize="{OnPlatform Android=18, iOS=16}"
                    TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource Black}}"/>
 
-            <ScrollView>
-                <ListView x:Name="lvItem" >
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <StackLayout>
-                                    <BoxView HeightRequest="0.3" BackgroundColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"/>
-                                    <StackLayout Orientation="Horizontal" Margin="10,2">
-                                        <Label Text="Type"/>
-                                        <Label Text=""/>
-                                    </StackLayout>
-                                    <StackLayout Orientation="Horizontal" Margin="10,2">
-                                        <Label Text="Status"/>
-                                        <Label Text=""/>
-                                    </StackLayout>
-                                    <BoxView HeightRequest="0.3" BackgroundColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"/>
-                                </StackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </ScrollView>
-
             <StackLayout Orientation="Horizontal">
-                <Label  Text="{x:Static icon:FontIcons.PlusMinusBox}" 
-                        TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource White}}"
-                        FontSize="Title" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="0,0,20,0"
+                <Label  Text="{x:Static icon:FontIcons.PlusCircle}" 
+                        TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource Black}}"
+                        FontSize="Title" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
                         VerticalOptions="CenterAndExpand" FontFamily="MaterialIcons"/>
                 <Label x:Name="lRadio" 
-                       FontSize="{OnPlatform Android=18, iOS=16}" Margin="0,0,0,20"
+                       FontSize="{OnPlatform Android=18, iOS=16}" Margin="5,0,0,0"
                        TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource Black}}"/>
 
                 <StackLayout.GestureRecognizers>
-                    <TapGestureRecognizer NumberOfTapsRequired="1" CommandParameter="{Binding .}"
-                                          Command="{Binding Path=BindingContext.AddCommand, Source={x:Reference Name=typeoptionview}}"/>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding Source={x:Reference typeoptionview}, Path=OnPressAddTypeCommand}"/>
                 </StackLayout.GestureRecognizers>
             </StackLayout>
+
+            <ListView x:Name="lvItem">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <BoxView HeightRequest="0.3" BackgroundColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"/>
+                                <StackLayout Orientation="Horizontal" Margin="10,2">
+                                    <Label Text="Type"/>
+                                    <Label Text=""/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" Margin="10,2">
+                                    <Label Text="Status"/>
+                                    <Label Text=""/>
+                                </StackLayout>
+                                <BoxView HeightRequest="0.3" BackgroundColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentView.Content>
 </ContentView>
