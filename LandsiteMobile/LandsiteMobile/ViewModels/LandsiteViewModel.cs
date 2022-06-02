@@ -1,4 +1,5 @@
-﻿using LandsiteMobile.Domain;
+﻿using LandsiteMobile.Controls;
+using LandsiteMobile.Domain;
 using LandsiteMobile.Resources.Languages;
 using LandsiteMobile.ViewModels.Landslide;
 using LandsiteMobile.Views.Landslide;
@@ -99,12 +100,22 @@ namespace LandsiteMobile.ViewModels
             //Create choices
             var vegetations = new string[]
             {
-                "Grass", "Low-growing plants", "Trees", "Mixed", "Absent",
+                "Grass", "Low-growing plants", "Trees", "Mixed", "Absent", 
             };
             var result = await ShowDialog(LanguageResource.homeVegetationPlaceholder, vegetations);
             if (result < 0) return;
 
             ValueVegetation = vegetations[result];
+        });
+
+        public ICommand MeasuresCommand => new Command(async () =>
+        {
+            await Shell.Current.GoToAsync(nameof(TypeOptionView));
+        });
+
+        public ICommand SystemCommand => new Command(async () =>
+        {
+            await Shell.Current.GoToAsync(nameof(TypeOptionView));
         });
 
         public ICommand DamagesCommand => new Command(async () =>

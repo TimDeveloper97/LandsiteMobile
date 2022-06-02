@@ -64,15 +64,15 @@
                 <mdc:MaterialButton HorizontalOptions="FillAndExpand" 
                                     Text="{xct:Translate loginButtonLogin}" Margin="0,30,0,0"
                                     BackgroundColor="{StaticResource AppColor}"
-                                    FontSize="{OnPlatform Android=18, iOS=16}"
+                                    FontSize="{OnPlatform Android=18, iOS=16}" IsBusy="{Binding IsBusy}"
                                     BorderColor="{AppThemeBinding Dark={StaticResource BlackSmoke} ,Light={StaticResource WhiteSmoke}}"
                                     TextColor="{AppThemeBinding Dark={StaticResource Black} ,Light={StaticResource White}}"
                                     VerticalOptions="Center" CornerRadius="20" HeightRequest="50"
                                     Command="{Binding LoginCommand}"/>
             </StackLayout>
             
-            <ActivityIndicator IsRunning="{Binding IsBusy}" VerticalOptions="Center" HorizontalOptions="Center" 
-                               Color="{StaticResource Gray}"/>
+            <!--<ActivityIndicator IsRunning="{Binding IsBusy}" VerticalOptions="Center" HorizontalOptions="Center" 
+                               Color="{StaticResource Gray}"/>-->
             <StackLayout VerticalOptions="End">
                 <BoxView HeightRequest="0.5" BackgroundColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"/>
 

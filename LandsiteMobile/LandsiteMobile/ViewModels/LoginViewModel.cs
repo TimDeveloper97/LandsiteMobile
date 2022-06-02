@@ -1,4 +1,5 @@
 using Firebase.Auth;
+using Firebase.Database;
 using LandsiteMobile.Domain;
 using LandsiteMobile.Models;
 using LandsiteMobile.Resources.Languages;
@@ -123,7 +124,7 @@ namespace LandsiteMobile.ViewModels
                     await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
                     await Shell.Current.Navigation.PopToRootAsync();
                 }
-            }
+            } 
             catch (FirebaseAuthException ex)
             {
                 if (ex.ResponseData == "N/A")
@@ -136,6 +137,12 @@ namespace LandsiteMobile.ViewModels
                     await MaterialDialog.Instance.SnackbarAsync(message: response.Error.Message,
                                          msDuration: MaterialSnackbar.DurationLong);
                 }
+            }
+            catch (FirebaseException fe)
+            {
+                if (fe.ResponseData == "")
+                    await MaterialDialog.Instance.SnackbarAsync(message: "Timeout responce",
+                                     msDuration: MaterialSnackbar.DurationLong);
             }
             finally
             {

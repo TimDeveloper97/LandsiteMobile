@@ -45,7 +45,7 @@
                 <mdc:MaterialButton HorizontalOptions="FillAndExpand" 
                                     Text="{xct:Translate signupAccept}" Margin="0,30,0,0"
                                     BackgroundColor="{StaticResource AppColor}"
-                                    FontSize="{OnPlatform Android=18, iOS=16}"
+                                    FontSize="{OnPlatform Android=18, iOS=16}" IsBusy="{Binding IsBusy}"
                                     BorderColor="{AppThemeBinding Dark={StaticResource BlackSmoke} ,Light={StaticResource WhiteSmoke}}"
                                     TextColor="{AppThemeBinding Dark={StaticResource Black} ,Light={StaticResource White}}"
                                     VerticalOptions="Center" CornerRadius="20" HeightRequest="50"

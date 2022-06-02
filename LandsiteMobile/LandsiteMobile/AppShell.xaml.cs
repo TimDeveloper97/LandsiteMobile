@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LandsiteMobile.Controls;
 using LandsiteMobile.Services.Temp;
 using LandsiteMobile.Views;
 using LandsiteMobile.Views.Landslide;
@@ -36,6 +37,7 @@ namespace LandsiteMobile
             Routing.RegisterRoute(nameof(LandsitePage), typeof(LandsitePage));
             Routing.RegisterRoute(nameof(DetailAccountPage), typeof(DetailAccountPage));
             Routing.RegisterRoute(nameof(TypeLandslidePage), typeof(TypeLandslidePage));
+            Routing.RegisterRoute(nameof(TypeOptionView), typeof(TypeOptionView));
         }
 
         private async void OnMenuItemClicked(object sender, EventArgs e)
