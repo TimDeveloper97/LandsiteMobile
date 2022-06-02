@@ -15,11 +15,12 @@ namespace LandsiteMobile.Droid
             base.OnCreate(savedInstanceState);
             Plugin.MaterialDesignControls.Android.Renderer.Init();
             CrossCurrentActivity.Current.Activity = this;
+            Rg.Plugins.Popup.Popup.Init(this, savedInstanceState);
 
             App.ScreenHeight = (int)(Resources.DisplayMetrics.HeightPixels / Resources.DisplayMetrics.Density);
             App.ScreenWidth = (int)(Resources.DisplayMetrics.WidthPixels / Resources.DisplayMetrics.Density);
 
-
+            
             Xamarin.FormsGoogleMaps.Init(this, savedInstanceState);
             XF.Material.Droid.Material.Init(this, savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
@@ -31,6 +32,16 @@ namespace LandsiteMobile.Droid
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
+        public override void OnBackPressed()
+        {
+            if (Rg.Plugins.Popup.Popup.SendBackPressed(base.OnBackPressed))
+            {
+            }
+            else
+            {
+            }
         }
     }
 }

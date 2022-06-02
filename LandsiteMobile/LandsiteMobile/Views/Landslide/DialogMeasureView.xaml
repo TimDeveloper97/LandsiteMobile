@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<rg:PopupPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+              xmlns:rg="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+              xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+              xmlns:icon="clr-namespace:LandsiteMobile.Resources"
+              x:Name="dialogmeasureview"
+              xmlns:animation="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+              
+             
+             x:Class="LandsiteMobile.Views.Landslide.DialogMeasureView">
+
+    <rg:PopupPage.Animation>
+        <animation:ScaleAnimation
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="true"
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8" />
+    </rg:PopupPage.Animation>
+    <rg:PopupPage.Content>
+        <StackLayout BackgroundColor="{AppThemeBinding Dark={StaticResource Black} ,Light={StaticResource White}}"
+                     Margin="40,0"
+                     Padding="20"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Center">
+            <StackLayout>
+                <Label TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource Black}}"
+                   HorizontalOptions="Center" x:Name="ltitle1"
+                   FontSize="{OnPlatform Android=18, iOS=16}"/>
+
+                <Grid ColumnDefinitions="*, auto">
+                    <Label TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource Black}}"
+                       HorizontalOptions="Center" x:Name="lvalue1"
+                       FontSize="{OnPlatform Android=18, iOS=16}"/>
+                    <Label  Text="{x:Static icon:FontIcons.ChevronDown}"  Grid.Column="1"
+                        TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource Black}}"
+                        FontSize="Title" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="0,0,20,0"
+                        VerticalOptions="CenterAndExpand" FontFamily="MaterialIcons">
+                    </Label>
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1"
+                                          Command="{Binding ComboBox1Command, Source={x:Reference Name=dialogmeasureview}}"/>
+                    </Grid.GestureRecognizers>
+                </Grid>
+            </StackLayout>
+
+            <StackLayout Margin="0,20,0,0" x:Name="cbStack" IsVisible="false">
+                <Label TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource Black}}"
+                   HorizontalOptions="Center" x:Name="ltitle2"
+                   FontSize="{OnPlatform Android=18, iOS=16}"/>
+
+                <Grid ColumnDefinitions="*, auto">
+                    <Label TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource Black}}"
+                           HorizontalOptions="Center" x:Name="lvalue2"
+                           FontSize="{OnPlatform Android=18, iOS=16}"/>
+                    <Label  Text="{x:Static icon:FontIcons.ChevronDown}" Grid.Column="1"
+                            TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource Black}}"
+                            FontSize="Title" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="0,0,20,0"
+                            VerticalOptions="CenterAndExpand" FontFamily="MaterialIcons">
+                    </Label>
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" 
+                                          Command="{Binding ComboBox2Command, Source={x:Reference Name=dialogmeasureview}}"/>
+                    </Grid.GestureRecognizers>
+                </Grid>
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="End" Margin="0,10,0,0" Orientation="Horizontal">
+                <material:MaterialButton ButtonType="Text" Text="CANCEL" TextColor="{StaticResource AppColor}"
+                                     Command="{Binding CancelCommand, Source={x:Reference Name=dialogmeasureview}}" Clicked="OnClose"/>
+                <material:MaterialButton ButtonType="Text" Text="OK" TextColor="{StaticResource AppColor}"
+                                     Command="{Binding OkCommand, Source={x:Reference Name=dialogmeasureview}}" Clicked="OnClose"/>
+            </StackLayout>
+        </StackLayout>
+    </rg:PopupPage.Content>
+</rg:PopupPage>

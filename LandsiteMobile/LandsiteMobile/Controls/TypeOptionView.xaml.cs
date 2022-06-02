@@ -111,6 +111,7 @@ namespace LandsiteMobile.Controls
             if (obj != null)
                 obj.lRadio.Text = (string)newValue;
         }
+        
 
         public static BindableProperty OnPressAddTypeCommandProperty =
             BindableProperty.Create(nameof(OnPressAddTypeCommand), typeof(ICommand), typeof(TypeOptionView));
@@ -118,6 +119,14 @@ namespace LandsiteMobile.Controls
         {
             get => (ICommand)GetValue(OnPressAddTypeCommandProperty);
             set => SetValue(OnPressAddTypeCommandProperty, value);
+        }
+
+        public static BindableProperty RemoveCommandProperty =
+            BindableProperty.Create(nameof(RemoveCommand), typeof(ICommand), typeof(TypeOptionView));
+        public ICommand RemoveCommand
+        {
+            get => (ICommand)GetValue(RemoveCommandProperty);
+            set => SetValue(RemoveCommandProperty, value);
         }
     }
 }
