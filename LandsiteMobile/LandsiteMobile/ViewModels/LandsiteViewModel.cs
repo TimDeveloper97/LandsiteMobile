@@ -1,8 +1,10 @@
 ﻿using LandsiteMobile.Controls;
 using LandsiteMobile.Domain;
+using LandsiteMobile.Models;
 using LandsiteMobile.Resources.Languages;
 using LandsiteMobile.ViewModels.Landslide;
 using LandsiteMobile.Views.Landslide;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,10 +18,14 @@ using XF.Material.Forms.UI.Dialogs.Configurations;
 namespace LandsiteMobile.ViewModels
 {
     [QueryProperty(nameof(ValueLandslide), nameof(ValueLandslide))]
+    [QueryProperty(nameof(ParameterResponceTypeMeasure), nameof(ParameterResponceTypeMeasure))]
+    [QueryProperty(nameof(ParameterResponceTypeSystem), nameof(ParameterResponceTypeSystem))]
     class LandsiteViewModel : BaseViewModel
     {
         #region Properties 
         private string valueLandslide, valueMaterial, valueNote, valueSystem, valueWater, valueHill, valueVegetation, valueMeasures, valueDamages;
+        private string parameterResponceType1, parameterResponceType2;
+        private ResponceType responceType1, responceType2;
         private ImageSource source;
         private bool isTaked;
 
@@ -30,6 +36,40 @@ namespace LandsiteMobile.ViewModels
                 valueLandslide = Uri.UnescapeDataString(value ?? string.Empty);
                 SetProperty(ref valueLandslide, value);
                 OnPropertyChanged();
+            }
+        }
+        public ResponceType ResponceTypeMeasure
+        {
+            get => responceType1; set
+            {
+                SetProperty(ref responceType1, value);
+            }
+        }
+        public ResponceType ResponceTypeSystem
+        {
+            get => responceType2; set
+            {
+                SetProperty(ref responceType2, value);
+            }
+        }
+        public string ParameterResponceTypeMeasure
+        {
+            get => parameterResponceType1; set
+            {
+                parameterResponceType1 = Uri.UnescapeDataString(value ?? string.Empty);
+                SetProperty(ref parameterResponceType1, value);
+                if (!string.IsNullOrEmpty(parameterResponceType1))
+                    ResponceTypeMeasure = JsonConvert.DeserializeObject<ResponceType>(parameterResponceType1);
+            }
+        }
+        public string ParameterResponceTypeSystem
+        {
+            get => parameterResponceType2; set
+            {
+                parameterResponceType2 = Uri.UnescapeDataString(value ?? string.Empty);
+                SetProperty(ref parameterResponceType2, value);
+                if (!string.IsNullOrEmpty(parameterResponceType2))
+                    ResponceTypeSystem = JsonConvert.DeserializeObject<ResponceType>(parameterResponceType2);
             }
         }
         public string ValueMaterial { get => valueMaterial; set => SetProperty(ref valueMaterial, value); }
@@ -110,12 +150,14 @@ namespace LandsiteMobile.ViewModels
 
         public ICommand MeasuresCommand => new Command(async () =>
         {
-            await Shell.Current.GoToAsync(nameof(TypeMeasurePage));
+            var data = JsonConvert.SerializeObject(ResponceTypeMeasure);
+            await Shell.Current.GoToAsync($"{nameof(TypeMeasurePage)}?{nameof(TypeMeasureViewModel.ParameterResponceType)}={data}");
         });
 
         public ICommand SystemCommand => new Command(async () =>
         {
-            await Shell.Current.GoToAsync(nameof(TypeSystemPage));
+            var data = JsonConvert.SerializeObject(ResponceTypeSystem);
+            await Shell.Current.GoToAsync($"{nameof(TypeSystemPage)}?{nameof(TypeSystemViewModel.ParameterResponceType)}={data}");
         });
 
         public ICommand DamagesCommand => new Command(async () =>
@@ -164,6 +206,8 @@ namespace LandsiteMobile.ViewModels
         public LandsiteViewModel()
         {
             Title = "New landslide";
+            ResponceTypeMeasure = new ResponceType() { Option = string.Empty, Types = new List<TypeModel>() };
+            ResponceTypeSystem = new ResponceType() { Option = string.Empty, Types = new List<TypeModel>() };
             ValueLandslide = LanguageResource.homeLandslidePlaceholder;
             ValueMaterial = LanguageResource.homeMaterialPlaceholder;
             ValueNote = LanguageResource.homeNotePlaceholder;

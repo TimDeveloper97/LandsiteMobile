@@ -11,4 +11,10 @@ namespace LandsiteMobile.Models
         public bool HasOneItem { get; set; } = false;
         public bool HasTwoItem { get; set; } = false;
     }
+
+    public class ResponceType
+    {
+        public string Option { get; set; }
+        public List<TypeModel> Types { get; set; }
+    }
 }

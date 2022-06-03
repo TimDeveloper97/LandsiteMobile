@@ -2,6 +2,7 @@
 using LandsiteMobile.Models;
 using LandsiteMobile.Resources.Languages;
 using LandsiteMobile.Views.Landslide;
+using Newtonsoft.Json;
 using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
@@ -16,25 +17,45 @@ using XF.Material.Forms.UI.Dialogs.Configurations;
 
 namespace LandsiteMobile.ViewModels.Landslide
 {
+    [QueryProperty(nameof(ParameterResponceType), nameof(ParameterResponceType))]
     class TypeMeasureViewModel : BaseViewModel
     {
         #region Properties
         private ObservableCollection<string> radios;
         private ObservableCollection<TypeModel> types;
-        private string selectItemRadio;
+        private ResponceType responceType;
+        private string selectItemRadio, parameterResponceType;
         private bool hasType;
 
         public ObservableCollection<string> Radios { get => radios; set => SetProperty(ref radios, value); }
         public ObservableCollection<TypeModel> Types { get => types; set => SetProperty(ref types, value); }
         public string SelectItemRadio
-        { get => selectItemRadio; set 
-            { 
+        {
+            get => selectItemRadio; set
+            {
                 SetProperty(ref selectItemRadio, value);
-                HasType = selectItemRadio == "Yes" || string.IsNullOrEmpty(selectItemRadio) ? true : false; 
-            } 
+                HasType = selectItemRadio == "Yes" || string.IsNullOrEmpty(selectItemRadio) ? true : false;
+                ResponceType.Option = selectItemRadio;
+            }
         }
         public bool HasType { get => hasType; set => SetProperty(ref hasType, value); }
-
+        public ResponceType ResponceType
+        {
+            get => responceType; set
+            {
+                SetProperty(ref responceType, value);
+            }
+        }
+        public string ParameterResponceType
+        {
+            get => parameterResponceType; set
+            {
+                parameterResponceType = Uri.UnescapeDataString(value ?? string.Empty);
+                SetProperty(ref parameterResponceType, value);
+                if(!string.IsNullOrEmpty(parameterResponceType))
+                    ResponceType = JsonConvert.DeserializeObject<ResponceType>(parameterResponceType);
+            }
+        }
 
         #endregion
 
@@ -42,10 +63,21 @@ namespace LandsiteMobile.ViewModels.Landslide
 
         public ICommand PageAppearingCommand => new Command(async () =>
         {
+            SelectItemRadio = ResponceType.Option;
+
+            if (ResponceType.Types != null)
+                foreach (var item in ResponceType.Types)
+                    Types.Add(item);
         });
 
         public ICommand CheckCommand => new Command(async () =>
         {
+            ResponceType.Types = new List<TypeModel>();
+            foreach (var item in Types)
+                ResponceType.Types.Add(item);
+
+            var data = JsonConvert.SerializeObject(ResponceType);
+            await Shell.Current.GoToAsync($"..?{nameof(LandsiteViewModel.ParameterResponceTypeMeasure)}={data}");
         });
 
         public ICommand RemoveCommand => new Command<TypeModel>(async (m) =>
@@ -84,12 +116,15 @@ namespace LandsiteMobile.ViewModels.Landslide
             await PopupNavigation.Instance.PushAsync(dg);
         });
 
+
+
         #endregion
 
         public TypeMeasureViewModel()
         {
             Radios = new ObservableCollection<string> { "Yes", "No" };
             Types = new ObservableCollection<TypeModel>();
+            ResponceType = new ResponceType() { Option = string.Empty, Types = new List<TypeModel>() };
         }
 
         async Task<int> ShowDialog(string title, string[] inputs)

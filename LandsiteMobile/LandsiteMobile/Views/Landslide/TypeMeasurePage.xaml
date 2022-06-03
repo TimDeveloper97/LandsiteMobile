@@ -26,7 +26,7 @@
     </ContentPage.Behaviors>
     <Shell.TitleView>
         <Grid>
-            <Label  Text="{xct:Translate homeLandslide}"
+            <Label  Text="{xct:Translate homeMeasures}"
                     TextColor="{AppThemeBinding Dark={StaticResource Black} ,Light={StaticResource White}}"
                     FontSize="Title" Margin="0,0,70,0"
                     HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
@@ -35,7 +35,7 @@
                 <Label  Text="{x:Static icon:FontIcons.Check}" 
                         TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource White}}"
                         FontSize="Title" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="0,0,20,0"
-                        VerticalOptions="CenterAndExpand" FontFamily="MaterialIcons" IsVisible="{Binding IsHostUser}">
+                        VerticalOptions="CenterAndExpand" FontFamily="MaterialIcons">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer NumberOfTapsRequired="1" CommandParameter="{Binding .}"
                                           Command="{Binding Path=BindingContext.CheckCommand, Source={x:Reference Name=typemeasurepage}}"/>
