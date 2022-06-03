@@ -26,36 +26,6 @@
     </ContentPage.Behaviors>
     
     <ContentPage.Content>
-        <!--<StackLayout BackgroundColor="WhiteSmoke">-->
-            <!--<Picker x:Name="picker"
-                SelectedIndexChanged="picker_SelectedIndexChanged" 
-                Margin="20,0,20,20">
-                <Picker.Items>
-                    <x:String>English</x:String>
-                    <x:String>VN</x:String>
-                </Picker.Items>
-            </Picker>
-            <Label  FontFamily="MaterialIcons" Text="{Static icon:FontIcons.TrashCanOutline}" FontSize="20"
-                    VerticalTextAlignment="Center" HorizontalOptions="End" TextColor="White" Margin="0,20,20,0">
-                --><!--<Label.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding Path=BindingContext.RemoveCommand, Source={x:Reference Name=gMain}}"
-                                              CommandParameter="{Binding .}" />
-                </Label.GestureRecognizers>--><!--
-            </Label>
-            <Label Text="{Static lang:LanguageResource.Wellcome}" 
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />-->
-
-            <!--<Grid>
-                <maps:Map x:Name="map" MapType="Street" HasZoomEnabled="True" MyLocationEnabled="True"
-                          HorizontalOptions="Fill" VerticalOptions="Fill">
-                    <maps:Map.Behaviors>
-                        <bindings:BindingPinsBehavior Value="{Binding Pins}" />
-                    </maps:Map.Behaviors>
-                </maps:Map>
-            </Grid>-->
-        <!--</StackLayout>-->
-
         <Grid BackgroundColor="{AppThemeBinding Dark={StaticResource BlackSmoke} ,Light={StaticResource WhiteSmoke}}">
             <control:BindableMap x:Name="map" MapType="Street" 
                       IsShowingUser="True" MyLocationEnabled="True" IsTrafficEnabled="True" 
@@ -63,6 +33,8 @@
                       MapSpan="{Binding ClinicMapSpan}">
                 <maps:Map.Behaviors>
                     <bindings:BindingPinsBehavior Value="{Binding Pins}" />
+                    <bindings:MapClickedToCommandBehavior Command="{Binding MapClickedCommand}"/>
+                    <bindings:InfoWindowClickedToCommandBehavior Command="{Binding InfoWindowClickedCommand}"/>
                 </maps:Map.Behaviors>
             </control:BindableMap>
 
@@ -89,7 +61,7 @@
                                         BorderColor="{AppThemeBinding Dark={StaticResource BlackSmoke} ,Light={StaticResource WhiteSmoke}}"/>
             </Grid>
 
-            <mdc:MaterialButton HorizontalOptions="Fill" 
+            <mdc:MaterialButton HorizontalOptions="Fill" IsEnabled="{Binding HasPosition}"
                                 Text="{xct:Translate homeNewLandside}" Margin="60,0,60,30" 
                                 BackgroundColor="{StaticResource AppColor}"
                                 FontSize="{OnPlatform Android=18, iOS=16}" IsBusy="{Binding IsBusy}"

@@ -1,4 +1,7 @@
-﻿using LandsiteMobile.Controls;
+﻿using Firebase.Database;
+using Firebase.Database.Query;
+using Firebase.Storage;
+using LandsiteMobile.Controls;
 using LandsiteMobile.Domain;
 using LandsiteMobile.Models;
 using LandsiteMobile.Resources.Languages;
@@ -20,6 +23,7 @@ namespace LandsiteMobile.ViewModels
     [QueryProperty(nameof(ValueLandslide), nameof(ValueLandslide))]
     [QueryProperty(nameof(ParameterResponceTypeMeasure), nameof(ParameterResponceTypeMeasure))]
     [QueryProperty(nameof(ParameterResponceTypeSystem), nameof(ParameterResponceTypeSystem))]
+    [QueryProperty(nameof(ParameterPinId), nameof(ParameterPinId))]
     class LandsiteViewModel : BaseViewModel
     {
         #region Properties 
@@ -27,14 +31,34 @@ namespace LandsiteMobile.ViewModels
         private string parameterResponceType1, parameterResponceType2;
         private ResponceType responceType1, responceType2;
         private ImageSource source;
+        private System.IO.Stream _stream;
+        private static ResponcePin _responcePin;
         private bool isTaked;
-
+        private string parameterPinId;
+        private ResponcePosition position;
+        public string ParameterPinId
+        {
+            get => parameterPinId; set
+            {
+                parameterPinId = Uri.UnescapeDataString(value ?? string.Empty);
+                SetProperty(ref parameterPinId, value);
+                if (!string.IsNullOrEmpty(parameterPinId))
+                {
+                    Position = JsonConvert.DeserializeObject<ResponcePosition>(parameterPinId);
+                    _responcePin.Latitude = Position.Latitude;
+                    _responcePin.Longitude = Position.Longitude;
+                }
+            }
+        }
+        public ResponcePosition Position { get => position; set => SetProperty(ref position, value); }
         public string ValueLandslide
         {
             get => valueLandslide; set
             {
                 valueLandslide = Uri.UnescapeDataString(value ?? string.Empty);
                 SetProperty(ref valueLandslide, value);
+                if (!string.IsNullOrEmpty(valueLandslide))
+                    _responcePin.Landslide = valueLandslide;
                 OnPropertyChanged();
             }
         }
@@ -59,7 +83,10 @@ namespace LandsiteMobile.ViewModels
                 parameterResponceType1 = Uri.UnescapeDataString(value ?? string.Empty);
                 SetProperty(ref parameterResponceType1, value);
                 if (!string.IsNullOrEmpty(parameterResponceType1))
+                {
                     ResponceTypeMeasure = JsonConvert.DeserializeObject<ResponceType>(parameterResponceType1);
+                    _responcePin.System = ResponceTypeMeasure;
+                }
             }
         }
         public string ParameterResponceTypeSystem
@@ -69,7 +96,10 @@ namespace LandsiteMobile.ViewModels
                 parameterResponceType2 = Uri.UnescapeDataString(value ?? string.Empty);
                 SetProperty(ref parameterResponceType2, value);
                 if (!string.IsNullOrEmpty(parameterResponceType2))
+                {
                     ResponceTypeSystem = JsonConvert.DeserializeObject<ResponceType>(parameterResponceType2);
+                    _responcePin.System = ResponceTypeSystem;
+                }
             }
         }
         public string ValueMaterial { get => valueMaterial; set => SetProperty(ref valueMaterial, value); }
@@ -89,11 +119,25 @@ namespace LandsiteMobile.ViewModels
         public ICommand PageAppearingCommand => new Command(async () =>
         {
             IsTaked = false;
+            if(!string.IsNullOrEmpty(_responcePin.Landslide))
+                ValueLandslide = _responcePin.Landslide;
+            if (!string.IsNullOrEmpty(_responcePin.Damages))
+                ValueDamages = _responcePin.Damages;
+            if (!string.IsNullOrEmpty(_responcePin.Hill))
+                ValueHill = _responcePin.Hill;
+            if (!string.IsNullOrEmpty(_responcePin.Material))
+                ValueMaterial = _responcePin.Material;
+            if (!string.IsNullOrEmpty(_responcePin.Notes))
+                ValueNote = _responcePin.Notes;
+            if (!string.IsNullOrEmpty(_responcePin.Vegetation))
+                ValueVegetation = _responcePin.Vegetation;
+            if (!string.IsNullOrEmpty(_responcePin.Water))
+                ValueWater = _responcePin.Water;
         });
 
         public ICommand TypeLandslideCommand => new Command(async () =>
         {
-            await Shell.Current.GoToAsync($"{nameof(TypeLandslidePage)}?{nameof(TypeLandslideViewModel.ValueLandslide)}={ValueLandslide}");
+            await Shell.Current.GoToAsync($"{nameof(TypeLandslidePage)}?{nameof(TypeLandslideViewModel.ValueLandslide)}={_responcePin.Landslide}");
         });
 
         public ICommand TypeMaterialCommand => new Command(async () =>
@@ -103,10 +147,10 @@ namespace LandsiteMobile.ViewModels
             {
                 "Rock", "Debris", "Dỉrt", "Mixed", "Cannot determine",
             };
-            var result = await ShowDialog(LanguageResource.homeMaterialPlaceholder, materials);
+            var result = await ShowDialog(LanguageResource.homeMaterialPlaceholder, materials, FindIndex(materials, _responcePin.Material));
             if (result < 0) return;
 
-            ValueMaterial = materials[result];
+            _responcePin.Material = ValueMaterial = materials[result];
         });
 
         public ICommand HillCommand => new Command(async () =>
@@ -116,10 +160,10 @@ namespace LandsiteMobile.ViewModels
             {
                 "At the top", "Uphill", "Midslope", "Downhill", "In the valley",
             };
-            var result = await ShowDialog(LanguageResource.homeHillPlaceholder, hills);
+            var result = await ShowDialog(LanguageResource.homeHillPlaceholder, hills, FindIndex(hills, _responcePin.Hill));
             if (result < 0) return;
 
-            ValueHill = hills[result];
+            _responcePin.Hill = ValueHill = hills[result];
         });
 
         public ICommand WaterCommand => new Command(async () =>
@@ -129,10 +173,10 @@ namespace LandsiteMobile.ViewModels
             {
                 "Dry", "Humid", "Wet", "Very wet", "Cannot determine",
             };
-            var result = await ShowDialog(LanguageResource.homeWaterPlaceholder, waters);
+            var result = await ShowDialog(LanguageResource.homeWaterPlaceholder, waters, FindIndex(waters, _responcePin.Water));
             if (result < 0) return;
 
-            ValueWater = waters[result];
+            _responcePin.Water = ValueWater = waters[result];
         });
 
         public ICommand VegetationCommand => new Command(async () =>
@@ -140,23 +184,23 @@ namespace LandsiteMobile.ViewModels
             //Create choices
             var vegetations = new string[]
             {
-                "Grass", "Low-growing plants", "Trees", "Mixed", "Absent", 
+                "Grass", "Low-growing plants", "Trees", "Mixed", "Absent",
             };
-            var result = await ShowDialog(LanguageResource.homeVegetationPlaceholder, vegetations);
+            var result = await ShowDialog(LanguageResource.homeVegetationPlaceholder, vegetations, FindIndex(vegetations, _responcePin.Vegetation));
             if (result < 0) return;
 
-            ValueVegetation = vegetations[result];
+            _responcePin.Vegetation = ValueVegetation = vegetations[result];
         });
 
         public ICommand MeasuresCommand => new Command(async () =>
         {
-            var data = JsonConvert.SerializeObject(ResponceTypeMeasure);
+            var data = JsonConvert.SerializeObject(_responcePin.Measure ?? new ResponceType());
             await Shell.Current.GoToAsync($"{nameof(TypeMeasurePage)}?{nameof(TypeMeasureViewModel.ParameterResponceType)}={data}");
         });
 
         public ICommand SystemCommand => new Command(async () =>
         {
-            var data = JsonConvert.SerializeObject(ResponceTypeSystem);
+            var data = JsonConvert.SerializeObject(_responcePin.System ?? new ResponceType());
             await Shell.Current.GoToAsync($"{nameof(TypeSystemPage)}?{nameof(TypeSystemViewModel.ParameterResponceType)}={data}");
         });
 
@@ -167,10 +211,10 @@ namespace LandsiteMobile.ViewModels
             {
                 "No damages", "Direct damage", "Obstruction of water course", "Collapsed bank or dam", "Cannot determine",
             };
-            var result = await ShowDialog(LanguageResource.homeDamagesPlaceholder, damages);
+            var result = await ShowDialog(LanguageResource.homeDamagesPlaceholder, damages, FindIndex(damages, _responcePin.Damages));
             if (result < 0) return;
 
-            ValueDamages = damages[result];
+            _responcePin.Damages = ValueDamages = damages[result];
         });
 
         public ICommand NoteCommand => new Command(async () =>
@@ -185,10 +229,69 @@ namespace LandsiteMobile.ViewModels
             var input = await MaterialDialog.Instance.InputAsync(title: LanguageResource.homeNotePlaceholder, inputPlaceholder: " Max 500 characters...", configuration: config);
             if (string.IsNullOrEmpty(input)) return;
 
-            ValueNote = input;
+            _responcePin.Notes = ValueNote = input;
         });
 
         public ICommand RemoveImageCommand => new Command(() => Source = null);
+
+        public ICommand CheckCommand => new Command(async () =>
+        {
+            if (Source == null)
+            {
+                await MaterialDialog.Instance.SnackbarAsync(message: "You must take a picture site",
+                                         msDuration: MaterialSnackbar.DurationLong);
+            }
+            else if (string.IsNullOrEmpty(ValueLandslide))
+            {
+                await MaterialDialog.Instance.SnackbarAsync(message: "You must choise a landslide",
+                                         msDuration: MaterialSnackbar.DurationLong);
+            }
+            else
+            {
+                var loadingDialog = await MaterialDialog.Instance.LoadingDialogAsync(message: "Waiting to upload");
+                try
+                {
+                    var imgurl = await _firebaseStorage
+                        .Child(_usermodel.LocalId)
+                        .Child(Guid.NewGuid().ToString().Substring(8))
+                        .PutAsync(_stream);
+
+                    _responcePin.Photo = imgurl;
+                    _responcePin.Tag = Guid.NewGuid().ToString().Substring(0, 8);
+
+                    Position.Tag = _responcePin.Tag;
+                    Position.Title = _responcePin.Landslide;
+                    await _firebaseDatabase.Child("Pins").PostAsync(_responcePin);
+
+                    var data = JsonConvert.SerializeObject(Position);
+                    await Shell.Current.GoToAsync($"..?{nameof(HomeViewModel.ParameterPinId)}={data}");
+                }
+                catch (FirebaseStorageException fs)
+                {
+                    if (fs.ResponseData == "N/A")
+                        await MaterialDialog.Instance.SnackbarAsync(message: "Internet connection error",
+                                         msDuration: MaterialSnackbar.DurationLong);
+                    else
+                        await MaterialDialog.Instance.SnackbarAsync(message: "Fail to upload image",
+                                             msDuration: MaterialSnackbar.DurationLong);
+                }
+                catch (FirebaseException fe)
+                {
+                    if (fe.ResponseData == "N/A")
+                        await MaterialDialog.Instance.SnackbarAsync(message: "Internet connection error",
+                                         msDuration: MaterialSnackbar.DurationLong);
+                    else if (fe.ResponseData == "")
+                        await MaterialDialog.Instance.SnackbarAsync(message: "Timeout responce",
+                                         msDuration: MaterialSnackbar.DurationLong);
+                }
+                finally
+                {
+                    await loadingDialog.DismissAsync();
+                }
+
+
+            }
+        });
 
         public ICommand TakePictureCommand => new Command(async () =>
         {
@@ -196,8 +299,8 @@ namespace LandsiteMobile.ViewModels
 
             if (result != null)
             {
-                var stream = await result.OpenReadAsync();
-                Source = ImageSource.FromStream(() => stream);
+                _stream = await result.OpenReadAsync();
+                Source = ImageSource.FromStream(() => _stream);
             }
         });
 
@@ -205,6 +308,7 @@ namespace LandsiteMobile.ViewModels
 
         public LandsiteViewModel()
         {
+            _responcePin = new ResponcePin();
             Title = "New landslide";
             ResponceTypeMeasure = new ResponceType() { Option = string.Empty, Types = new List<TypeModel>() };
             ResponceTypeSystem = new ResponceType() { Option = string.Empty, Types = new List<TypeModel>() };
@@ -219,12 +323,24 @@ namespace LandsiteMobile.ViewModels
             ValueDamages = LanguageResource.homeDamagesPlaceholder;
         }
 
-        async Task<int> ShowDialog(string title, string[] inputs)
+        async Task<int> ShowDialog(string title, string[] inputs, int selectindex)
         {
             var config = new MaterialConfirmationDialogConfiguration { ButtonAllCaps = true, ControlSelectedColor = Color.FromHex("#d1542f"), TintColor = Color.FromHex("#d1542f"), };
 
-            return await MaterialDialog.Instance.SelectChoiceAsync(title: title,
+            if(selectindex != -1)
+                return await MaterialDialog.Instance.SelectChoiceAsync(title: title, selectedIndex: selectindex,
                                                                          choices: inputs, configuration: config);
+            else return await MaterialDialog.Instance.SelectChoiceAsync(title: title,
+                                                                         choices: inputs, configuration: config);
+        }
+
+        int FindIndex(string[] list, string value)
+        {
+            for (int i = 0; i < list.Length; i++)
+            {
+                if (list[i] == value) return i;
+            }
+            return - 1;
         }
     }
 }

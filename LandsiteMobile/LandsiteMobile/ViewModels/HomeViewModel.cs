@@ -5,8 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Windows.Input;
 using LandsiteMobile.Domain;
+using LandsiteMobile.Models;
 using LandsiteMobile.Services.Temp;
 using LandsiteMobile.Views;
+using Newtonsoft.Json;
 using Plugin.Geolocator;
 using Xamarin.Forms;
 using Xamarin.Forms.GoogleMaps;
@@ -14,23 +16,70 @@ using XF.Material.Forms.UI.Dialogs;
 
 namespace LandsiteMobile.ViewModels
 {
+    [QueryProperty(nameof(ParameterPinId), nameof(ParameterPinId))]
     public class HomeViewModel : BaseViewModel
     {
         #region Properties
         public ISomeService _someService => DependencyService.Get<ISomeService>();
         ObservableCollection<Pin> _pins;
         MapSpan clinicMapSpan;
+        private string parameterPinId;
+        private ResponcePosition position;
+        private bool hasPosition;
 
         public ObservableCollection<Pin> Pins
         {
             get => _pins;
-
             set => SetProperty(ref _pins, value);
         }
+        public string ParameterPinId
+        {
+            get => parameterPinId; set
+            {
+                parameterPinId = Uri.UnescapeDataString(value ?? string.Empty);
+                SetProperty(ref parameterPinId, value);
+                if (!string.IsNullOrEmpty(parameterPinId))
+                {
+                    Position = JsonConvert.DeserializeObject<ResponcePosition>(parameterPinId);
+                    AddToMap();
+                }
+            }
+        }
+        public bool HasPosition
+        {
+            get => hasPosition; set
+            {
+                SetProperty(ref hasPosition, value);
+            }
+        }
+        public ResponcePosition Position { get => position; set
+            {
+                SetProperty(ref position, value);
+                HasPosition = Position == null ? false : true;
+            }
+        }
+
         public MapSpan ClinicMapSpan { get => clinicMapSpan; set => SetProperty(ref clinicMapSpan, value); }
         #endregion
 
         #region Command 
+        public ObservableCollection<GroundOverlay> GroundOverlays { get; set; }
+        public Command<MapClickedEventArgs> MapClickedCommand => new Command<MapClickedEventArgs>(
+            args =>
+            {
+                Position = new ResponcePosition
+                {
+                    Latitude = args.Point.Latitude,
+                    Longitude = args.Point.Longitude,
+                };
+            });
+
+        public Command<InfoWindowClickedEventArgs> InfoWindowClickedCommand => new Command<InfoWindowClickedEventArgs>(
+            args =>
+            {
+                
+            });
+
         public ICommand PageAppearingCommand => new Command(async () =>
         {
             Pins?.Clear();
@@ -54,19 +103,23 @@ namespace LandsiteMobile.ViewModels
 
         public ICommand NewLandslideCommand => new Command(async () =>
         {
-            await Shell.Current.GoToAsync(nameof(LandsitePage));
+            var data = JsonConvert.SerializeObject(Position);
+            await Shell.Current.GoToAsync($"{nameof(LandsitePage)}?{nameof(LandsiteViewModel.ParameterPinId)}={data}");
         });
 
         public ICommand SettingCommand => new Command(async () =>
         {
             await Shell.Current.GoToAsync(nameof(SettingPage));
         });
+
         #endregion
 
 
         public HomeViewModel()
         {
             Title = "Home Page";
+            Position = null;
+            HasPosition = false;
             _someService.SomeMethod();
             Pins = new ObservableCollection<Pin>();
         }
@@ -95,6 +148,21 @@ namespace LandsiteMobile.ViewModels
                 await MaterialDialog.Instance.SnackbarAsync(message: "Can't load map",
                                      msDuration: MaterialSnackbar.DurationLong);
             }
+        }
+
+        void AddToMap()
+        {
+            double latlongDegrees = 360 / Math.Pow(2, 10);
+            Pin clinicPin = new Pin()
+            {
+                Type = PinType.SearchResult,
+                Label = Position.Title,
+                Tag = Position.Tag,
+                Position = new Position(Position.Latitude, Position.Longitude),
+            };
+
+            ClinicMapSpan = MapSpan.FromCenterAndRadius(new Position(clinicPin.Position.Latitude, clinicPin.Position.Longitude), Distance.FromMiles(latlongDegrees));
+            Pins.Add(clinicPin);
         }
     }
 }
