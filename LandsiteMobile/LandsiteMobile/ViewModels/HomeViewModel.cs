@@ -86,11 +86,41 @@ namespace LandsiteMobile.ViewModels
         {
             Pins?.Clear();
             init();
+
+            var list = (await _firebaseDatabase
+              .Child("Pins")
+              .OnceAsync<ResponcePin>()).Select(item => new ResponcePin
+              {
+                  Damages = item.Object.Damages,
+                  Hill = item.Object.Hill,
+                  Vegetation = item.Object.Vegetation,
+                  Water = item.Object.Water,
+                  Material = item.Object.Material,
+                  Landslide = item.Object.Landslide,
+                  Longitude = item.Object.Longitude,
+                  Latitude = item.Object.Latitude,
+                  Notes = item.Object.Notes,
+                  Title = item.Object.Title,
+                  Tag = item.Object.Tag,
+                  Measure = item.Object.Measure,
+                  Photo = item.Object.Photo,
+                  System = item.Object.System,
+              }).ToList();
+
+            foreach (var item in list)
+            {
+                Pins.Add(new Pin
+                {
+                    Tag = item.Tag,
+                    Label = item.Title ?? "Landslide",
+                    Position = new Position(item.Latitude, item.Longitude),
+                    Type = PinType.SavedPin,
+                });
+            }
         });
 
         public ICommand LocationCommand => new Command(async () =>
         {
-            Pins?.Clear();
             init();
         });
 
@@ -100,7 +130,20 @@ namespace LandsiteMobile.ViewModels
               .Child("Pins")
               .OnceAsync<ResponcePin>()).Select(item => new ResponcePin
               {
-                  
+                  Damages = item.Object.Damages,
+                  Hill = item.Object.Hill,
+                  Vegetation = item.Object.Vegetation,
+                  Water = item.Object.Water,
+                  Material = item.Object.Material,
+                  Landslide = item.Object.Landslide,
+                  Longitude = item.Object.Longitude,
+                  Latitude = item.Object.Latitude,
+                  Notes = item.Object.Notes,
+                  Title = item.Object.Title,
+                  Tag = item.Object.Tag,
+                  Measure = item.Object.Measure,
+                  Photo = item.Object.Photo,
+                  System = item.Object.System,
               }).ToList();
 
             Pins?.Clear();
@@ -109,9 +152,9 @@ namespace LandsiteMobile.ViewModels
                 Pins.Add(new Pin
                 {
                     Tag = item.Tag,
-                    Label = item.Title,
+                    Label = item.Title ?? "Landslide",
                     Position = new Position(item.Latitude, item.Longitude),
-                    Type = PinType.SearchResult,
+                    Type = PinType.SavedPin,
                 });
             }
         });
@@ -170,8 +213,8 @@ namespace LandsiteMobile.ViewModels
             double latlongDegrees = 360 / Math.Pow(2, 10);
             Pin clinicPin = new Pin()
             {
-                Type = PinType.SearchResult,
-                Label = Position.Title,
+                Type = PinType.SavedPin,
+                Label = Position.Title ?? "Landslide",
                 Tag = Position.Tag,
                 Position = new Position(Position.Latitude, Position.Longitude),
             };

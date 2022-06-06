@@ -11,6 +11,7 @@ using Newtonsoft.Json;
 using Plugin.Media;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -31,7 +32,7 @@ namespace LandsiteMobile.ViewModels
         private string valueLandslide, valueMaterial, valueNote, valueSystem, valueWater, valueHill, valueVegetation, valueMeasures, valueDamages;
         private string parameterResponceType1, parameterResponceType2;
         private ResponceType responceType1, responceType2;
-        private ImageSource source;
+        private string source;
         private string _url;
         private static ResponcePin _responcePin;
         private bool isTaked;
@@ -111,7 +112,7 @@ namespace LandsiteMobile.ViewModels
         public string ValueVegetation { get => valueVegetation; set => SetProperty(ref valueVegetation, value); }
         public string ValueMeasures { get => valueMeasures; set => SetProperty(ref valueMeasures, value); }
         public string ValueDamages { get => valueDamages; set { SetProperty(ref valueDamages, value); } }
-        public ImageSource Source { get => source; set { SetProperty(ref source, value); IsTaked = Source == null ? false : true; } }
+        public string Source { get => source; set { SetProperty(ref source, value); IsTaked = Source == null ? false : true; } }
         public bool IsTaked { get => isTaked; set { SetProperty(ref isTaked, value); } }
 
         #endregion
@@ -134,6 +135,8 @@ namespace LandsiteMobile.ViewModels
                 ValueVegetation = _responcePin.Vegetation;
             if (!string.IsNullOrEmpty(_responcePin.Water))
                 ValueWater = _responcePin.Water;
+            if (!string.IsNullOrEmpty(_responcePin.Photo))
+                Source = _responcePin.Photo;
         });
 
         public ICommand TypeLandslideCommand => new Command(async () =>
@@ -252,6 +255,7 @@ namespace LandsiteMobile.ViewModels
                 var loadingDialog = await MaterialDialog.Instance.LoadingDialogAsync(message: "Waiting to upload");
                 try
                 {
+                    _responcePin.Title = _responcePin.Landslide;
                     _responcePin.Photo = _url;
                     _responcePin.Tag = Guid.NewGuid().ToString().Substring(0, 8);
 
@@ -291,59 +295,45 @@ namespace LandsiteMobile.ViewModels
 
         public ICommand TakePictureCommand => new Command(async () =>
         {
-            await CrossMedia.Current.Initialize();
+            var result = await MediaPicker.CapturePhotoAsync();
 
-            if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+            if (result != null)
             {
-                await MaterialDialog.Instance.SnackbarAsync(message: "No camera available",
-                                         msDuration: MaterialSnackbar.DurationLong);
-                return;
-            }
+                
 
-            var mediaFile = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
-            {
-                Directory = "Sample",
-                Name = "test.jpg"
-            });
-
-            if (mediaFile == null)
-                return;
-
-            var loadingDialog = await MaterialDialog.Instance.LoadingDialogAsync(message: "Waiting to upload image");
-            try
-            {
-                _url = await _firebaseStorage
-                    .Child(Guid.NewGuid().ToString().Substring(0, 8))
-                    .PutAsync(mediaFile.GetStream());
-
-                Source = ImageSource.FromStream(() =>
+                var loadingDialog = await MaterialDialog.Instance.LoadingDialogAsync(message: "Waiting to upload image");
+                try
                 {
-                    var stream = mediaFile.GetStream();
-                    mediaFile.Dispose();
-                    return stream;
-                });
-            }
-            catch (FirebaseStorageException fs)
-            {
-                if (fs.ResponseData == "N/A")
-                    await MaterialDialog.Instance.SnackbarAsync(message: "Internet connection error",
-                                     msDuration: MaterialSnackbar.DurationLong);
-                else
-                    await MaterialDialog.Instance.SnackbarAsync(message: "Fail to upload image",
+                    var stream = await result.OpenReadAsync();
+
+                    _url = await _firebaseStorage
+                       .Child(DateTime.Now.ToString("ddMMyyyy_hhmmss") + ".png")
+                       .PutAsync(stream);
+
+                    _responcePin.Photo = Source = _url;
+                }
+                catch (FirebaseStorageException fs)
+                {
+                    if (fs.ResponseData == "N/A")
+                        await MaterialDialog.Instance.SnackbarAsync(message: "Internet connection error",
                                          msDuration: MaterialSnackbar.DurationLong);
-            }
-            catch (FirebaseException fe)
-            {
-                if (fe.ResponseData == "N/A")
-                    await MaterialDialog.Instance.SnackbarAsync(message: "Internet connection error",
-                                     msDuration: MaterialSnackbar.DurationLong);
-                else if (fe.ResponseData == "")
-                    await MaterialDialog.Instance.SnackbarAsync(message: "Timeout responce",
-                                     msDuration: MaterialSnackbar.DurationLong);
-            }
-            finally
-            {
-                await loadingDialog.DismissAsync();
+                    else
+                        await MaterialDialog.Instance.SnackbarAsync(message: "Fail to upload image",
+                                             msDuration: MaterialSnackbar.DurationLong);
+                }
+                catch (FirebaseException fe)
+                {
+                    if (fe.ResponseData == "N/A")
+                        await MaterialDialog.Instance.SnackbarAsync(message: "Internet connection error",
+                                         msDuration: MaterialSnackbar.DurationLong);
+                    else if (fe.ResponseData == "")
+                        await MaterialDialog.Instance.SnackbarAsync(message: "Timeout responce",
+                                         msDuration: MaterialSnackbar.DurationLong);
+                }
+                finally
+                {
+                    await loadingDialog.DismissAsync();
+                }
             }
         });
 

@@ -29,22 +29,22 @@
         <Grid BackgroundColor="{AppThemeBinding Dark={StaticResource BlackSmoke}, Light={StaticResource WhiteSmoke}}">
             <ScrollView>
                 <StackLayout Margin="20">
-                    <control:TitleDesView Heading="{xct:Translate homePosition}" Description="{Binding Position}" Margin="0,5"/>
-                    <control:TitleDesView Heading="{xct:Translate homeLandslide}" Description="{Binding Pin.Landslide}" Margin="0,5"/>
-                    <control:TitleDesView Heading="{xct:Translate homeMaterial}" Description="{Binding Pin.Material}" Margin="0,5"/>
-                    <control:TitleDesView Heading="{xct:Translate homeHill}" Description="{Binding Pin.Hill}" Margin="0,5"/>
-                    <control:TitleDesView Heading="{xct:Translate homeWater}" Description="{Binding Pin.Water}" Margin="0,5"/>
-                    <control:TitleDesView Heading="{xct:Translate homeVegetation}" Description="{Binding Pin.Vegetation}" Margin="0,5"/>
-                    <control:TitleDesView Heading="{xct:Translate homeMeasures}" Description="{Binding MeasureTypes}" Margin="0,5"/>
-                    <control:TitleDesView Heading="{xct:Translate homeSystem}" Description="{Binding SystemTypes}" Margin="0,5"/>
-                    <control:TitleDesView Heading="{xct:Translate homeDamages}" Description="{Binding Pin.Damages}" Margin="0,5"/>
-                    <control:TitleDesView Heading="{xct:Translate homeNote}" Description="{Binding Pin.Notes}" Margin="0,5"/>
+                    <control:TitleDesView Heading="{xct:Translate homePosition}" Description="{Binding Position}"/>
+                    <control:TitleDesView Heading="{xct:Translate homeLandslide}" Description="{Binding Pin.Landslide}"/>
+                    <control:TitleDesView Heading="{xct:Translate homeMaterial}" Description="{Binding Pin.Material}"/>
+                    <control:TitleDesView Heading="{xct:Translate homeHill}" Description="{Binding Pin.Hill}"/>
+                    <control:TitleDesView Heading="{xct:Translate homeWater}" Description="{Binding Pin.Water}"/>
+                    <control:TitleDesView Heading="{xct:Translate homeVegetation}" Description="{Binding Pin.Vegetation}"/>
+                    <control:TitleDesView Heading="{xct:Translate homeMeasures}" Description="{Binding MeasureTypes}"/>
+                    <control:TitleDesView Heading="{xct:Translate homeSystem}" Description="{Binding SystemTypes}"/>
+                    <control:TitleDesView Heading="{xct:Translate homeDamages}" Description="{Binding Pin.Damages}"/>
+                    <control:TitleDesView Heading="{xct:Translate homeNote}" Description="{Binding Pin.Notes}"/>
                     <Label TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}" 
                        FontAttributes="Bold" Text="{xct:Translate homePhoto}"
-                       FontSize="{OnPlatform Android=24, iOS=22}" Margin="0,5"/>
+                       FontSize="{OnPlatform Android=22, iOS=20}"/>
 
                     <Image HorizontalOptions="Center" VerticalOptions="FillAndExpand" Source="{Binding Pin.Photo}"
-                               HeightRequest="150" WidthRequest="150" Aspect="AspectFill"/>
+                               HeightRequest="150" WidthRequest="150" Aspect="AspectFill" Margin="0,0,0,20"/>
                 </StackLayout>
             </ScrollView>
         </Grid>

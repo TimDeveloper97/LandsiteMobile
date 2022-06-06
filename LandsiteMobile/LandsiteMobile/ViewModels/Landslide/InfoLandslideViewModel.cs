@@ -46,7 +46,7 @@ namespace LandsiteMobile.ViewModels.Landslide
 
                 Position = "Landslide: " + Pin.Landslide + " - Longitude: " + Pin.Longitude;
 
-                if (Pin.Measure.Option == "No")
+                if (Pin.Measure == null || Pin.Measure.Option == "No")
                     MeasureTypes = "No measure types";
                 else
                 {
@@ -56,7 +56,7 @@ namespace LandsiteMobile.ViewModels.Landslide
                     }
                 }
 
-                if (Pin.System.Option == "No")
+                if (Pin.System == null || Pin.System.Option == "No")
                     SystemTypes = "No measure types";
                 else
                 {

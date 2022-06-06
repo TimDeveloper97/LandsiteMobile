@@ -40,6 +40,7 @@ namespace LandsiteMobile
             Routing.RegisterRoute(nameof(TypeOptionView), typeof(TypeOptionView));
             Routing.RegisterRoute(nameof(TypeMeasurePage), typeof(TypeMeasurePage));
             Routing.RegisterRoute(nameof(TypeSystemPage), typeof(TypeSystemPage));
+            Routing.RegisterRoute(nameof(InfoLandslidePage), typeof(InfoLandslidePage));
         }
 
         private async void OnMenuItemClicked(object sender, EventArgs e)
