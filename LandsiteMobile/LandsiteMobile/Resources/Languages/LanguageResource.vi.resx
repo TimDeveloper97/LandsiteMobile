@@ -135,6 +135,9 @@
   <data name="homeHillPlaceholder" xml:space="preserve">
     <value>Chỉ định vị trí sạt lở</value>
   </data>
+  <data name="homeInfoLandslide" xml:space="preserve">
+    <value>Thông tin về sạt lở đất</value>
+  </data>
   <data name="homeLandslide" xml:space="preserve">
     <value>Loại lở đất *</value>
   </data>
@@ -164,6 +167,9 @@
   </data>
   <data name="homePhoto" xml:space="preserve">
     <value>Ảnh *</value>
+  </data>
+  <data name="homePosition" xml:space="preserve">
+    <value>Tọa độ vụ sạt lở</value>
   </data>
   <data name="homeRequired" xml:space="preserve">
     <value>* Biểu thị trường bắt buộc</value>

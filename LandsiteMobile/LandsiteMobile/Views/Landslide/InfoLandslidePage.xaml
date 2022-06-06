@@ -2,11 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              
-              xmlns:vm="clr-namespace:LandsiteMobile.ViewModels.Landslide"
+             xmlns:vm="clr-namespace:LandsiteMobile.ViewModels.Landslide"
              xmlns:lang="clr-namespace:LandsiteMobile.Resources.Languages"
              xmlns:icon="clr-namespace:LandsiteMobile.Resources"
              xmlns:mdc="clr-namespace:Plugin.MaterialDesignControls;assembly=Plugin.MaterialDesignControls"
-             Title="{xct:Translate homeLandslide}"
+             Title="{xct:Translate homeInfoLandslide}"
              Shell.NavBarIsVisible="true"
              Shell.NavBarHasShadow="True"
              Shell.TabBarIsVisible="False"
@@ -26,10 +26,27 @@
     </ContentPage.Behaviors>
     
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid BackgroundColor="{AppThemeBinding Dark={StaticResource BlackSmoke}, Light={StaticResource WhiteSmoke}}">
+            <ScrollView>
+                <StackLayout Margin="20">
+                    <control:TitleDesView Heading="{xct:Translate homePosition}" Description="{Binding Position}" Margin="0,5"/>
+                    <control:TitleDesView Heading="{xct:Translate homeLandslide}" Description="{Binding Pin.Landslide}" Margin="0,5"/>
+                    <control:TitleDesView Heading="{xct:Translate homeMaterial}" Description="{Binding Pin.Material}" Margin="0,5"/>
+                    <control:TitleDesView Heading="{xct:Translate homeHill}" Description="{Binding Pin.Hill}" Margin="0,5"/>
+                    <control:TitleDesView Heading="{xct:Translate homeWater}" Description="{Binding Pin.Water}" Margin="0,5"/>
+                    <control:TitleDesView Heading="{xct:Translate homeVegetation}" Description="{Binding Pin.Vegetation}" Margin="0,5"/>
+                    <control:TitleDesView Heading="{xct:Translate homeMeasures}" Description="{Binding MeasureTypes}" Margin="0,5"/>
+                    <control:TitleDesView Heading="{xct:Translate homeSystem}" Description="{Binding SystemTypes}" Margin="0,5"/>
+                    <control:TitleDesView Heading="{xct:Translate homeDamages}" Description="{Binding Pin.Damages}" Margin="0,5"/>
+                    <control:TitleDesView Heading="{xct:Translate homeNote}" Description="{Binding Pin.Notes}" Margin="0,5"/>
+                    <Label TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}" 
+                       FontAttributes="Bold" Text="{xct:Translate homePhoto}"
+                       FontSize="{OnPlatform Android=24, iOS=22}" Margin="0,5"/>
+
+                    <Image HorizontalOptions="Center" VerticalOptions="FillAndExpand" Source="{Binding Pin.Photo}"
+                               HeightRequest="150" WidthRequest="150" Aspect="AspectFill"/>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

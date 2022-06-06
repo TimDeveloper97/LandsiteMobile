@@ -115,6 +115,15 @@ namespace LandsiteMobile.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Information Landslide.
+        /// </summary>
+        internal static string homeInfoLandslide {
+            get {
+                return ResourceManager.GetString("homeInfoLandslide", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Type of landslide *.
         /// </summary>
         internal static string homeLandslide {
@@ -201,6 +210,15 @@ namespace LandsiteMobile.Resources.Languages {
         internal static string homePhoto {
             get {
                 return ResourceManager.GetString("homePhoto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Position Landslide.
+        /// </summary>
+        internal static string homePosition {
+            get {
+                return ResourceManager.GetString("homePosition", resourceCulture);
             }
         }
         

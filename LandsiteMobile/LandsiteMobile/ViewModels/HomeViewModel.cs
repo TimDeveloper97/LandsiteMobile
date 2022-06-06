@@ -7,7 +7,9 @@ using System.Windows.Input;
 using LandsiteMobile.Domain;
 using LandsiteMobile.Models;
 using LandsiteMobile.Services.Temp;
+using LandsiteMobile.ViewModels.Landslide;
 using LandsiteMobile.Views;
+using LandsiteMobile.Views.Landslide;
 using Newtonsoft.Json;
 using Plugin.Geolocator;
 using Xamarin.Forms;
@@ -75,9 +77,9 @@ namespace LandsiteMobile.ViewModels
             });
 
         public Command<InfoWindowClickedEventArgs> InfoWindowClickedCommand => new Command<InfoWindowClickedEventArgs>(
-            args =>
+            async args =>
             {
-               
+                await Shell.Current.GoToAsync($"{nameof(InfoLandslidePage)}?{nameof(InfoLandslideViewModel.ParameterPinTag)}={args.Pin.Tag}");
             });
 
         public ICommand PageAppearingCommand => new Command(async () =>
@@ -88,6 +90,7 @@ namespace LandsiteMobile.ViewModels
 
         public ICommand LocationCommand => new Command(async () =>
         {
+            Pins?.Clear();
             init();
         });
 
@@ -95,10 +98,22 @@ namespace LandsiteMobile.ViewModels
         {
             var list = (await _firebaseDatabase
               .Child("Pins")
-              .OnceAsync<Pin>()).Select(item => new Pin
+              .OnceAsync<ResponcePin>()).Select(item => new ResponcePin
               {
                   
               }).ToList();
+
+            Pins?.Clear();
+            foreach (var item in list)
+            {
+                Pins.Add(new Pin
+                {
+                    Tag = item.Tag,
+                    Label = item.Title,
+                    Position = new Position(item.Latitude, item.Longitude),
+                    Type = PinType.SearchResult,
+                });
+            }
         });
 
         public ICommand NewLandslideCommand => new Command(async () =>

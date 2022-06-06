@@ -135,6 +135,9 @@
   <data name="homeHillPlaceholder" xml:space="preserve">
     <value>Specify the position of the landslide</value>
   </data>
+  <data name="homeInfoLandslide" xml:space="preserve">
+    <value>Information Landslide</value>
+  </data>
   <data name="homeLandslide" xml:space="preserve">
     <value>Type of landslide *</value>
   </data>
@@ -164,6 +167,9 @@
   </data>
   <data name="homePhoto" xml:space="preserve">
     <value>Photo *</value>
+  </data>
+  <data name="homePosition" xml:space="preserve">
+    <value>Position Landslide</value>
   </data>
   <data name="homeRequired" xml:space="preserve">
     <value>* Indicates a required field</value>
