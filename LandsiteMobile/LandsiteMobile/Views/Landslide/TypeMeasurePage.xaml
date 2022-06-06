@@ -46,7 +46,7 @@
     </Shell.TitleView>
     <ContentPage.Content>
         <Grid BackgroundColor="{AppThemeBinding Dark={StaticResource BlackSmoke} ,Light={StaticResource WhiteSmoke}}">
-            <control:TypeOptionView LabelRadios="Is there any mitigation measures?" LabelListView="Specify the mitigation measure(s)" LabelAddItem="Add a mitigation measure"
+            <control:TypeOptionView LabelRadios="{xct:Translate landslideMeasureRadio}" LabelListView="{xct:Translate landslideMeasureList}" LabelAddItem="{xct:Translate landslideMeasureAdd}"
                                     ItemSourceRadios="{Binding Radios}" ItemSourceListView="{Binding Types}" 
                                     Margin="20" OnPressAddTypeCommand="{Binding AddCommand}" 
                                     RemoveCommand="{Binding RemoveCommand}"

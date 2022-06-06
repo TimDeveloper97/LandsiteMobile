@@ -286,6 +286,60 @@ namespace LandsiteMobile.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add a mitigation measure.
+        /// </summary>
+        internal static string landslideMeasureAdd {
+            get {
+                return ResourceManager.GetString("landslideMeasureAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Specify the mitigation measure(s).
+        /// </summary>
+        internal static string landslideMeasureList {
+            get {
+                return ResourceManager.GetString("landslideMeasureList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is there any mitigation measures?.
+        /// </summary>
+        internal static string landslideMeasureRadio {
+            get {
+                return ResourceManager.GetString("landslideMeasureRadio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add a monitoring system.
+        /// </summary>
+        internal static string landslideSystemAdd {
+            get {
+                return ResourceManager.GetString("landslideSystemAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Specify the monitoring system(s).
+        /// </summary>
+        internal static string landslideSystemList {
+            get {
+                return ResourceManager.GetString("landslideSystemList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is there any monitoring system?.
+        /// </summary>
+        internal static string landslideSystemRadio {
+            get {
+                return ResourceManager.GetString("landslideSystemRadio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login.
         /// </summary>
         internal static string loginButtonLogin {

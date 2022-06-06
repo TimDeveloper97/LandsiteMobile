@@ -192,6 +192,24 @@
   <data name="homeWaterPlaceholder" xml:space="preserve">
     <value>Evaluate the presence of water</value>
   </data>
+  <data name="landslideMeasureAdd" xml:space="preserve">
+    <value>Add a mitigation measure</value>
+  </data>
+  <data name="landslideMeasureList" xml:space="preserve">
+    <value>Specify the mitigation measure(s)</value>
+  </data>
+  <data name="landslideMeasureRadio" xml:space="preserve">
+    <value>Is there any mitigation measures?</value>
+  </data>
+  <data name="landslideSystemAdd" xml:space="preserve">
+    <value>Add a monitoring system</value>
+  </data>
+  <data name="landslideSystemList" xml:space="preserve">
+    <value>Specify the monitoring system(s)</value>
+  </data>
+  <data name="landslideSystemRadio" xml:space="preserve">
+    <value>Is there any monitoring system?</value>
+  </data>
   <data name="loginButtonLogin" xml:space="preserve">
     <value>Login</value>
   </data>

@@ -192,6 +192,24 @@
   <data name="homeWaterPlaceholder" xml:space="preserve">
     <value>Đánh giá sự mức độ nước</value>
   </data>
+  <data name="landslideMeasureAdd" xml:space="preserve">
+    <value>Thêm một biện pháp giảm thiểu</value>
+  </data>
+  <data name="landslideMeasureList" xml:space="preserve">
+    <value>Chỉ định (các) biện pháp giảm thiểu</value>
+  </data>
+  <data name="landslideMeasureRadio" xml:space="preserve">
+    <value>Có biện pháp giảm thiểu nào không?</value>
+  </data>
+  <data name="landslideSystemAdd" xml:space="preserve">
+    <value>Thêm một hệ thống giám sát</value>
+  </data>
+  <data name="landslideSystemList" xml:space="preserve">
+    <value>Chỉ định (các) hệ thống giám sát</value>
+  </data>
+  <data name="landslideSystemRadio" xml:space="preserve">
+    <value>Có hệ thống giám sát nào không?</value>
+  </data>
   <data name="loginButtonLogin" xml:space="preserve">
     <value>Đăng nhập</value>
   </data>
