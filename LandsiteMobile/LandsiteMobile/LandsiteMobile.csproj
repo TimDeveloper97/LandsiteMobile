@@ -18,6 +18,7 @@
 		<PackageReference Include="Plugin.MaterialDesignControls" Version="1.11.2" />
 		<PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.4" />
 		<PackageReference Include="Xam.Plugin.Geolocator" Version="2.0.0" />
+		<PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
 		<PackageReference Include="Xamarin.CommunityToolkit" Version="1.0.0" />
 		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
 		<PackageReference Include="Xamarin.Essentials" Version="1.6.1" />

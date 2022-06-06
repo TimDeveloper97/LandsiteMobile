@@ -61,7 +61,7 @@ namespace LandsiteMobile.ViewModels
         public LoginViewModel()
         {
             Title = "Login";
-            Email = "timbkhn@gmail.com";
+            Email = "timdeveloper97@gmail.com";
             Password = "12345678";
         }
 
@@ -115,7 +115,7 @@ namespace LandsiteMobile.ViewModels
                 //    throw new FirebaseAuthException(null, null, json, null);
                 //}
 
-                var user = (await _firebaseDatabase.Child("Users")
+                var user = (await _firebaseDatabase.Child("UsersLandslide")
                                     .OnceAsync<UserModel>()).FirstOrDefault(x => x.Object.LocalId == content.User.LocalId);
                 if (user != null)
                 {

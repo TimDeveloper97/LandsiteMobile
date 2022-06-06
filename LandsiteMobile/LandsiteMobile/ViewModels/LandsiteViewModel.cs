@@ -8,6 +8,7 @@ using LandsiteMobile.Resources.Languages;
 using LandsiteMobile.ViewModels.Landslide;
 using LandsiteMobile.Views.Landslide;
 using Newtonsoft.Json;
+using Plugin.Media;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -31,7 +32,7 @@ namespace LandsiteMobile.ViewModels
         private string parameterResponceType1, parameterResponceType2;
         private ResponceType responceType1, responceType2;
         private ImageSource source;
-        private System.IO.Stream _stream;
+        private string _url;
         private static ResponcePin _responcePin;
         private bool isTaked;
         private string parameterPinId;
@@ -85,7 +86,7 @@ namespace LandsiteMobile.ViewModels
                 if (!string.IsNullOrEmpty(parameterResponceType1))
                 {
                     ResponceTypeMeasure = JsonConvert.DeserializeObject<ResponceType>(parameterResponceType1);
-                    _responcePin.System = ResponceTypeMeasure;
+                    _responcePin.Measure = ResponceTypeMeasure;
                 }
             }
         }
@@ -251,12 +252,7 @@ namespace LandsiteMobile.ViewModels
                 var loadingDialog = await MaterialDialog.Instance.LoadingDialogAsync(message: "Waiting to upload");
                 try
                 {
-                    var imgurl = await _firebaseStorage
-                        .Child(_usermodel.LocalId)
-                        .Child(Guid.NewGuid().ToString().Substring(8))
-                        .PutAsync(_stream);
-
-                    _responcePin.Photo = imgurl;
+                    _responcePin.Photo = _url;
                     _responcePin.Tag = Guid.NewGuid().ToString().Substring(0, 8);
 
                     Position.Tag = _responcePin.Tag;
@@ -295,12 +291,59 @@ namespace LandsiteMobile.ViewModels
 
         public ICommand TakePictureCommand => new Command(async () =>
         {
-            var result = await MediaPicker.CapturePhotoAsync();
+            await CrossMedia.Current.Initialize();
 
-            if (result != null)
+            if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
             {
-                _stream = await result.OpenReadAsync();
-                Source = ImageSource.FromStream(() => _stream);
+                await MaterialDialog.Instance.SnackbarAsync(message: "No camera available",
+                                         msDuration: MaterialSnackbar.DurationLong);
+                return;
+            }
+
+            var mediaFile = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
+            {
+                Directory = "Sample",
+                Name = "test.jpg"
+            });
+
+            if (mediaFile == null)
+                return;
+
+            var loadingDialog = await MaterialDialog.Instance.LoadingDialogAsync(message: "Waiting to upload image");
+            try
+            {
+                _url = await _firebaseStorage
+                    .Child(Guid.NewGuid().ToString().Substring(0, 8))
+                    .PutAsync(mediaFile.GetStream());
+
+                Source = ImageSource.FromStream(() =>
+                {
+                    var stream = mediaFile.GetStream();
+                    mediaFile.Dispose();
+                    return stream;
+                });
+            }
+            catch (FirebaseStorageException fs)
+            {
+                if (fs.ResponseData == "N/A")
+                    await MaterialDialog.Instance.SnackbarAsync(message: "Internet connection error",
+                                     msDuration: MaterialSnackbar.DurationLong);
+                else
+                    await MaterialDialog.Instance.SnackbarAsync(message: "Fail to upload image",
+                                         msDuration: MaterialSnackbar.DurationLong);
+            }
+            catch (FirebaseException fe)
+            {
+                if (fe.ResponseData == "N/A")
+                    await MaterialDialog.Instance.SnackbarAsync(message: "Internet connection error",
+                                     msDuration: MaterialSnackbar.DurationLong);
+                else if (fe.ResponseData == "")
+                    await MaterialDialog.Instance.SnackbarAsync(message: "Timeout responce",
+                                     msDuration: MaterialSnackbar.DurationLong);
+            }
+            finally
+            {
+                await loadingDialog.DismissAsync();
             }
         });
 

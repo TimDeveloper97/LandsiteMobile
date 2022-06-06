@@ -29,7 +29,7 @@
 
                 <mdc:MaterialEntry Type="Filled" LeadingIcon="{AppThemeBinding Dark=emailLight, Light=emailLight}"
                                Placeholder="{xct:Translate loginEmailPlacehold}"
-                               MaxLength="20" Text="{Binding Email}"
+                               Text="{Binding Email}"
                                AssistiveText="{Binding ErrorEmail}" 
                                AnimateError="True" CornerRadius="5"
                                LabelMargin="0,0,15,5" FontSize="{OnPlatform Android=18, iOS=16}"
@@ -41,7 +41,7 @@
 
                 <mdc:MaterialEntry Type="Filled" LeadingIcon="{AppThemeBinding Dark=passwordLight, Light=passwordLight}"
                                Placeholder="{xct:Translate loginPasswordPlacehold}"
-                               MaxLength="20" Text="{Binding Password}" IsPassword="True"
+                               Text="{Binding Password}" IsPassword="True"
                                AssistiveText="{Binding ErrorPassword}" CornerRadius="5"
                                AnimateError="True" Margin="0,10,0,0"
                                LabelMargin="0,0,15,5" FontSize="{OnPlatform Android=18, iOS=16}" 

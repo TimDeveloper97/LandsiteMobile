@@ -13,9 +13,9 @@ namespace LandsiteMobile.Domain
 {
     public class BaseViewModel : BaseBinding
     {
-        private readonly string _realTimeData = "https://firecast-app-7a261.firebaseio.com/";
-        private readonly string _auth = "AIzaSyAGMVT0Qttpl_5XS_HcB1y06kIZ4wzHKZI";
-        private readonly string _storage = "firecast-app-7a261.appspot.com";
+        private readonly string _realTimeData = "https://supervisor-cloud-default-rtdb.firebaseio.com/";
+        private readonly string _auth = "AIzaSyApIY-Eo7vVosS24J_sJMRdx9oo42wt16g";
+        private readonly string _storage = "supervisor-cloud.appspot.com";
 
         protected readonly FirebaseClient _firebaseDatabase;
         protected readonly FirebaseAuthProvider _firebaseAuthProvider;

@@ -59,7 +59,7 @@ namespace LandsiteMobile.ViewModels
                         Occupation = SelectOccupation,
                     };
 
-                    await _firebaseDatabase.Child("Users")
+                    await _firebaseDatabase.Child("UsersLandslide")
                             .PostAsync(model);
                     await MaterialDialog.Instance.SnackbarAsync(message: "Account successfully created!\nPlease verify your email to use the account",
                                              msDuration: MaterialSnackbar.DurationLong);

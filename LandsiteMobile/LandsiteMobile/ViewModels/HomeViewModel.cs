@@ -77,7 +77,7 @@ namespace LandsiteMobile.ViewModels
         public Command<InfoWindowClickedEventArgs> InfoWindowClickedCommand => new Command<InfoWindowClickedEventArgs>(
             args =>
             {
-                
+               
             });
 
         public ICommand PageAppearingCommand => new Command(async () =>
