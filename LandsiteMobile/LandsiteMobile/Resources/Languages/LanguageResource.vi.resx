@@ -123,6 +123,108 @@
   <data name="accountLogout" xml:space="preserve">
     <value>Đăng xuất</value>
   </data>
+  <data name="age15" xml:space="preserve">
+    <value>Dưới 15</value>
+  </data>
+  <data name="age16" xml:space="preserve">
+    <value>Từ 16 đến 20</value>
+  </data>
+  <data name="age21" xml:space="preserve">
+    <value>Từ 21 đến 25</value>
+  </data>
+  <data name="age26" xml:space="preserve">
+    <value>Từ 26 đến 30</value>
+  </data>
+  <data name="age31" xml:space="preserve">
+    <value>Từ 31 đến 35</value>
+  </data>
+  <data name="age36" xml:space="preserve">
+    <value>Từ 36 đến 40</value>
+  </data>
+  <data name="age41" xml:space="preserve">
+    <value>Từ 41 đến 45</value>
+  </data>
+  <data name="age46" xml:space="preserve">
+    <value>Từ 46 đến 50</value>
+  </data>
+  <data name="age51" xml:space="preserve">
+    <value>Từ 51 đến 55</value>
+  </data>
+  <data name="age56" xml:space="preserve">
+    <value>Từ 56 đến 60</value>
+  </data>
+  <data name="age61" xml:space="preserve">
+    <value>Từ 61 đến 65</value>
+  </data>
+  <data name="age66" xml:space="preserve">
+    <value>Từ 66 đến 70</value>
+  </data>
+  <data name="age70" xml:space="preserve">
+    <value>Hơn 70</value>
+  </data>
+  <data name="damagesOption1" xml:space="preserve">
+    <value>Không có thiệt hại</value>
+  </data>
+  <data name="damagesOption2" xml:space="preserve">
+    <value>Thiệt hại trực tiếp</value>
+  </data>
+  <data name="damagesOption3" xml:space="preserve">
+    <value>Sự cản trở của dòng nước</value>
+  </data>
+  <data name="damagesOption4" xml:space="preserve">
+    <value>Bờ hoặc đập bị sập</value>
+  </data>
+  <data name="damagesOption5" xml:space="preserve">
+    <value>Không thể xác định</value>
+  </data>
+  <data name="error8" xml:space="preserve">
+    <value>Mật khẩu ít nhất 8 ký tự</value>
+  </data>
+  <data name="errorAge" xml:space="preserve">
+    <value>Phải nhập tuổi</value>
+  </data>
+  <data name="errorConfirm" xml:space="preserve">
+    <value>Phải nhập xác nhận</value>
+  </data>
+  <data name="errordiff" xml:space="preserve">
+    <value>Mật khẩu xác nhận phải giống mật khẩu mới</value>
+  </data>
+  <data name="errorEmail" xml:space="preserve">
+    <value>Phải nhập email</value>
+  </data>
+  <data name="errorGender" xml:space="preserve">
+    <value>Phải nhập giới tính</value>
+  </data>
+  <data name="errorOccup" xml:space="preserve">
+    <value>Phải nhập nghề</value>
+  </data>
+  <data name="errorPass" xml:space="preserve">
+    <value>Phải nhập mật khẩu</value>
+  </data>
+  <data name="genderFemale" xml:space="preserve">
+    <value>Nữ giới</value>
+  </data>
+  <data name="genderMale" xml:space="preserve">
+    <value>Nam giới</value>
+  </data>
+  <data name="genderOther" xml:space="preserve">
+    <value>Khác</value>
+  </data>
+  <data name="hillOption1" xml:space="preserve">
+    <value>Ở trên cùng</value>
+  </data>
+  <data name="hillOption2" xml:space="preserve">
+    <value>Lên dốc</value>
+  </data>
+  <data name="hillOption3" xml:space="preserve">
+    <value>Độ dốc trung bình</value>
+  </data>
+  <data name="hillOption4" xml:space="preserve">
+    <value>Xuống dốc</value>
+  </data>
+  <data name="hillOption5" xml:space="preserve">
+    <value>Trong thung lũng</value>
+  </data>
   <data name="homeDamages" xml:space="preserve">
     <value>Thiệt hại</value>
   </data>
@@ -192,6 +294,24 @@
   <data name="homeWaterPlaceholder" xml:space="preserve">
     <value>Đánh giá sự mức độ nước</value>
   </data>
+  <data name="infoLatitude" xml:space="preserve">
+    <value>Vĩ độ</value>
+  </data>
+  <data name="infoLongitude" xml:space="preserve">
+    <value>Kinh độ</value>
+  </data>
+  <data name="infoMeasure" xml:space="preserve">
+    <value>Không có loại thước đo</value>
+  </data>
+  <data name="infoStatus" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="infoSystem" xml:space="preserve">
+    <value>Không có loại hệ thống</value>
+  </data>
+  <data name="infoType" xml:space="preserve">
+    <value>Loại hình</value>
+  </data>
   <data name="landslideMeasureAdd" xml:space="preserve">
     <value>Thêm một biện pháp giảm thiểu</value>
   </data>
@@ -200,6 +320,30 @@
   </data>
   <data name="landslideMeasureRadio" xml:space="preserve">
     <value>Có biện pháp giảm thiểu nào không?</value>
+  </data>
+  <data name="landslideOption1" xml:space="preserve">
+    <value>Đá rơi</value>
+  </data>
+  <data name="landslideOption2" xml:space="preserve">
+    <value>Lật đổ</value>
+  </data>
+  <data name="landslideOption3" xml:space="preserve">
+    <value>Trượt xoay</value>
+  </data>
+  <data name="landslideOption4" xml:space="preserve">
+    <value>Trang trình bày phẳng</value>
+  </data>
+  <data name="landslideOption5" xml:space="preserve">
+    <value>Dòng chảy mảnh vụn</value>
+  </data>
+  <data name="landslideOption6" xml:space="preserve">
+    <value>Dòng chảy trái đất</value>
+  </data>
+  <data name="landslideOption7" xml:space="preserve">
+    <value>Sạt lở phức tạp</value>
+  </data>
+  <data name="landslideOption8" xml:space="preserve">
+    <value>Khác</value>
   </data>
   <data name="landslideSystemAdd" xml:space="preserve">
     <value>Thêm một hệ thống giám sát</value>
@@ -227,6 +371,90 @@
   </data>
   <data name="loginSignup" xml:space="preserve">
     <value>Đăng ký</value>
+  </data>
+  <data name="materialOption2" xml:space="preserve">
+    <value>Mảnh vỡ</value>
+  </data>
+  <data name="materialOption3" xml:space="preserve">
+    <value>Không cho phép</value>
+  </data>
+  <data name="materialOption4" xml:space="preserve">
+    <value>Trộn</value>
+  </data>
+  <data name="materialOption5" xml:space="preserve">
+    <value>Không thể xác định</value>
+  </data>
+  <data name="measureOption1" xml:space="preserve">
+    <value>Tường chắn</value>
+  </data>
+  <data name="measureOption2" xml:space="preserve">
+    <value>Rọ đá</value>
+  </data>
+  <data name="measureOption3" xml:space="preserve">
+    <value>Neo</value>
+  </data>
+  <data name="measureOption4" xml:space="preserve">
+    <value>Rào cản đá rơi</value>
+  </data>
+  <data name="measureOption5" xml:space="preserve">
+    <value>Spritz betoz</value>
+  </data>
+  <data name="measureOption6" xml:space="preserve">
+    <value>Lưới ma sát</value>
+  </data>
+  <data name="measureOption7" xml:space="preserve">
+    <value>Cống rãnh</value>
+  </data>
+  <data name="measureOption8" xml:space="preserve">
+    <value>Lưới địa lý</value>
+  </data>
+  <data name="measurePlaceholder" xml:space="preserve">
+    <value>Chọn một tùy chọn</value>
+  </data>
+  <data name="measureTitle" xml:space="preserve">
+    <value>Loại công việc giảm thiểu</value>
+  </data>
+  <data name="messageInternet" xml:space="preserve">
+    <value>Lỗi kết nối Internet</value>
+  </data>
+  <data name="messageLandslide" xml:space="preserve">
+    <value>Bạn phải chọn một trận lở đất</value>
+  </data>
+  <data name="messageMax" xml:space="preserve">
+    <value>Tối đa 500 ký tự ...</value>
+  </data>
+  <data name="messagePicture" xml:space="preserve">
+    <value>Bạn phải chụp một trang web hình ảnh</value>
+  </data>
+  <data name="messageSuccess" xml:space="preserve">
+    <value>Cập nhật thành công</value>
+  </data>
+  <data name="messageTimeout" xml:space="preserve">
+    <value>Hết thời gian phản hồi</value>
+  </data>
+  <data name="messageUpload" xml:space="preserve">
+    <value>Đang chờ tải lên</value>
+  </data>
+  <data name="occupEmployee" xml:space="preserve">
+    <value>Nhân viên</value>
+  </data>
+  <data name="occupFreelancer" xml:space="preserve">
+    <value>Người làm nghề tự do</value>
+  </data>
+  <data name="occupRetiree" xml:space="preserve">
+    <value>Người về hưu</value>
+  </data>
+  <data name="occupStudent" xml:space="preserve">
+    <value>Sinh viên</value>
+  </data>
+  <data name="occupUnemployed" xml:space="preserve">
+    <value>Thất nghiệp</value>
+  </data>
+  <data name="radioNo" xml:space="preserve">
+    <value>Sai</value>
+  </data>
+  <data name="radioYes" xml:space="preserve">
+    <value>Đúng</value>
   </data>
   <data name="settingAccount" xml:space="preserve">
     <value>Tài khoản</value>
@@ -348,6 +576,96 @@ Bạn có thể chọn tắt cookie thông qua các tùy chọn trình duyệt c
   </data>
   <data name="signupTitle" xml:space="preserve">
     <value>- Đăng ký -</value>
+  </data>
+  <data name="String68" xml:space="preserve">
+    <value>Đá</value>
+  </data>
+  <data name="systemOption1" xml:space="preserve">
+    <value>Gián điệp</value>
+  </data>
+  <data name="systemOption10" xml:space="preserve">
+    <value>Quét Lanser</value>
+  </data>
+  <data name="systemOption11" xml:space="preserve">
+    <value>Không thể xác định</value>
+  </data>
+  <data name="systemOption12" xml:space="preserve">
+    <value>Chức năng</value>
+  </data>
+  <data name="systemOption13" xml:space="preserve">
+    <value>Bị hư hỏng một phần</value>
+  </data>
+  <data name="systemOption14" xml:space="preserve">
+    <value>Bị hư hại</value>
+  </data>
+  <data name="systemOption15" xml:space="preserve">
+    <value>Không thể xác định</value>
+  </data>
+  <data name="systemOption2" xml:space="preserve">
+    <value>Lưới điện</value>
+  </data>
+  <data name="systemOption3" xml:space="preserve">
+    <value>Máy đo độ nghiêng</value>
+  </data>
+  <data name="systemOption4" xml:space="preserve">
+    <value>Mở rộng khoảng cách</value>
+  </data>
+  <data name="systemOption5" xml:space="preserve">
+    <value>Máy đo khoảng cách</value>
+  </data>
+  <data name="systemOption6" xml:space="preserve">
+    <value>Công cụ địa hình</value>
+  </data>
+  <data name="systemOption7" xml:space="preserve">
+    <value>GPS</value>
+  </data>
+  <data name="systemOption8" xml:space="preserve">
+    <value>Radar giao thoa kế</value>
+  </data>
+  <data name="systemOption9" xml:space="preserve">
+    <value>Video theo dõi</value>
+  </data>
+  <data name="systemPlaceholder1" xml:space="preserve">
+    <value>Chọn một tùy chọn</value>
+  </data>
+  <data name="systemPlaceholder2" xml:space="preserve">
+    <value>Chọn một tùy chọn</value>
+  </data>
+  <data name="systemTitle1" xml:space="preserve">
+    <value>Loại hệ thống hiển thị màn hình</value>
+  </data>
+  <data name="systemTitle2" xml:space="preserve">
+    <value>Tình trạng của hệ thống giám sát</value>
+  </data>
+  <data name="vegeOption1" xml:space="preserve">
+    <value>Cỏ</value>
+  </data>
+  <data name="vegeOption2" xml:space="preserve">
+    <value>Cây mọc thấp</value>
+  </data>
+  <data name="vegeOption3" xml:space="preserve">
+    <value>Cây</value>
+  </data>
+  <data name="vegeOption4" xml:space="preserve">
+    <value>Trộn</value>
+  </data>
+  <data name="vegeOption5" xml:space="preserve">
+    <value>Vắng mặt</value>
+  </data>
+  <data name="waterOption1" xml:space="preserve">
+    <value>Khô</value>
+  </data>
+  <data name="waterOption2" xml:space="preserve">
+    <value>Ẩm ướt</value>
+  </data>
+  <data name="waterOption3" xml:space="preserve">
+    <value>Bị ướt</value>
+  </data>
+  <data name="waterOption4" xml:space="preserve">
+    <value>Rất ẩm ướt</value>
+  </data>
+  <data name="waterOption5" xml:space="preserve">
+    <value>Không thể xác định</value>
   </data>
   <data name="Wellcome" xml:space="preserve">
     <value>Xin chao</value>

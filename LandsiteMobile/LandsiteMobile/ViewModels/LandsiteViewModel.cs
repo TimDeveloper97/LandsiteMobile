@@ -149,7 +149,11 @@ namespace LandsiteMobile.ViewModels
             //Create choices
             var materials = new string[]
             {
-                "Rock", "Debris", "Dỉrt", "Mixed", "Cannot determine",
+                LanguageResource.materialOption1,
+                        LanguageResource.materialOption2,
+                        LanguageResource.materialOption3,
+                        LanguageResource.materialOption4,
+                        LanguageResource.materialOption5,
             };
             var result = await ShowDialog(LanguageResource.homeMaterialPlaceholder, materials, FindIndex(materials, _responcePin.Material));
             if (result < 0) return;
@@ -162,7 +166,11 @@ namespace LandsiteMobile.ViewModels
             //Create choices
             var hills = new string[]
             {
-                "At the top", "Uphill", "Midslope", "Downhill", "In the valley",
+                LanguageResource.hillOption1,
+                        LanguageResource.hillOption2,
+                        LanguageResource.hillOption3,
+                        LanguageResource.hillOption4,
+                        LanguageResource.hillOption5,
             };
             var result = await ShowDialog(LanguageResource.homeHillPlaceholder, hills, FindIndex(hills, _responcePin.Hill));
             if (result < 0) return;
@@ -175,7 +183,11 @@ namespace LandsiteMobile.ViewModels
             //Create choices
             var waters = new string[]
             {
-                "Dry", "Humid", "Wet", "Very wet", "Cannot determine",
+                LanguageResource.waterOption1,
+                        LanguageResource.waterOption2,
+                        LanguageResource.waterOption3,
+                        LanguageResource.waterOption4,
+                        LanguageResource.waterOption5,
             };
             var result = await ShowDialog(LanguageResource.homeWaterPlaceholder, waters, FindIndex(waters, _responcePin.Water));
             if (result < 0) return;
@@ -188,7 +200,11 @@ namespace LandsiteMobile.ViewModels
             //Create choices
             var vegetations = new string[]
             {
-                "Grass", "Low-growing plants", "Trees", "Mixed", "Absent",
+                LanguageResource.vegeOption1,
+                        LanguageResource.vegeOption2,
+                        LanguageResource.vegeOption3,
+                        LanguageResource.vegeOption4,
+                        LanguageResource.vegeOption5,
             };
             var result = await ShowDialog(LanguageResource.homeVegetationPlaceholder, vegetations, FindIndex(vegetations, _responcePin.Vegetation));
             if (result < 0) return;
@@ -213,7 +229,11 @@ namespace LandsiteMobile.ViewModels
             //Create choices
             var damages = new string[]
             {
-                "No damages", "Direct damage", "Obstruction of water course", "Collapsed bank or dam", "Cannot determine",
+                LanguageResource.damagesOption1,
+                        LanguageResource.damagesOption2,
+                        LanguageResource.damagesOption3,
+                        LanguageResource.damagesOption4,
+                        LanguageResource.damagesOption5,
             };
             var result = await ShowDialog(LanguageResource.homeDamagesPlaceholder, damages, FindIndex(damages, _responcePin.Damages));
             if (result < 0) return;
@@ -230,7 +250,7 @@ namespace LandsiteMobile.ViewModels
                 TintColor = Color.FromHex("#d1542f"),
                 InputType = XF.Material.Forms.UI.MaterialTextFieldInputType.Text,
             };
-            var input = await MaterialDialog.Instance.InputAsync(title: LanguageResource.homeNotePlaceholder, inputPlaceholder: " Max 500 characters...", configuration: config);
+            var input = await MaterialDialog.Instance.InputAsync(title: LanguageResource.homeNotePlaceholder, inputPlaceholder: LanguageResource.messageMax, configuration: config);
             if (string.IsNullOrEmpty(input)) return;
 
             _responcePin.Notes = ValueNote = input;
@@ -242,17 +262,17 @@ namespace LandsiteMobile.ViewModels
         {
             if (Source == null)
             {
-                await MaterialDialog.Instance.SnackbarAsync(message: "You must take a picture site",
+                await MaterialDialog.Instance.SnackbarAsync(message: LanguageResource.messagePicture,
                                          msDuration: MaterialSnackbar.DurationLong);
             }
             else if (string.IsNullOrEmpty(ValueLandslide))
             {
-                await MaterialDialog.Instance.SnackbarAsync(message: "You must choise a landslide",
+                await MaterialDialog.Instance.SnackbarAsync(message: LanguageResource.messageLandslide,
                                          msDuration: MaterialSnackbar.DurationLong);
             }
             else
             {
-                var loadingDialog = await MaterialDialog.Instance.LoadingDialogAsync(message: "Waiting to upload");
+                var loadingDialog = await MaterialDialog.Instance.LoadingDialogAsync(message: LanguageResource.messageUpload);
                 try
                 {
                     _responcePin.Title = _responcePin.Landslide;
@@ -269,19 +289,19 @@ namespace LandsiteMobile.ViewModels
                 catch (FirebaseStorageException fs)
                 {
                     if (fs.ResponseData == "N/A")
-                        await MaterialDialog.Instance.SnackbarAsync(message: "Internet connection error",
+                        await MaterialDialog.Instance.SnackbarAsync(message: LanguageResource.messageInternet,
                                          msDuration: MaterialSnackbar.DurationLong);
                     else
-                        await MaterialDialog.Instance.SnackbarAsync(message: "Fail to upload image",
+                        await MaterialDialog.Instance.SnackbarAsync(message: LanguageResource.messageTimeout,
                                              msDuration: MaterialSnackbar.DurationLong);
                 }
                 catch (FirebaseException fe)
                 {
                     if (fe.ResponseData == "N/A")
-                        await MaterialDialog.Instance.SnackbarAsync(message: "Internet connection error",
+                        await MaterialDialog.Instance.SnackbarAsync(message: LanguageResource.messageInternet,
                                          msDuration: MaterialSnackbar.DurationLong);
                     else if (fe.ResponseData == "")
-                        await MaterialDialog.Instance.SnackbarAsync(message: "Timeout responce",
+                        await MaterialDialog.Instance.SnackbarAsync(message: LanguageResource.messageTimeout,
                                          msDuration: MaterialSnackbar.DurationLong);
                 }
                 finally

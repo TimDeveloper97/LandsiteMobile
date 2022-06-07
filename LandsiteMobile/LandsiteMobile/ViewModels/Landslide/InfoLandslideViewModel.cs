@@ -1,5 +1,6 @@
 ﻿using LandsiteMobile.Domain;
 using LandsiteMobile.Models;
+using LandsiteMobile.Resources.Languages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,25 +45,25 @@ namespace LandsiteMobile.ViewModels.Landslide
 
                 Pin = pin.Object;
 
-                Position = "Landslide: " + Pin.Landslide + " - Longitude: " + Pin.Longitude;
+                Position = $"{LanguageResource.infoLatitude}: " + Pin.Latitude + $" - {LanguageResource.infoLongitude}: " + Pin.Longitude;
 
-                if (Pin.Measure == null || Pin.Measure.Option == "No")
-                    MeasureTypes = "No measure types";
+                if (Pin.Measure == null || Pin.Measure.Option == LanguageResource.radioNo)
+                    MeasureTypes = LanguageResource.infoMeasure;
                 else
                 {
                     foreach (var item in Pin.Measure.Types)
                     {
-                        MeasureTypes += "Type: " + item.Type + " - Status: " + item.Status + "\n";
+                        MeasureTypes += item.Type + "\n";
                     }
                 }
 
-                if (Pin.System == null || Pin.System.Option == "No")
-                    SystemTypes = "No measure types";
+                if (Pin.System == null || Pin.System.Option == LanguageResource.radioNo)
+                    SystemTypes = LanguageResource.infoSystem;
                 else
                 {
                     foreach (var item in Pin.System.Types)
                     {
-                        SystemTypes += "Type: " + item.Type + " - Status: " + item.Status + "\n";
+                        SystemTypes += $"{LanguageResource.infoType}: " + item.Type + $" - {LanguageResource.infoStatus}: " + item.Status + "\n";
                     }
                 }
             }

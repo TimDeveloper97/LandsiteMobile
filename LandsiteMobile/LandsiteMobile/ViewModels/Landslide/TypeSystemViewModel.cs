@@ -34,7 +34,7 @@ namespace LandsiteMobile.ViewModels.Landslide
             get => selectItemRadio; set
             {
                 SetProperty(ref selectItemRadio, value);
-                HasType = selectItemRadio == "Yes" || string.IsNullOrEmpty(selectItemRadio) ? true : false;
+                HasType = selectItemRadio == LanguageResource.radioYes || string.IsNullOrEmpty(selectItemRadio) ? true : false;
                 ResponceType.Option = selectItemRadio;
             }
         }
@@ -91,10 +91,10 @@ namespace LandsiteMobile.ViewModels.Landslide
             var dg = new DialogMeasureView
             {
                 Title = LanguageResource.homeSystem,
-                Title1 = "Type of the minitoring system",
-                Title2 = "Status of the monitoring system",
-                Value1 = "Select an option",
-                Value2 = "Select an option",
+                Title1 = LanguageResource.systemTitle1,
+                Title2 = LanguageResource.systemTitle2,
+                Value1 = LanguageResource.systemPlaceholder1,
+                Value2 = LanguageResource.systemPlaceholder2,
                 IsComboBox2 = true,
             };
 
@@ -102,10 +102,19 @@ namespace LandsiteMobile.ViewModels.Landslide
             {
                 var options = new string[]
                     {
-                            "Spy", "Grid", "Inclinometer", "Externsometer", "Distometer", "Topographic instruments", "GPS",
-                            "Interferometric radar", "Video surveillance", "Lanser scanning", "Cannot determine"
+                        LanguageResource.systemOption1,
+                        LanguageResource.systemOption2,
+                        LanguageResource.systemOption3,
+                        LanguageResource.systemOption4,
+                        LanguageResource.systemOption5,
+                        LanguageResource.systemOption6,
+                        LanguageResource.systemOption7,
+                        LanguageResource.systemOption8,
+                        LanguageResource.systemOption9,
+                        LanguageResource.systemOption10,
+                        LanguageResource.systemOption11,
                     };
-                var result = await ShowDialog("Type of the minitoring system", options);
+                var result = await ShowDialog(LanguageResource.systemTitle1, options);
                 if (result < 0) return;
 
                 dg.Value1 = options[result];
@@ -115,9 +124,12 @@ namespace LandsiteMobile.ViewModels.Landslide
             {
                 var options = new string[]
                     {
-                            "Functioning", "Partially damaged", "Damaged", "Cannot determine"
+                             LanguageResource.systemOption12,
+                        LanguageResource.systemOption13,
+                        LanguageResource.systemOption14,
+                        LanguageResource.systemOption15,
                     };
-                var result = await ShowDialog("Status of the monitoring system", options);
+                var result = await ShowDialog(LanguageResource.systemTitle2, options);
                 if (result < 0) return;
 
                 dg.Value2 = options[result];
@@ -137,7 +149,7 @@ namespace LandsiteMobile.ViewModels.Landslide
 
         public TypeSystemViewModel()
         {
-            Radios = new ObservableCollection<string> { "Yes", "No" };
+            Radios = new ObservableCollection<string> { LanguageResource.radioYes, LanguageResource.radioNo };
             Types = new ObservableCollection<TypeModel>();
             ResponceType = new ResponceType() { Option = string.Empty, Types = new List<TypeModel>() };
         }

@@ -2,6 +2,7 @@
 using Firebase.Database.Query;
 using LandsiteMobile.Domain;
 using LandsiteMobile.Models;
+using LandsiteMobile.Resources.Languages;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -45,18 +46,25 @@ namespace LandsiteMobile.ViewModels
 
         public DetailAccountViewModel()
         {
-            Title = "Edit Profile";
+            Title = LanguageResource.accountEditProfile;
 
-            Ages = new ObservableCollection<string> { _empty, "Less than 15" };
-            Genders = new ObservableCollection<string> { _empty, "Male", "Female", "Other" };
-            Occupations = new ObservableCollection<string> { _empty, "Student", "Employee", "Freelancer", "Unemployed", "Retiree" };
+            Ages = new ObservableCollection<string> { _empty };
+            Genders = new ObservableCollection<string> { _empty, LanguageResource.genderMale, LanguageResource.genderFemale, LanguageResource.genderOther };
+            Occupations = new ObservableCollection<string> { _empty, LanguageResource.occupStudent, LanguageResource.occupEmployee, LanguageResource.occupFreelancer, LanguageResource.occupUnemployed, LanguageResource.occupRetiree };
 
-            for (int i = 16; i <= 70; i += 5)
-            {
-                string item = "From " + i + " to " + (i + 4);
-                Ages.Add(item);
-            }
-            Ages.Add("More than 70");
+            Ages.Add(LanguageResource.age15);
+            Ages.Add(LanguageResource.age16);
+            Ages.Add(LanguageResource.age21);
+            Ages.Add(LanguageResource.age26);
+            Ages.Add(LanguageResource.age31);
+            Ages.Add(LanguageResource.age36);
+            Ages.Add(LanguageResource.age41);
+            Ages.Add(LanguageResource.age46);
+            Ages.Add(LanguageResource.age51);
+            Ages.Add(LanguageResource.age56);
+            Ages.Add(LanguageResource.age61);
+            Ages.Add(LanguageResource.age66);
+            Ages.Add(LanguageResource.age70);
         }
 
         #region Method
@@ -76,14 +84,14 @@ namespace LandsiteMobile.ViewModels
 
 
 
-                await MaterialDialog.Instance.SnackbarAsync(message: "Update profile success",
+                await MaterialDialog.Instance.SnackbarAsync(message: LanguageResource.messageSuccess,
                                          msDuration: MaterialSnackbar.DurationLong);
                 await Shell.Current.GoToAsync("..");
             }
             catch (FirebaseAuthException ex)
             {
                 if (ex.ResponseData == "N/A")
-                    await MaterialDialog.Instance.SnackbarAsync(message: "Internet connection error",
+                    await MaterialDialog.Instance.SnackbarAsync(message: LanguageResource.messageInternet,
                                      msDuration: MaterialSnackbar.DurationLong);
             }
             finally

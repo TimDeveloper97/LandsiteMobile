@@ -34,7 +34,7 @@ namespace LandsiteMobile.ViewModels.Landslide
             get => selectItemRadio; set
             {
                 SetProperty(ref selectItemRadio, value);
-                HasType = selectItemRadio == "Yes" || string.IsNullOrEmpty(selectItemRadio) ? true : false;
+                HasType = selectItemRadio == LanguageResource.radioYes || string.IsNullOrEmpty(selectItemRadio) ? true : false;
                 ResponceType.Option = selectItemRadio;
             }
         }
@@ -91,18 +91,24 @@ namespace LandsiteMobile.ViewModels.Landslide
             var dg = new DialogMeasureView
             {
                 Title = LanguageResource.homeMeasures,
-                Title1 = "Type of the mitigation work",
-                Value1 = "Select an option",
+                Title1 = LanguageResource.measureTitle,
+                Value1 = LanguageResource.measurePlaceholder,
             };
 
             dg.ComboBox1Command = new Command(async () =>
             {
                 var options = new string[]
                     {
-                            "Retaining wall", "Gabions", "Anchorage", "Rockfall barriers", "Spritz betoz", "Friction nets", "Drains",
-                            "Geogrids"
+                        LanguageResource.measureOption1,
+                        LanguageResource.measureOption2,
+                        LanguageResource.measureOption3,
+                        LanguageResource.measureOption4,
+                        LanguageResource.measureOption5,
+                        LanguageResource.measureOption6,
+                        LanguageResource.measureOption7,
+                        LanguageResource.measureOption8,
                     };
-                var result = await ShowDialog("Type of the mitigation work", options);
+                var result = await ShowDialog(LanguageResource.measureTitle, options);
                 if (result < 0) return;
 
                 dg.Value1 = options[result];
@@ -122,7 +128,7 @@ namespace LandsiteMobile.ViewModels.Landslide
 
         public TypeMeasureViewModel()
         {
-            Radios = new ObservableCollection<string> { "Yes", "No" };
+            Radios = new ObservableCollection<string> { LanguageResource.radioYes, LanguageResource.radioNo };
             Types = new ObservableCollection<TypeModel>();
             ResponceType = new ResponceType() { Option = string.Empty, Types = new List<TypeModel>() };
         }

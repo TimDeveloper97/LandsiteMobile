@@ -1,4 +1,5 @@
 ﻿using LandsiteMobile.Domain;
+using LandsiteMobile.Resources.Languages;
 using LandsiteMobile.Views;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,7 @@ namespace LandsiteMobile.ViewModels
 
         public AccountSettingViewModel()
         {
-            Title = "Account";
+            Title = LanguageResource.settingAccount;
         }
     }
 }

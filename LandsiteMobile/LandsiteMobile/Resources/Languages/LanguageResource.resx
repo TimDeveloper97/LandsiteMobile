@@ -123,6 +123,108 @@
   <data name="accountLogout" xml:space="preserve">
     <value>Logout</value>
   </data>
+  <data name="age15" xml:space="preserve">
+    <value>Less than 15</value>
+  </data>
+  <data name="age16" xml:space="preserve">
+    <value>From 16 to 20</value>
+  </data>
+  <data name="age21" xml:space="preserve">
+    <value>From 21 to 25</value>
+  </data>
+  <data name="age26" xml:space="preserve">
+    <value>From 26 to 30</value>
+  </data>
+  <data name="age31" xml:space="preserve">
+    <value>From 31 to 35</value>
+  </data>
+  <data name="age36" xml:space="preserve">
+    <value>From 36 to 40</value>
+  </data>
+  <data name="age41" xml:space="preserve">
+    <value>From 41 to 45</value>
+  </data>
+  <data name="age46" xml:space="preserve">
+    <value>From 46 to 50</value>
+  </data>
+  <data name="age51" xml:space="preserve">
+    <value>From 51 to 55</value>
+  </data>
+  <data name="age56" xml:space="preserve">
+    <value>From 56 to 60</value>
+  </data>
+  <data name="age61" xml:space="preserve">
+    <value>From 61 to 65</value>
+  </data>
+  <data name="age66" xml:space="preserve">
+    <value>From 66 to 70</value>
+  </data>
+  <data name="age70" xml:space="preserve">
+    <value>More than 70</value>
+  </data>
+  <data name="damagesOption1" xml:space="preserve">
+    <value>No damages</value>
+  </data>
+  <data name="damagesOption2" xml:space="preserve">
+    <value>Direct damage</value>
+  </data>
+  <data name="damagesOption3" xml:space="preserve">
+    <value>Obstruction of water course</value>
+  </data>
+  <data name="damagesOption4" xml:space="preserve">
+    <value>Collapsed bank or dam</value>
+  </data>
+  <data name="damagesOption5" xml:space="preserve">
+    <value>Cannot determine</value>
+  </data>
+  <data name="error8" xml:space="preserve">
+    <value>Password at least 8 characters</value>
+  </data>
+  <data name="errorAge" xml:space="preserve">
+    <value>Must enter age</value>
+  </data>
+  <data name="errorConfirm" xml:space="preserve">
+    <value>Must enter confirm</value>
+  </data>
+  <data name="errordiff" xml:space="preserve">
+    <value>Confirm password must like password</value>
+  </data>
+  <data name="errorEmail" xml:space="preserve">
+    <value>Must enter email</value>
+  </data>
+  <data name="errorGender" xml:space="preserve">
+    <value>Must enter gender</value>
+  </data>
+  <data name="errorOccup" xml:space="preserve">
+    <value>Must enter occupation</value>
+  </data>
+  <data name="errorPass" xml:space="preserve">
+    <value>Must enter password</value>
+  </data>
+  <data name="genderFemale" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="genderMale" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="genderOther" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="hillOption1" xml:space="preserve">
+    <value>At the top</value>
+  </data>
+  <data name="hillOption2" xml:space="preserve">
+    <value>Uphill</value>
+  </data>
+  <data name="hillOption3" xml:space="preserve">
+    <value>Midslope</value>
+  </data>
+  <data name="hillOption4" xml:space="preserve">
+    <value>Downhill</value>
+  </data>
+  <data name="hillOption5" xml:space="preserve">
+    <value>In the valley</value>
+  </data>
   <data name="homeDamages" xml:space="preserve">
     <value>Damages</value>
   </data>
@@ -192,6 +294,24 @@
   <data name="homeWaterPlaceholder" xml:space="preserve">
     <value>Evaluate the presence of water</value>
   </data>
+  <data name="infoLatitude" xml:space="preserve">
+    <value>Latitude</value>
+  </data>
+  <data name="infoLongitude" xml:space="preserve">
+    <value>Longitude</value>
+  </data>
+  <data name="infoMeasure" xml:space="preserve">
+    <value>No measure types</value>
+  </data>
+  <data name="infoStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="infoSystem" xml:space="preserve">
+    <value>No system types</value>
+  </data>
+  <data name="infoType" xml:space="preserve">
+    <value>Type</value>
+  </data>
   <data name="landslideMeasureAdd" xml:space="preserve">
     <value>Add a mitigation measure</value>
   </data>
@@ -200,6 +320,30 @@
   </data>
   <data name="landslideMeasureRadio" xml:space="preserve">
     <value>Is there any mitigation measures?</value>
+  </data>
+  <data name="landslideOption1" xml:space="preserve">
+    <value>Rockkfall</value>
+  </data>
+  <data name="landslideOption2" xml:space="preserve">
+    <value>Toppling</value>
+  </data>
+  <data name="landslideOption3" xml:space="preserve">
+    <value>Rotational slide</value>
+  </data>
+  <data name="landslideOption4" xml:space="preserve">
+    <value>Planar slide</value>
+  </data>
+  <data name="landslideOption5" xml:space="preserve">
+    <value>Debris flow</value>
+  </data>
+  <data name="landslideOption6" xml:space="preserve">
+    <value>Earth flow</value>
+  </data>
+  <data name="landslideOption7" xml:space="preserve">
+    <value>Complex landslide</value>
+  </data>
+  <data name="landslideOption8" xml:space="preserve">
+    <value>Other</value>
   </data>
   <data name="landslideSystemAdd" xml:space="preserve">
     <value>Add a monitoring system</value>
@@ -233,6 +377,93 @@
   </data>
   <data name="loginSignup" xml:space="preserve">
     <value>SIGN UP</value>
+  </data>
+  <data name="materialOption1" xml:space="preserve">
+    <value>Rock</value>
+  </data>
+  <data name="materialOption2" xml:space="preserve">
+    <value>Debris</value>
+  </data>
+  <data name="materialOption3" xml:space="preserve">
+    <value>Dirst</value>
+  </data>
+  <data name="materialOption4" xml:space="preserve">
+    <value>Mixed</value>
+  </data>
+  <data name="materialOption5" xml:space="preserve">
+    <value>Cannot determine</value>
+  </data>
+  <data name="measureOption1" xml:space="preserve">
+    <value>Retaining wall</value>
+  </data>
+  <data name="measureOption2" xml:space="preserve">
+    <value>Gabions</value>
+  </data>
+  <data name="measureOption3" xml:space="preserve">
+    <value>Anchorage</value>
+  </data>
+  <data name="measureOption4" xml:space="preserve">
+    <value>Rockfall barriers</value>
+  </data>
+  <data name="measureOption5" xml:space="preserve">
+    <value>Spritz betoz</value>
+  </data>
+  <data name="measureOption6" xml:space="preserve">
+    <value>Friction nets</value>
+  </data>
+  <data name="measureOption7" xml:space="preserve">
+    <value>Drains</value>
+  </data>
+  <data name="measureOption8" xml:space="preserve">
+    <value>Geogrids</value>
+  </data>
+  <data name="measurePlaceholder" xml:space="preserve">
+    <value>Select an option</value>
+  </data>
+  <data name="measureTitle" xml:space="preserve">
+    <value>Type of the mitigation work</value>
+  </data>
+  <data name="messageInternet" xml:space="preserve">
+    <value>Internet connection error</value>
+  </data>
+  <data name="messageLandslide" xml:space="preserve">
+    <value>You must choise a landslide</value>
+  </data>
+  <data name="messageMax" xml:space="preserve">
+    <value>Max 500 characters...</value>
+  </data>
+  <data name="messagePicture" xml:space="preserve">
+    <value>You must take a picture site</value>
+  </data>
+  <data name="messageSuccess" xml:space="preserve">
+    <value>Update success</value>
+  </data>
+  <data name="messageTimeout" xml:space="preserve">
+    <value>Timeout response</value>
+  </data>
+  <data name="messageUpload" xml:space="preserve">
+    <value>Waiting to upload</value>
+  </data>
+  <data name="occupEmployee" xml:space="preserve">
+    <value>Employee</value>
+  </data>
+  <data name="occupFreelancer" xml:space="preserve">
+    <value>Freelancer</value>
+  </data>
+  <data name="occupRetiree" xml:space="preserve">
+    <value>Retiree</value>
+  </data>
+  <data name="occupStudent" xml:space="preserve">
+    <value>Student</value>
+  </data>
+  <data name="occupUnemployed" xml:space="preserve">
+    <value>Unemployed</value>
+  </data>
+  <data name="radioNo" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="radioYes" xml:space="preserve">
+    <value>Yes</value>
   </data>
   <data name="settingAccount" xml:space="preserve">
     <value>Account</value>
@@ -358,6 +589,93 @@ You can choose to disable cookies through your individual browser options. To kn
   </data>
   <data name="signupTitle" xml:space="preserve">
     <value>- Sign up -</value>
+  </data>
+  <data name="systemOption1" xml:space="preserve">
+    <value>Spy</value>
+  </data>
+  <data name="systemOption10" xml:space="preserve">
+    <value>Lanser scanning</value>
+  </data>
+  <data name="systemOption11" xml:space="preserve">
+    <value>Cannot determine</value>
+  </data>
+  <data name="systemOption12" xml:space="preserve">
+    <value>Functioning</value>
+  </data>
+  <data name="systemOption13" xml:space="preserve">
+    <value>Partially damaged</value>
+  </data>
+  <data name="systemOption14" xml:space="preserve">
+    <value>Damaged</value>
+  </data>
+  <data name="systemOption15" xml:space="preserve">
+    <value>Cannot determine</value>
+  </data>
+  <data name="systemOption2" xml:space="preserve">
+    <value>Grid</value>
+  </data>
+  <data name="systemOption3" xml:space="preserve">
+    <value>Inclinometer</value>
+  </data>
+  <data name="systemOption4" xml:space="preserve">
+    <value>Externsometer</value>
+  </data>
+  <data name="systemOption5" xml:space="preserve">
+    <value>Distometer</value>
+  </data>
+  <data name="systemOption6" xml:space="preserve">
+    <value>Topographic instruments</value>
+  </data>
+  <data name="systemOption7" xml:space="preserve">
+    <value>GPS</value>
+  </data>
+  <data name="systemOption8" xml:space="preserve">
+    <value>Interferometric radar</value>
+  </data>
+  <data name="systemOption9" xml:space="preserve">
+    <value>Video surveillance</value>
+  </data>
+  <data name="systemPlaceholder1" xml:space="preserve">
+    <value>Select an option</value>
+  </data>
+  <data name="systemPlaceholder2" xml:space="preserve">
+    <value>Select an option</value>
+  </data>
+  <data name="systemTitle1" xml:space="preserve">
+    <value>Type of the minitoring system</value>
+  </data>
+  <data name="systemTitle2" xml:space="preserve">
+    <value>Status of the monitoring system</value>
+  </data>
+  <data name="vegeOption1" xml:space="preserve">
+    <value>Grass</value>
+  </data>
+  <data name="vegeOption2" xml:space="preserve">
+    <value>Low-growing plants</value>
+  </data>
+  <data name="vegeOption3" xml:space="preserve">
+    <value>Trees</value>
+  </data>
+  <data name="vegeOption4" xml:space="preserve">
+    <value>Mixed</value>
+  </data>
+  <data name="vegeOption5" xml:space="preserve">
+    <value>Absent</value>
+  </data>
+  <data name="waterOption1" xml:space="preserve">
+    <value>Dry</value>
+  </data>
+  <data name="waterOption2" xml:space="preserve">
+    <value>Humid</value>
+  </data>
+  <data name="waterOption3" xml:space="preserve">
+    <value>Wet</value>
+  </data>
+  <data name="waterOption4" xml:space="preserve">
+    <value>Very wet</value>
+  </data>
+  <data name="waterOption5" xml:space="preserve">
+    <value>Cannot determine</value>
   </data>
   <data name="Wellcome" xml:space="preserve">
     <value>Wellcome</value>

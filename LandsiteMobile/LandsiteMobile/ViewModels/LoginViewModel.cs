@@ -109,11 +109,6 @@ namespace LandsiteMobile.ViewModels
             {
                 var auth = await _firebaseAuthProvider.SignInWithEmailAndPasswordAsync(Email, Password);
                 var content = await auth.GetFreshAuthAsync();
-                //if (!content.User.IsEmailVerified)
-                //{
-                //    var json = JsonConvert.SerializeObject(new BaseResponse { Error = new Error { Message = "Email is not verified" } });
-                //    throw new FirebaseAuthException(null, null, json, null);
-                //}
 
                 var user = (await _firebaseDatabase.Child("UsersLandslide")
                                     .OnceAsync<UserModel>()).FirstOrDefault(x => x.Object.LocalId == content.User.LocalId);
@@ -128,7 +123,7 @@ namespace LandsiteMobile.ViewModels
             catch (FirebaseAuthException ex)
             {
                 if (ex.ResponseData == "N/A")
-                    await MaterialDialog.Instance.SnackbarAsync(message: "Internet connection error",
+                    await MaterialDialog.Instance.SnackbarAsync(message: LanguageResource.messageInternet,
                                      msDuration: MaterialSnackbar.DurationLong);
                 else
                 {
@@ -141,7 +136,7 @@ namespace LandsiteMobile.ViewModels
             catch (FirebaseException fe)
             {
                 if (fe.ResponseData == "")
-                    await MaterialDialog.Instance.SnackbarAsync(message: "Timeout responce",
+                    await MaterialDialog.Instance.SnackbarAsync(message: LanguageResource.messageTimeout,
                                      msDuration: MaterialSnackbar.DurationLong);
             }
             finally

@@ -2,6 +2,7 @@
 using Firebase.Database.Query;
 using LandsiteMobile.Domain;
 using LandsiteMobile.Models;
+using LandsiteMobile.Resources.Languages;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -61,7 +62,7 @@ namespace LandsiteMobile.ViewModels
 
                     await _firebaseDatabase.Child("UsersLandslide")
                             .PostAsync(model);
-                    await MaterialDialog.Instance.SnackbarAsync(message: "Account successfully created!\nPlease verify your email to use the account",
+                    await MaterialDialog.Instance.SnackbarAsync(message: LanguageResource.messageSuccess,
                                              msDuration: MaterialSnackbar.DurationLong);
                     await Shell.Current.Navigation.PopToRootAsync();
                 }
@@ -69,7 +70,7 @@ namespace LandsiteMobile.ViewModels
             catch (FirebaseAuthException ex)
             {
                 if (ex.ResponseData == "N/A")
-                    await MaterialDialog.Instance.SnackbarAsync(message: "Internet connection error",
+                    await MaterialDialog.Instance.SnackbarAsync(message: LanguageResource.messageInternet,
                                      msDuration: MaterialSnackbar.DurationLong);
                 else
                 {
@@ -88,65 +89,72 @@ namespace LandsiteMobile.ViewModels
 
         public SignUpViewModel()
         {
-            Ages = new ObservableCollection<string> { _empty, "Less than 15" };
-            Genders = new ObservableCollection<string> { _empty, "Male", "Female", "Other" };
-            Occupations = new ObservableCollection<string> { _empty, "Student", "Employee", "Freelancer", "Unemployed", "Retiree" };
+            Ages = new ObservableCollection<string> { _empty };
+            Genders = new ObservableCollection<string> { _empty, LanguageResource.genderMale, LanguageResource.genderFemale, LanguageResource.genderOther };
+            Occupations = new ObservableCollection<string> { _empty, LanguageResource.occupStudent, LanguageResource.occupEmployee, LanguageResource.occupFreelancer, LanguageResource.occupUnemployed, LanguageResource.occupRetiree };
 
-            for (int i = 16; i <= 70; i += 5)
-            {
-                string item = "From " + i + " to " + (i + 4);
-                Ages.Add(item);
-            }
-            Ages.Add("More than 70");
+            Ages.Add(LanguageResource.age15);
+            Ages.Add(LanguageResource.age16);
+            Ages.Add(LanguageResource.age21);
+            Ages.Add(LanguageResource.age26);
+            Ages.Add(LanguageResource.age31);
+            Ages.Add(LanguageResource.age36);
+            Ages.Add(LanguageResource.age41);
+            Ages.Add(LanguageResource.age46);
+            Ages.Add(LanguageResource.age51);
+            Ages.Add(LanguageResource.age56);
+            Ages.Add(LanguageResource.age61);
+            Ages.Add(LanguageResource.age66);
+            Ages.Add(LanguageResource.age70);
         }
 
         async Task<bool> CheckCondition()
         {
             if (string.IsNullOrEmpty(Email))
             {
-                await MaterialDialog.Instance.SnackbarAsync(message: "Must enter email",
+                await MaterialDialog.Instance.SnackbarAsync(message: LanguageResource.errorEmail,
                                  msDuration: MaterialSnackbar.DurationLong);
                 return false;
             }
             if (string.IsNullOrEmpty(Password))
             {
-                await MaterialDialog.Instance.SnackbarAsync(message: "Must enter password",
+                await MaterialDialog.Instance.SnackbarAsync(message: LanguageResource.errorPass,
                                  msDuration: MaterialSnackbar.DurationLong);
                 return false;
             }
             if (Password.Length < 8)
             {
-                await MaterialDialog.Instance.SnackbarAsync(message: "Password at least 8 characters",
+                await MaterialDialog.Instance.SnackbarAsync(message: LanguageResource.error8,
                                  msDuration: MaterialSnackbar.DurationLong);
                 return false;
             }
             if (string.IsNullOrEmpty(Confirm))
             {
-                await MaterialDialog.Instance.SnackbarAsync(message: "Must enter confirm",
+                await MaterialDialog.Instance.SnackbarAsync(message: LanguageResource.errorConfirm,
                                  msDuration: MaterialSnackbar.DurationLong);
                 return false;
             }
             if(Password != Confirm)
             {
-                await MaterialDialog.Instance.SnackbarAsync(message: "Confirm password must like password",
+                await MaterialDialog.Instance.SnackbarAsync(message: LanguageResource.errordiff,
                                  msDuration: MaterialSnackbar.DurationLong);
                 return false;
             }
             if (string.IsNullOrEmpty(SelectAge))
             {
-                await MaterialDialog.Instance.SnackbarAsync(message: "Must enter age",
+                await MaterialDialog.Instance.SnackbarAsync(message: LanguageResource.errorAge,
                                  msDuration: MaterialSnackbar.DurationLong);
                 return false;
             }
             if (string.IsNullOrEmpty(SelectGender))
             {
-                await MaterialDialog.Instance.SnackbarAsync(message: "Must enter gender",
+                await MaterialDialog.Instance.SnackbarAsync(message: LanguageResource.errorGender,
                                  msDuration: MaterialSnackbar.DurationLong);
                 return false;
             }
             if (string.IsNullOrEmpty(SelectOccupation))
             {
-                await MaterialDialog.Instance.SnackbarAsync(message: "Must enter occupation",
+                await MaterialDialog.Instance.SnackbarAsync(message: LanguageResource.errorOccup,
                                  msDuration: MaterialSnackbar.DurationLong);
                 return false;
             }

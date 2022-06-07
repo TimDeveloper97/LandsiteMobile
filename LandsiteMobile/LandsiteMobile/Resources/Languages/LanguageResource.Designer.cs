@@ -79,6 +79,312 @@ namespace LandsiteMobile.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Less than 15.
+        /// </summary>
+        internal static string age15 {
+            get {
+                return ResourceManager.GetString("age15", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to From 16 to 20.
+        /// </summary>
+        internal static string age16 {
+            get {
+                return ResourceManager.GetString("age16", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to From 21 to 25.
+        /// </summary>
+        internal static string age21 {
+            get {
+                return ResourceManager.GetString("age21", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to From 26 to 30.
+        /// </summary>
+        internal static string age26 {
+            get {
+                return ResourceManager.GetString("age26", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to From 31 to 35.
+        /// </summary>
+        internal static string age31 {
+            get {
+                return ResourceManager.GetString("age31", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to From 36 to 40.
+        /// </summary>
+        internal static string age36 {
+            get {
+                return ResourceManager.GetString("age36", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to From 41 to 45.
+        /// </summary>
+        internal static string age41 {
+            get {
+                return ResourceManager.GetString("age41", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to From 46 to 50.
+        /// </summary>
+        internal static string age46 {
+            get {
+                return ResourceManager.GetString("age46", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to From 51 to 55.
+        /// </summary>
+        internal static string age51 {
+            get {
+                return ResourceManager.GetString("age51", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to From 56 to 60.
+        /// </summary>
+        internal static string age56 {
+            get {
+                return ResourceManager.GetString("age56", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to From 61 to 65.
+        /// </summary>
+        internal static string age61 {
+            get {
+                return ResourceManager.GetString("age61", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to From 66 to 70.
+        /// </summary>
+        internal static string age66 {
+            get {
+                return ResourceManager.GetString("age66", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to More than 70.
+        /// </summary>
+        internal static string age70 {
+            get {
+                return ResourceManager.GetString("age70", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No damages.
+        /// </summary>
+        internal static string damagesOption1 {
+            get {
+                return ResourceManager.GetString("damagesOption1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Direct damage.
+        /// </summary>
+        internal static string damagesOption2 {
+            get {
+                return ResourceManager.GetString("damagesOption2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Obstruction of water course.
+        /// </summary>
+        internal static string damagesOption3 {
+            get {
+                return ResourceManager.GetString("damagesOption3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Collapsed bank or dam.
+        /// </summary>
+        internal static string damagesOption4 {
+            get {
+                return ResourceManager.GetString("damagesOption4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot determine.
+        /// </summary>
+        internal static string damagesOption5 {
+            get {
+                return ResourceManager.GetString("damagesOption5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password at least 8 characters.
+        /// </summary>
+        internal static string error8 {
+            get {
+                return ResourceManager.GetString("error8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Must enter age.
+        /// </summary>
+        internal static string errorAge {
+            get {
+                return ResourceManager.GetString("errorAge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Must enter confirm.
+        /// </summary>
+        internal static string errorConfirm {
+            get {
+                return ResourceManager.GetString("errorConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm password must like password.
+        /// </summary>
+        internal static string errordiff {
+            get {
+                return ResourceManager.GetString("errordiff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Must enter email.
+        /// </summary>
+        internal static string errorEmail {
+            get {
+                return ResourceManager.GetString("errorEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Must enter gender.
+        /// </summary>
+        internal static string errorGender {
+            get {
+                return ResourceManager.GetString("errorGender", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Must enter occupation.
+        /// </summary>
+        internal static string errorOccup {
+            get {
+                return ResourceManager.GetString("errorOccup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Must enter password.
+        /// </summary>
+        internal static string errorPass {
+            get {
+                return ResourceManager.GetString("errorPass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Female.
+        /// </summary>
+        internal static string genderFemale {
+            get {
+                return ResourceManager.GetString("genderFemale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Male.
+        /// </summary>
+        internal static string genderMale {
+            get {
+                return ResourceManager.GetString("genderMale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Other.
+        /// </summary>
+        internal static string genderOther {
+            get {
+                return ResourceManager.GetString("genderOther", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to At the top.
+        /// </summary>
+        internal static string hillOption1 {
+            get {
+                return ResourceManager.GetString("hillOption1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uphill.
+        /// </summary>
+        internal static string hillOption2 {
+            get {
+                return ResourceManager.GetString("hillOption2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Midslope.
+        /// </summary>
+        internal static string hillOption3 {
+            get {
+                return ResourceManager.GetString("hillOption3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Downhill.
+        /// </summary>
+        internal static string hillOption4 {
+            get {
+                return ResourceManager.GetString("hillOption4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In the valley.
+        /// </summary>
+        internal static string hillOption5 {
+            get {
+                return ResourceManager.GetString("hillOption5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Damages.
         /// </summary>
         internal static string homeDamages {
@@ -286,6 +592,60 @@ namespace LandsiteMobile.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Latitude.
+        /// </summary>
+        internal static string infoLatitude {
+            get {
+                return ResourceManager.GetString("infoLatitude", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Longitude.
+        /// </summary>
+        internal static string infoLongitude {
+            get {
+                return ResourceManager.GetString("infoLongitude", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No measure types.
+        /// </summary>
+        internal static string infoMeasure {
+            get {
+                return ResourceManager.GetString("infoMeasure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Status.
+        /// </summary>
+        internal static string infoStatus {
+            get {
+                return ResourceManager.GetString("infoStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No system types.
+        /// </summary>
+        internal static string infoSystem {
+            get {
+                return ResourceManager.GetString("infoSystem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type.
+        /// </summary>
+        internal static string infoType {
+            get {
+                return ResourceManager.GetString("infoType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add a mitigation measure.
         /// </summary>
         internal static string landslideMeasureAdd {
@@ -309,6 +669,78 @@ namespace LandsiteMobile.Resources.Languages {
         internal static string landslideMeasureRadio {
             get {
                 return ResourceManager.GetString("landslideMeasureRadio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rockkfall.
+        /// </summary>
+        internal static string landslideOption1 {
+            get {
+                return ResourceManager.GetString("landslideOption1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toppling.
+        /// </summary>
+        internal static string landslideOption2 {
+            get {
+                return ResourceManager.GetString("landslideOption2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rotational slide.
+        /// </summary>
+        internal static string landslideOption3 {
+            get {
+                return ResourceManager.GetString("landslideOption3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Planar slide.
+        /// </summary>
+        internal static string landslideOption4 {
+            get {
+                return ResourceManager.GetString("landslideOption4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debris flow.
+        /// </summary>
+        internal static string landslideOption5 {
+            get {
+                return ResourceManager.GetString("landslideOption5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Earth flow.
+        /// </summary>
+        internal static string landslideOption6 {
+            get {
+                return ResourceManager.GetString("landslideOption6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Complex landslide.
+        /// </summary>
+        internal static string landslideOption7 {
+            get {
+                return ResourceManager.GetString("landslideOption7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Other.
+        /// </summary>
+        internal static string landslideOption8 {
+            get {
+                return ResourceManager.GetString("landslideOption8", resourceCulture);
             }
         }
         
@@ -408,6 +840,267 @@ namespace LandsiteMobile.Resources.Languages {
         internal static string loginSignup {
             get {
                 return ResourceManager.GetString("loginSignup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rock.
+        /// </summary>
+        internal static string materialOption1 {
+            get {
+                return ResourceManager.GetString("materialOption1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debris.
+        /// </summary>
+        internal static string materialOption2 {
+            get {
+                return ResourceManager.GetString("materialOption2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dirst.
+        /// </summary>
+        internal static string materialOption3 {
+            get {
+                return ResourceManager.GetString("materialOption3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mixed.
+        /// </summary>
+        internal static string materialOption4 {
+            get {
+                return ResourceManager.GetString("materialOption4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot determine.
+        /// </summary>
+        internal static string materialOption5 {
+            get {
+                return ResourceManager.GetString("materialOption5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Retaining wall.
+        /// </summary>
+        internal static string measureOption1 {
+            get {
+                return ResourceManager.GetString("measureOption1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gabions.
+        /// </summary>
+        internal static string measureOption2 {
+            get {
+                return ResourceManager.GetString("measureOption2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Anchorage.
+        /// </summary>
+        internal static string measureOption3 {
+            get {
+                return ResourceManager.GetString("measureOption3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rockfall barriers.
+        /// </summary>
+        internal static string measureOption4 {
+            get {
+                return ResourceManager.GetString("measureOption4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Spritz betoz.
+        /// </summary>
+        internal static string measureOption5 {
+            get {
+                return ResourceManager.GetString("measureOption5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Friction nets.
+        /// </summary>
+        internal static string measureOption6 {
+            get {
+                return ResourceManager.GetString("measureOption6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Drains.
+        /// </summary>
+        internal static string measureOption7 {
+            get {
+                return ResourceManager.GetString("measureOption7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Geogrids.
+        /// </summary>
+        internal static string measureOption8 {
+            get {
+                return ResourceManager.GetString("measureOption8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select an option.
+        /// </summary>
+        internal static string measurePlaceholder {
+            get {
+                return ResourceManager.GetString("measurePlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type of the mitigation work.
+        /// </summary>
+        internal static string measureTitle {
+            get {
+                return ResourceManager.GetString("measureTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Internet connection error.
+        /// </summary>
+        internal static string messageInternet {
+            get {
+                return ResourceManager.GetString("messageInternet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You must choise a landslide.
+        /// </summary>
+        internal static string messageLandslide {
+            get {
+                return ResourceManager.GetString("messageLandslide", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Max 500 characters....
+        /// </summary>
+        internal static string messageMax {
+            get {
+                return ResourceManager.GetString("messageMax", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You must take a picture site.
+        /// </summary>
+        internal static string messagePicture {
+            get {
+                return ResourceManager.GetString("messagePicture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update success.
+        /// </summary>
+        internal static string messageSuccess {
+            get {
+                return ResourceManager.GetString("messageSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Timeout response.
+        /// </summary>
+        internal static string messageTimeout {
+            get {
+                return ResourceManager.GetString("messageTimeout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Waiting to upload.
+        /// </summary>
+        internal static string messageUpload {
+            get {
+                return ResourceManager.GetString("messageUpload", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee.
+        /// </summary>
+        internal static string occupEmployee {
+            get {
+                return ResourceManager.GetString("occupEmployee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Freelancer.
+        /// </summary>
+        internal static string occupFreelancer {
+            get {
+                return ResourceManager.GetString("occupFreelancer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Retiree.
+        /// </summary>
+        internal static string occupRetiree {
+            get {
+                return ResourceManager.GetString("occupRetiree", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Student.
+        /// </summary>
+        internal static string occupStudent {
+            get {
+                return ResourceManager.GetString("occupStudent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unemployed.
+        /// </summary>
+        internal static string occupUnemployed {
+            get {
+                return ResourceManager.GetString("occupUnemployed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        internal static string radioNo {
+            get {
+                return ResourceManager.GetString("radioNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        internal static string radioYes {
+            get {
+                return ResourceManager.GetString("radioYes", resourceCulture);
             }
         }
         
@@ -725,6 +1418,267 @@ namespace LandsiteMobile.Resources.Languages {
         internal static string signupTitle {
             get {
                 return ResourceManager.GetString("signupTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Spy.
+        /// </summary>
+        internal static string systemOption1 {
+            get {
+                return ResourceManager.GetString("systemOption1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lanser scanning.
+        /// </summary>
+        internal static string systemOption10 {
+            get {
+                return ResourceManager.GetString("systemOption10", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot determine.
+        /// </summary>
+        internal static string systemOption11 {
+            get {
+                return ResourceManager.GetString("systemOption11", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Functioning.
+        /// </summary>
+        internal static string systemOption12 {
+            get {
+                return ResourceManager.GetString("systemOption12", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Partially damaged.
+        /// </summary>
+        internal static string systemOption13 {
+            get {
+                return ResourceManager.GetString("systemOption13", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Damaged.
+        /// </summary>
+        internal static string systemOption14 {
+            get {
+                return ResourceManager.GetString("systemOption14", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot determine.
+        /// </summary>
+        internal static string systemOption15 {
+            get {
+                return ResourceManager.GetString("systemOption15", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grid.
+        /// </summary>
+        internal static string systemOption2 {
+            get {
+                return ResourceManager.GetString("systemOption2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inclinometer.
+        /// </summary>
+        internal static string systemOption3 {
+            get {
+                return ResourceManager.GetString("systemOption3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Externsometer.
+        /// </summary>
+        internal static string systemOption4 {
+            get {
+                return ResourceManager.GetString("systemOption4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Distometer.
+        /// </summary>
+        internal static string systemOption5 {
+            get {
+                return ResourceManager.GetString("systemOption5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Topographic instruments.
+        /// </summary>
+        internal static string systemOption6 {
+            get {
+                return ResourceManager.GetString("systemOption6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GPS.
+        /// </summary>
+        internal static string systemOption7 {
+            get {
+                return ResourceManager.GetString("systemOption7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Interferometric radar.
+        /// </summary>
+        internal static string systemOption8 {
+            get {
+                return ResourceManager.GetString("systemOption8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Video surveillance.
+        /// </summary>
+        internal static string systemOption9 {
+            get {
+                return ResourceManager.GetString("systemOption9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select an option.
+        /// </summary>
+        internal static string systemPlaceholder1 {
+            get {
+                return ResourceManager.GetString("systemPlaceholder1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select an option.
+        /// </summary>
+        internal static string systemPlaceholder2 {
+            get {
+                return ResourceManager.GetString("systemPlaceholder2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type of the minitoring system.
+        /// </summary>
+        internal static string systemTitle1 {
+            get {
+                return ResourceManager.GetString("systemTitle1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Status of the monitoring system.
+        /// </summary>
+        internal static string systemTitle2 {
+            get {
+                return ResourceManager.GetString("systemTitle2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grass.
+        /// </summary>
+        internal static string vegeOption1 {
+            get {
+                return ResourceManager.GetString("vegeOption1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Low-growing plants.
+        /// </summary>
+        internal static string vegeOption2 {
+            get {
+                return ResourceManager.GetString("vegeOption2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trees.
+        /// </summary>
+        internal static string vegeOption3 {
+            get {
+                return ResourceManager.GetString("vegeOption3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mixed.
+        /// </summary>
+        internal static string vegeOption4 {
+            get {
+                return ResourceManager.GetString("vegeOption4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Absent.
+        /// </summary>
+        internal static string vegeOption5 {
+            get {
+                return ResourceManager.GetString("vegeOption5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dry.
+        /// </summary>
+        internal static string waterOption1 {
+            get {
+                return ResourceManager.GetString("waterOption1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Humid.
+        /// </summary>
+        internal static string waterOption2 {
+            get {
+                return ResourceManager.GetString("waterOption2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wet.
+        /// </summary>
+        internal static string waterOption3 {
+            get {
+                return ResourceManager.GetString("waterOption3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Very wet.
+        /// </summary>
+        internal static string waterOption4 {
+            get {
+                return ResourceManager.GetString("waterOption4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot determine.
+        /// </summary>
+        internal static string waterOption5 {
+            get {
+                return ResourceManager.GetString("waterOption5", resourceCulture);
             }
         }
         

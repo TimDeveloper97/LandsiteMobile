@@ -1,5 +1,6 @@
 ﻿using LandsiteMobile.Domain;
 using LandsiteMobile.Models;
+using LandsiteMobile.Resources.Languages;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -78,15 +79,15 @@ namespace LandsiteMobile.ViewModels.Landslide
 
         async void init()
         {
-            TypeLandslides.Add(new TypeLandslideModel { Image = "rockfall", Type = "Rockkfall" });
-            TypeLandslides.Add(new TypeLandslideModel { Image = "topple", Type = "Toppling" });
-            TypeLandslides.Add(new TypeLandslideModel { Image = "rotationallandslide", Type = "Rotational slide" });
-            TypeLandslides.Add(new TypeLandslideModel { Image = "translationallandslide", Type = "Planar slide" });
+            TypeLandslides.Add(new TypeLandslideModel { Image = "rockfall", Type = LanguageResource.landslideOption1 });
+            TypeLandslides.Add(new TypeLandslideModel { Image = "topple", Type = LanguageResource.landslideOption2 });
+            TypeLandslides.Add(new TypeLandslideModel { Image = "rotationallandslide", Type = LanguageResource.landslideOption3 });
+            TypeLandslides.Add(new TypeLandslideModel { Image = "translationallandslide", Type = LanguageResource.landslideOption4 });
 
-            TypeLandslides.Add(new TypeLandslideModel { Image = "debrisflow", Type = "Debris flow" });
-            TypeLandslides.Add(new TypeLandslideModel { Image = "earthflow", Type = "Earth flow" });
-            TypeLandslides.Add(new TypeLandslideModel { Image = "complexlandslide", Type = "Complex landslide" });
-            TypeLandslides.Add(new TypeLandslideModel { Image = "otherlandslide", Type = "Other" });
+            TypeLandslides.Add(new TypeLandslideModel { Image = "debrisflow", Type = LanguageResource.landslideOption5 });
+            TypeLandslides.Add(new TypeLandslideModel { Image = "earthflow", Type = LanguageResource.landslideOption6 });
+            TypeLandslides.Add(new TypeLandslideModel { Image = "complexlandslide", Type = LanguageResource.landslideOption7 });
+            TypeLandslides.Add(new TypeLandslideModel { Image = "otherlandslide", Type = LanguageResource.landslideOption8 });
 
             WidthCard = (App.ScreenWidth >> 1) - 50;
             HeightCard = WidthCard * 1.3;

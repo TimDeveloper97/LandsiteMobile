@@ -175,7 +175,6 @@ namespace LandsiteMobile.ViewModels
 
         public HomeViewModel()
         {
-            Title = "Home Page";
             Position = null;
             HasPosition = false;
             _someService.SomeMethod();
