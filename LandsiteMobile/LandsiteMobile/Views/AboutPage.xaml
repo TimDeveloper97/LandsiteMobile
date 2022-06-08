@@ -35,7 +35,7 @@
                        BackgroundColor="{AppThemeBinding Dark={StaticResource BlackSmoke} ,Light={StaticResource WhiteSmoke}}"
                        HasShadow="False" IsClippedToBounds="True">
                     <ScrollView>
-                        <StackLayout  Margin="10,30,30,0">
+                        <StackLayout  Margin="10,10,40,0">
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Start">
                                 <Grid IsClippedToBounds="True" HorizontalOptions="Start" VerticalOptions="Center">
                                     <Image Source="logo" Aspect="AspectFit" 

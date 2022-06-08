@@ -86,7 +86,7 @@
                                                         </Label.FormattedText>
                                                     </Label>
                                                     <Label TextColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"
-                                                           FontSize="12" Margin="0,0,0,0">
+                                                           FontSize="12" Margin="0,-5,0,0">
                                                         <Label.FormattedText>
                                                             <FormattedString>
                                                                 <Span
@@ -118,7 +118,7 @@
                                                 <StackLayout HorizontalOptions="Start" VerticalOptions="Center" Margin="20,-3,20,20">
                                                     <Label Text="{xct:Translate newDetail}" TextDecorations="Underline" FontFamily="MuliBold" 
                                                            TextColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}" 
-                                                           Opacity="1" FontSize="10"/>
+                                                           Opacity="1" FontSize="14"/>
                                                     <Label Margin="0,-3,0,0"
                                                            TextColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"
                                                            Opacity="0.7" FontSize="10">
@@ -131,7 +131,7 @@
                                                                 <Span
                                                                     FontFamily="MuliBlack"
                                                                     FontSize="12"
-                                                                    Text="{Binding Material, StringFormat='{0}', TargetNullValue='N/A'}"
+                                                                    Text="{Binding Material, StringFormat=': {0}', TargetNullValue=': N/A'}"
                                                                     TextColor="{StaticResource Yellow}"/>
                                                             </FormattedString>
                                                         </Label.FormattedText>
@@ -148,7 +148,7 @@
                                                                 <Span
                                                                     FontFamily="MuliBlack"
                                                                     FontSize="12"
-                                                                    Text="{Binding Hill, StringFormat='{0}', TargetNullValue='N/A'}"
+                                                                    Text="{Binding Hill, StringFormat=': {0}', TargetNullValue=': N/A'}"
                                                                     TextColor="{StaticResource Yellow}"/>
                                                             </FormattedString>
                                                         </Label.FormattedText>
@@ -165,7 +165,7 @@
                                                                 <Span
                                                                     FontFamily="MuliBlack"
                                                                     FontSize="12"
-                                                                    Text="{Binding Vegetation, StringFormat='{0}', TargetNullValue='N/A'}"
+                                                                    Text="{Binding Vegetation, StringFormat=': {0}', TargetNullValue=': N/A'}"
                                                                     TextColor="{StaticResource Yellow}"/>
                                                             </FormattedString>
                                                         </Label.FormattedText>
@@ -182,7 +182,7 @@
                                                                 <Span
                                                                     FontFamily="MuliBlack"
                                                                     FontSize="12"
-                                                                    Text="{Binding Water, StringFormat='{0}', TargetNullValue='N/A'}"
+                                                                    Text="{Binding Water, StringFormat=': {0}', TargetNullValue=': N/A'}"
                                                                     TextColor="{StaticResource Yellow}"/>
                                                             </FormattedString>
                                                         </Label.FormattedText>
@@ -199,7 +199,7 @@
                                                                 <Span
                                                                     FontFamily="MuliBlack"
                                                                     FontSize="12"
-                                                                    Text="{Binding Damages, StringFormat='{0}', TargetNullValue='N/A'}"
+                                                                    Text="{Binding Damages, StringFormat=': {0}', TargetNullValue=': N/A'}"
                                                                     TextColor="{StaticResource Yellow}"/>
                                                             </FormattedString>
                                                         </Label.FormattedText>
@@ -211,12 +211,12 @@
                                                             <FormattedString>
                                                                 <Span
                                                                     FontSize="12"
-                                                                    Text="{xct:Translate homeMeasure}"
+                                                                    Text="{xct:Translate homeMeasures}"
                                                                     TextColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"/>
                                                                 <Span
                                                                     FontFamily="MuliBlack"
                                                                     FontSize="12"
-                                                                    Text="{Binding Measure.Option, StringFormat='{0}', TargetNullValue='N/A'}"
+                                                                    Text="{Binding Measure.Option, StringFormat=': {0}', TargetNullValue=': N/A'}"
                                                                     TextColor="{StaticResource Yellow}"/>
                                                             </FormattedString>
                                                         </Label.FormattedText>
@@ -233,7 +233,7 @@
                                                                 <Span
                                                                     FontFamily="MuliBlack"
                                                                     FontSize="12"
-                                                                    Text="{Binding System.Option, StringFormat='{0}', TargetNullValue='N/A'}"
+                                                                    Text="{Binding System.Option, StringFormat=': {0}', TargetNullValue=': N/A'}"
                                                                     TextColor="{StaticResource Yellow}"/>
                                                             </FormattedString>
                                                         </Label.FormattedText>

@@ -67,6 +67,9 @@ namespace LandsiteMobile.ViewModels.Landslide
                                     Title = x.Object.Title,
                                     Measure = x.Object.Measure,
                                     System = x.Object.System,
+                                    Start = x.Object.Start,
+                                    Finish = x.Object.Finish,
+                                    HasFixed = x.Object.HasFixed,
                                 });
                 foreach (var pin in lpin)
                 {
