@@ -82,10 +82,12 @@ namespace LandsiteMobile.ViewModels.Landslide
                 pin.Object.Finish = DateTime.Now;
                 pin.Object.HasFixed = true;
 
-                await _firebaseDatabase.Child("Pins").Child(pin.Key).PostAsync(pin.Object);
+                await _firebaseDatabase.Child("Pins").Child(pin.Key).PutAsync(pin.Object);
 
                 await MaterialDialog.Instance.SnackbarAsync(message: LanguageResource.messageSuccess,
                                      msDuration: MaterialSnackbar.DurationLong);
+
+                await Shell.Current.GoToAsync("..");
             }
         });
 

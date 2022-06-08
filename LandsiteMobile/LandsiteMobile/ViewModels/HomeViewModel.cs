@@ -111,6 +111,9 @@ namespace LandsiteMobile.ViewModels
                       Measure = item.Object.Measure,
                       Photo = item.Object.Photo,
                       System = item.Object.System,
+                      HasFixed = item.Object.HasFixed,
+                      Finish = item.Object.Finish,
+                      Start = item.Object.Start,
                   }).ToList();
 
                 foreach (var item in list)
@@ -168,6 +171,9 @@ namespace LandsiteMobile.ViewModels
                       Measure = item.Object.Measure,
                       Photo = item.Object.Photo,
                       System = item.Object.System,
+                      HasFixed = item.Object.HasFixed,
+                      Finish = item.Object.Finish,
+                      Start = item.Object.Start,
                   }).ToList();
 
                 Pins?.Clear();
