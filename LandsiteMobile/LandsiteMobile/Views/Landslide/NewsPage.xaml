@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             xmlns:vm="clr-namespace:LandsiteMobile.ViewModels.Landslide"
+             xmlns:lang="clr-namespace:LandsiteMobile.Resources.Languages"
+             xmlns:icon="clr-namespace:LandsiteMobile.Resources"
+             xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
+             xmlns:bindings="clr-namespace:Xamarin.Forms.GoogleMaps.Bindings;assembly=Xamarin.Forms.GoogleMaps.Bindings"
+             xmlns:mdc="clr-namespace:Plugin.MaterialDesignControls;assembly=Plugin.MaterialDesignControls"
+             xmlns:control="clr-namespace:LandsiteMobile.Controls"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             Title="{xct:Translate homeNews}"
+             Shell.NavBarIsVisible="true"
+             Shell.TabBarIsVisible="False"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             
+             x:Class="LandsiteMobile.Views.Landslide.NewsPage">
+    <ContentPage.BindingContext>
+        <vm:NewsViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Behaviors>
+        <xct:EventToCommandBehavior
+                EventName="Appearing"
+                Command="{Binding PageAppearingCommand}" />
+    </ContentPage.Behaviors>
+
+    <ContentPage.Content>
+        <Grid BackgroundColor="{AppThemeBinding Dark={StaticResource BlackSmoke} ,Light={StaticResource WhiteSmoke}}">
+            <RefreshView RefreshColor="{StaticResource Yellow}" x:Name="gView"
+                     Command="{Binding LoadNewsCommand}" Margin="25,10,25,5"
+                     IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+                <FlexLayout Direction="Row" Wrap="Wrap" AlignContent="Start" AlignItems="Start"
+                                    JustifyContent="SpaceAround" BindableLayout.ItemsSource="{Binding News}">
+
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Frame BackgroundColor="{AppThemeBinding Dark={StaticResource Black} ,Light={StaticResource White}}" 
+                                   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                                   Padding="5" Margin="0,5">
+                                <Grid VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <BoxView BackgroundColor="{Binding ColorCard}"
+                                             WidthRequest="3" HorizontalOptions="Start"
+                                             VerticalOptions="FillAndExpand"/>
+                                    <xct:Expander Grid.Column="1">
+                                        <xct:Expander.Header>
+                                            <Grid HorizontalOptions="FillAndExpand">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="3.5*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                                    <Label Text="{Binding Start, StringFormat='{0:dd}'}" TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource Black}}" FontSize="27" 
+                                                           HorizontalOptions="Center"/>
+                                                    <Label Text="{Binding Start, StringFormat='{0:MMMM}'}" TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource Black}}" FontSize="10" 
+                                                           HorizontalOptions="Center" Margin="0,-10,0,0"/>
+                                                </StackLayout>
+                                                <BoxView Grid.Column="1" 
+                                                         BackgroundColor="{AppThemeBinding Dark={StaticResource BlackSmoke} ,Light={StaticResource WhiteSmoke}}"
+                                                         WidthRequest="1" HorizontalOptions="Start" 
+                                                         VerticalOptions="FillAndExpand"/>
+                                                <StackLayout Grid.Column="2" HorizontalOptions="Start" VerticalOptions="Center" Margin="20">
+                                                    <Label Text="{Binding Landslide}" MaxLines="1"
+                                                           LineBreakMode="HeadTruncation"
+                                                           TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource Black}}"
+                                                           FontSize="15" FontFamily="MuliBold"/>
+                                                    <Label TextColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"
+                                                           FontSize="12" Margin="0,-5,0,0">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span
+                                                                    FontSize="12"
+                                                                    Text="{xct:Translate infoLatitude}"
+                                                                    TextColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"/>
+                                                                <Span
+                                                                    FontFamily="MuliBlack"
+                                                                    FontSize="12"
+                                                                    Text="{Binding Latitude, StringFormat=': {0}'}"
+                                                                    TextColor="{StaticResource Yellow}"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                    <Label TextColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"
+                                                           FontSize="12" Margin="0,0,0,0">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span
+                                                                    FontSize="12"
+                                                                    Text="{xct:Translate infoLongitude}"
+                                                                    TextColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"/>
+                                                                <Span
+                                                                    FontFamily="MuliBlack"
+                                                                    FontSize="12"
+                                                                    Text="{Binding Longitude, StringFormat=': {0}'}"
+                                                                    TextColor="{StaticResource Yellow}"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                </StackLayout>
+                                            </Grid>
+                                        </xct:Expander.Header>
+                                        <Grid HorizontalOptions="FillAndExpand">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="3.5*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <BoxView Grid.Column="1" 
+                                                     BackgroundColor="{AppThemeBinding Dark={StaticResource BlackSmoke} ,Light={StaticResource WhiteSmoke}}"
+                                                     WidthRequest="1" HorizontalOptions="Start" 
+                                                     VerticalOptions="FillAndExpand"/>
+                                            <StackLayout Grid.Column="2" Spacing="10">
+                                                <StackLayout HorizontalOptions="Start" VerticalOptions="Center" Margin="20,-3,20,20">
+                                                    <Label Text="{xct:Translate newDetail}" TextDecorations="Underline" FontFamily="MuliBold" 
+                                                           TextColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}" 
+                                                           Opacity="1" FontSize="10"/>
+                                                    <Label Margin="0,-3,0,0"
+                                                           TextColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"
+                                                           Opacity="0.7" FontSize="10">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span
+                                                                    FontSize="12"
+                                                                    Text="{xct:Translate homeMaterial}"
+                                                                    TextColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"/>
+                                                                <Span
+                                                                    FontFamily="MuliBlack"
+                                                                    FontSize="12"
+                                                                    Text="{Binding Material, StringFormat='{0}', TargetNullValue='N/A'}"
+                                                                    TextColor="{StaticResource Yellow}"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                    <Label Margin="0,-3,0,0"
+                                                           TextColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"
+                                                           Opacity="0.7" FontSize="10">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span
+                                                                    FontSize="12"
+                                                                    Text="{xct:Translate homeHill}"
+                                                                    TextColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"/>
+                                                                <Span
+                                                                    FontFamily="MuliBlack"
+                                                                    FontSize="12"
+                                                                    Text="{Binding Hill, StringFormat='{0}', TargetNullValue='N/A'}"
+                                                                    TextColor="{StaticResource Yellow}"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                    <Label Margin="0,-3,0,0"
+                                                           TextColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"
+                                                           Opacity="0.7" FontSize="10">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span
+                                                                    FontSize="12"
+                                                                    Text="{xct:Translate homeVegetation}"
+                                                                    TextColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"/>
+                                                                <Span
+                                                                    FontFamily="MuliBlack"
+                                                                    FontSize="12"
+                                                                    Text="{Binding Vegetation, StringFormat='{0}', TargetNullValue='N/A'}"
+                                                                    TextColor="{StaticResource Yellow}"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                    <Label Margin="0,-3,0,0"
+                                                           TextColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"
+                                                           Opacity="0.7" FontSize="10">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span
+                                                                    FontSize="12"
+                                                                    Text="{xct:Translate homeWater}"
+                                                                    TextColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"/>
+                                                                <Span
+                                                                    FontFamily="MuliBlack"
+                                                                    FontSize="12"
+                                                                    Text="{Binding Water, StringFormat='{0}', TargetNullValue='N/A'}"
+                                                                    TextColor="{StaticResource Yellow}"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                    <Label Margin="0,-3,0,0"
+                                                           TextColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"
+                                                           Opacity="0.7" FontSize="10">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span
+                                                                    FontSize="12"
+                                                                    Text="{xct:Translate homeDamages}"
+                                                                    TextColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"/>
+                                                                <Span
+                                                                    FontFamily="MuliBlack"
+                                                                    FontSize="12"
+                                                                    Text="{Binding Damages, StringFormat='{0}', TargetNullValue='N/A'}"
+                                                                    TextColor="{StaticResource Yellow}"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                    <Label Margin="0,-3,0,0"
+                                                           TextColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"
+                                                           Opacity="0.7" FontSize="10">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span
+                                                                    FontSize="12"
+                                                                    Text="{xct:Translate homeMeasure}"
+                                                                    TextColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"/>
+                                                                <Span
+                                                                    FontFamily="MuliBlack"
+                                                                    FontSize="12"
+                                                                    Text="{Binding Measure.Option, StringFormat='{0}', TargetNullValue='N/A'}"
+                                                                    TextColor="{StaticResource Yellow}"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                    <Label Margin="0,-3,0,0"
+                                                           TextColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"
+                                                           Opacity="0.7" FontSize="10">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span
+                                                                    FontSize="12"
+                                                                    Text="{xct:Translate homeSystem}"
+                                                                    TextColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"/>
+                                                                <Span
+                                                                    FontFamily="MuliBlack"
+                                                                    FontSize="12"
+                                                                    Text="{Binding System.Option, StringFormat='{0}', TargetNullValue='N/A'}"
+                                                                    TextColor="{StaticResource Yellow}"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label FontFamily="MaterialIcons" Text="{x:Static icon:FontIcons.Timelapse}"
+                                                                           VerticalOptions="Center" HorizontalOptions="Center" FontSize="Subtitle"
+                                                                           TextColor="{AppThemeBinding Dark={StaticResource Red} ,Light={StaticResource Red}}"/>
+
+                                                        <Label FontFamily="MuliBold" FontSize="10" Opacity="0.7" Margin="-5,0,0,0"
+                                                               Text="{Binding Finish, StringFormat='{0:MM/dd/yyyy a\\t h:mm tt}', TargetNullValue='N/A'}" 
+                                                               HorizontalOptions="Start" MaxLines="1" LineBreakMode="HeadTruncation" 
+                                                               TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource Black}}"/>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </Grid>
+                                    </xct:Expander>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </FlexLayout>
+            </RefreshView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

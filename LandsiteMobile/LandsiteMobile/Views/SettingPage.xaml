@@ -77,6 +77,24 @@
                                           Command="{Binding Path=BindingContext.LanguageCommand, Source={x:Reference Name=settingpage}}"/>
                         </Grid.GestureRecognizers>
                     </Grid>
+
+                    <BoxView HeightRequest="0.5" BackgroundColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}"/>
+
+                    <Grid VerticalOptions="Center" ColumnDefinitions="50, *, auto" Margin="20,10">
+                        <Label FontFamily="MaterialIcons" Text="{x:Static icon:FontIcons.Information}" FontSize="30"
+                               VerticalOptions="Center" HorizontalOptions="Center" 
+                               TextColor="{AppThemeBinding Dark={StaticResource AppColor} ,Light={StaticResource AppColor}}"/>
+                        <Label Text="{xct:Translate settingAbout}" FontSize="{OnPlatform Android=22, iOS=20}" Grid.Column="1" Margin="20,0"
+                               TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource Black}}"/>
+                        <Label FontFamily="MaterialIcons" Text="{x:Static icon:FontIcons.ChevronRight}" FontSize="30"
+                               VerticalOptions="Center" HorizontalOptions="Center"  Grid.Column="2"
+                               TextColor="{AppThemeBinding Dark={StaticResource AppColor} ,Light={StaticResource AppColor}}"/>
+
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" CommandParameter="{Binding .}"
+                                          Command="{Binding Path=BindingContext.AboutCommand, Source={x:Reference Name=settingpage}}"/>
+                        </Grid.GestureRecognizers>
+                    </Grid>
                 </StackLayout>
             </Grid>
         </Grid>

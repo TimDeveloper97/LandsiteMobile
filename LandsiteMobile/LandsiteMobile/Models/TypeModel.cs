@@ -30,7 +30,14 @@ namespace LandsiteMobile.Models
         public string Photo { get; set; }
         public ResponceType Measure { get; set; }
         public ResponceType System { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime? Finish { get; set; }
+        public bool HasFixed { get; set; } = false;
+    }
 
+    public class PinView : ResponcePin
+    {
+        public string ColorCard { get; set; }
     }
 
     public class ResponcePosition

@@ -1,4 +1,5 @@
-﻿using LandsiteMobile.Domain;
+﻿using Firebase.Database.Query;
+using LandsiteMobile.Domain;
 using LandsiteMobile.Models;
 using LandsiteMobile.Resources.Languages;
 using System;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
+using XF.Material.Forms.UI.Dialogs;
 
 namespace LandsiteMobile.ViewModels.Landslide
 {
@@ -66,6 +68,24 @@ namespace LandsiteMobile.ViewModels.Landslide
                         SystemTypes += $"{LanguageResource.infoType}: " + item.Type + $" - {LanguageResource.infoStatus}: " + item.Status + "\n";
                     }
                 }
+            }
+        });
+
+        public ICommand RemoveCommand => new Command(async () =>
+        {
+            var isRemove = await MaterialDialog.Instance.ConfirmAsync(message: "Are you sure want to remove Landslide?", title: "Remove");
+
+            if(isRemove == true)
+            {
+                var pin = (await _firebaseDatabase.Child("Pins").OnceAsync<ResponcePin>()).FirstOrDefault(x => x.Object.Tag == ParameterPinTag);
+
+                pin.Object.Finish = DateTime.Now;
+                pin.Object.HasFixed = true;
+
+                await _firebaseDatabase.Child("Pins").Child(pin.Key).PostAsync(pin.Object);
+
+                await MaterialDialog.Instance.SnackbarAsync(message: LanguageResource.messageSuccess,
+                                     msDuration: MaterialSnackbar.DurationLong);
             }
         });
 

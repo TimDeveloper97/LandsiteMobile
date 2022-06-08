@@ -278,6 +278,8 @@ namespace LandsiteMobile.ViewModels
                     _responcePin.Title = _responcePin.Landslide;
                     _responcePin.Photo = _url;
                     _responcePin.Tag = Guid.NewGuid().ToString().Substring(0, 8);
+                    _responcePin.Start = DateTime.Now;
+                    _responcePin.Finish = DateTime.MinValue;
 
                     Position.Tag = _responcePin.Tag;
                     Position.Title = _responcePin.Landslide;

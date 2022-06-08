@@ -117,6 +117,35 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="aboutCustomer" xml:space="preserve">
+    <value>Customers</value>
+  </data>
+  <data name="aboutCustomerDetail" xml:space="preserve">
+    <value>    My target audience is people around the world who are not affected by landslides or who are directly affected.</value>
+  </data>
+  <data name="aboutFuture" xml:space="preserve">
+    <value>Future</value>
+  </data>
+  <data name="aboutFutureDetail" xml:space="preserve">
+    <value>    I look forward to spreading widely to the Vietnamese community as well as the community of other countries around the world to improve news as well as contribute to the country's development.</value>
+  </data>
+  <data name="aboutIntro" xml:space="preserve">
+    <value>     LandslideSurvey is an open application geared towards convenience and news for everyone.
+
+     Launched in 2022, the application was developed with the aim of making it easy, safe and fast for everyone to use their phones to update news about landslides.</value>
+  </data>
+  <data name="aboutSupport" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <data name="aboutSupportDetail" xml:space="preserve">
+    <value>    In the future, if the application is strongly developed with a strong community, it will be directed to our staff to support 24/7 all issues about using the application or platform and help users understand and feel most convenient when experiencing the application.</value>
+  </data>
+  <data name="aboutTarget" xml:space="preserve">
+    <value>Target</value>
+  </data>
+  <data name="aboutTargetDetail" xml:space="preserve">
+    <value>     I believe in the power of technology and wish to develop and deploy to the community and make the news system in Vietnam better and more developed.</value>
+  </data>
   <data name="accountEditProfile" xml:space="preserve">
     <value>Edit profile</value>
   </data>
@@ -260,6 +289,9 @@
   </data>
   <data name="homeNewLandside" xml:space="preserve">
     <value>New Landslide</value>
+  </data>
+  <data name="homeNews" xml:space="preserve">
+    <value>News landslide</value>
   </data>
   <data name="homeNote" xml:space="preserve">
     <value>Additional notes</value>
@@ -444,6 +476,9 @@
   <data name="messageUpload" xml:space="preserve">
     <value>Waiting to upload</value>
   </data>
+  <data name="newDetail" xml:space="preserve">
+    <value>Details</value>
+  </data>
   <data name="occupEmployee" xml:space="preserve">
     <value>Employee</value>
   </data>
@@ -464,6 +499,9 @@
   </data>
   <data name="radioYes" xml:space="preserve">
     <value>Yes</value>
+  </data>
+  <data name="settingAbout" xml:space="preserve">
+    <value>About </value>
   </data>
   <data name="settingAccount" xml:space="preserve">
     <value>Account</value>

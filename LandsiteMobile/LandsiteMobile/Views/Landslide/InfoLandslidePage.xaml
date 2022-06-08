@@ -16,6 +16,26 @@
              xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
              
              x:Class="LandsiteMobile.Views.Landslide.InfoLandslidePage">
+    <Shell.TitleView>
+        <Grid>
+            <Label  Text="{xct:Translate homeInfoLandslide}"
+                    TextColor="{AppThemeBinding Dark={StaticResource Black} ,Light={StaticResource White}}"
+                    FontSize="Title" Margin="0,0,70,0"
+                    HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                    HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                <Label  Text="{x:Static icon:FontIcons.TrashCan}" 
+                        TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource White}}"
+                        FontSize="Title" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="0,0,20,0"
+                        VerticalOptions="CenterAndExpand" FontFamily="MaterialIcons">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" CommandParameter="{Binding .}"
+                                          Command="{Binding Path=BindingContext.RemoveCommand, Source={x:Reference Name=infolandslidepage}}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+        </Grid>
+    </Shell.TitleView>
     <ContentPage.BindingContext>
         <vm:InfoLandslideViewModel />
     </ContentPage.BindingContext>

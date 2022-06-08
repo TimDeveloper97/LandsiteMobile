@@ -61,6 +61,89 @@ namespace LandsiteMobile.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Customers.
+        /// </summary>
+        internal static string aboutCustomer {
+            get {
+                return ResourceManager.GetString("aboutCustomer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to     My target audience is people around the world who are not affected by landslides or who are directly affected..
+        /// </summary>
+        internal static string aboutCustomerDetail {
+            get {
+                return ResourceManager.GetString("aboutCustomerDetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Future.
+        /// </summary>
+        internal static string aboutFuture {
+            get {
+                return ResourceManager.GetString("aboutFuture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to     I look forward to spreading widely to the Vietnamese community as well as the community of other countries around the world to improve news as well as contribute to the country&apos;s development..
+        /// </summary>
+        internal static string aboutFutureDetail {
+            get {
+                return ResourceManager.GetString("aboutFutureDetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to      LandslideSurvey is an open application geared towards convenience and news for everyone.
+        ///
+        ///     Launched in 2022, the application was developed with the aim of making it easy, safe and fast for everyone to use their phones to update news about landslides..
+        /// </summary>
+        internal static string aboutIntro {
+            get {
+                return ResourceManager.GetString("aboutIntro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Support.
+        /// </summary>
+        internal static string aboutSupport {
+            get {
+                return ResourceManager.GetString("aboutSupport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to     In the future, if the application is strongly developed with a strong community, it will be directed to our staff to support 24/7 all issues about using the application or platform and help users understand and feel most convenient when experiencing the application..
+        /// </summary>
+        internal static string aboutSupportDetail {
+            get {
+                return ResourceManager.GetString("aboutSupportDetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Target.
+        /// </summary>
+        internal static string aboutTarget {
+            get {
+                return ResourceManager.GetString("aboutTarget", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to      I believe in the power of technology and wish to develop and deploy to the community and make the news system in Vietnam better and more developed..
+        /// </summary>
+        internal static string aboutTargetDetail {
+            get {
+                return ResourceManager.GetString("aboutTargetDetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit profile.
         /// </summary>
         internal static string accountEditProfile {
@@ -489,6 +572,15 @@ namespace LandsiteMobile.Resources.Languages {
         internal static string homeNewLandside {
             get {
                 return ResourceManager.GetString("homeNewLandside", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to News landslide.
+        /// </summary>
+        internal static string homeNews {
+            get {
+                return ResourceManager.GetString("homeNews", resourceCulture);
             }
         }
         
@@ -1042,6 +1134,15 @@ namespace LandsiteMobile.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Details.
+        /// </summary>
+        internal static string newDetail {
+            get {
+                return ResourceManager.GetString("newDetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Employee.
         /// </summary>
         internal static string occupEmployee {
@@ -1101,6 +1202,15 @@ namespace LandsiteMobile.Resources.Languages {
         internal static string radioYes {
             get {
                 return ResourceManager.GetString("radioYes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to About .
+        /// </summary>
+        internal static string settingAbout {
+            get {
+                return ResourceManager.GetString("settingAbout", resourceCulture);
             }
         }
         

@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             xmlns:vm="clr-namespace:LandsiteMobile.ViewModels"
+             xmlns:lang="clr-namespace:LandsiteMobile.Resources.Languages"
+             xmlns:icon="clr-namespace:LandsiteMobile.Resources"
+             xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
+             xmlns:bindings="clr-namespace:Xamarin.Forms.GoogleMaps.Bindings;assembly=Xamarin.Forms.GoogleMaps.Bindings"
+             xmlns:mdc="clr-namespace:Plugin.MaterialDesignControls;assembly=Plugin.MaterialDesignControls"
+             xmlns:control="clr-namespace:LandsiteMobile.Controls"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             Title="{xct:Translate settingAbout}"
+             Shell.NavBarIsVisible="true"
+             Shell.TabBarIsVisible="False"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             
+             x:Class="LandsiteMobile.Views.AboutPage">
+    <ContentPage.BindingContext>
+        <vm:AboutViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Behaviors>
+        <xct:EventToCommandBehavior
+                EventName="Appearing"
+                Command="{Binding PageAppearingCommand}" />
+    </ContentPage.Behaviors>
+    
+    <ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+              BackgroundColor="{AppThemeBinding Dark={StaticResource BlackSmoke} ,Light={StaticResource WhiteSmoke}}">
+            <Grid BackgroundColor="{AppThemeBinding Dark={StaticResource BlackSmoke} ,Light={StaticResource WhiteSmoke}}">
+
+                <!--#region Background -->
+                <Frame Padding="10"
+                       BackgroundColor="{AppThemeBinding Dark={StaticResource BlackSmoke} ,Light={StaticResource WhiteSmoke}}"
+                       HasShadow="False" IsClippedToBounds="True">
+                    <ScrollView>
+                        <StackLayout  Margin="10,30,30,0">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Start">
+                                <Grid IsClippedToBounds="True" HorizontalOptions="Start" VerticalOptions="Center">
+                                    <Image Source="logo" Aspect="AspectFit" 
+                                        WidthRequest="40" HeightRequest="40"/>
+                                </Grid>
+                                <Label HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span
+                                                FontFamily="MuliBlack"
+                                                FontSize="30"
+                                                Text="LANDSLIDE"
+                                                TextColor="{AppThemeBinding Dark={StaticResource AppColor} ,Light={StaticResource AppColor}}"/>
+                                            <Span
+                                                FontFamily="MuliBlack"
+                                                FontSize="30"
+                                                Text="SURVEY"
+                                                TextColor="{AppThemeBinding Dark={StaticResource WhiteSmoke} ,Light={StaticResource BlackSmoke}}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </StackLayout>
+                            <Label Text="{xct:Translate aboutIntro}" 
+                                   HorizontalOptions="Center" 
+                                   TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource Black}}" 
+                                   FontSize="Subtitle"/>
+
+                            <StackLayout Orientation="Horizontal" Margin="0,15,5,0">
+                                <Label FontFamily="MaterialIcons" Text="{x:Static icon:FontIcons.Target}" FontSize="25"
+                                                           VerticalOptions="Center" HorizontalOptions="Center" 
+                                                           TextColor="{AppThemeBinding Dark={StaticResource Green} ,Light={StaticResource Green}}"/>
+                                <Label Text="{xct:Translate aboutTarget}" FontSize="25" MaxLines="1"
+                                   TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource Black}}"
+                                   Margin="-3,0,0,0"
+                                   VerticalOptions="Center" HorizontalOptions="Center"/>
+                            </StackLayout>
+                            <Label Text="{xct:Translate aboutTargetDetail}"/>
+
+                            <StackLayout Orientation="Horizontal" Margin="0,15,5,0">
+                                <Label FontFamily="MaterialIcons" Text="{x:Static icon:FontIcons.HumanQueue}" FontSize="25"
+                                                           VerticalOptions="Center" HorizontalOptions="Center" 
+                                                           TextColor="{AppThemeBinding Dark={StaticResource Blue} ,Light={StaticResource Blue}}"/>
+                                <Label Text="{xct:Translate aboutCustomer}" FontSize="25" MaxLines="1"
+                                   TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource Black}}"
+                                   Margin="-3,0,0,0"
+                                   VerticalOptions="Center" HorizontalOptions="Center"/>
+                            </StackLayout>
+                            <Label Text="{xct:Translate aboutCustomerDetail}"/>
+
+                            <StackLayout Orientation="Horizontal" Margin="0,15,5,0">
+                                <Label FontFamily="MaterialIcons" Text="{x:Static icon:FontIcons.Phone}" FontSize="25"
+                                                           VerticalOptions="Center" HorizontalOptions="Center" 
+                                                           TextColor="{AppThemeBinding Dark={StaticResource Violet} ,Light={StaticResource Violet}}"/>
+                                <Label Text="{xct:Translate aboutSupport}" FontSize="25" MaxLines="1"
+                                   TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource Black}}"
+                                   Margin="-3,0,0,0"
+                                   VerticalOptions="Center" HorizontalOptions="Center"/>
+                            </StackLayout>
+                            <Label Text="{xct:Translate aboutSupportDetail}"/>
+
+                            <StackLayout Orientation="Horizontal" Margin="0,15,5,0">
+                                <Label FontFamily="MaterialIcons" Text="{x:Static icon:FontIcons.CloudTags}" FontSize="25"
+                                                           VerticalOptions="Center" HorizontalOptions="Center" 
+                                                           TextColor="{AppThemeBinding Dark={StaticResource Yellow} ,Light={StaticResource Yellow}}"/>
+                                <Label Text="{xct:Translate aboutFuture}" FontSize="25" MaxLines="1"
+                                   TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource Black}}"
+                                   Margin="-3,0,0,0"
+                                   VerticalOptions="Center" HorizontalOptions="Center"/>
+                            </StackLayout>
+                            <Label Text="{xct:Translate aboutFutureDetail}"/>
+                        </StackLayout>
+                    </ScrollView>
+                </Frame>
+                <!--#endregion-->
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

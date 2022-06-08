@@ -45,7 +45,10 @@ namespace LandsiteMobile.ViewModels
             ChangeLanguage(_currentLanguage);
         });
 
-
+        public ICommand AboutCommand => new Command(async () =>
+        {
+            await Shell.Current.GoToAsync(nameof(AboutPage));
+        });
         #endregion
 
         public SettingViewModel()

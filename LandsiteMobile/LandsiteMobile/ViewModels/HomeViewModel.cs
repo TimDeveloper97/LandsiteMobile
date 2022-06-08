@@ -54,7 +54,9 @@ namespace LandsiteMobile.ViewModels
                 SetProperty(ref hasPosition, value);
             }
         }
-        public ResponcePosition Position { get => position; set
+        public ResponcePosition Position
+        {
+            get => position; set
             {
                 SetProperty(ref position, value);
                 HasPosition = Position == null ? false : true;
@@ -119,6 +121,11 @@ namespace LandsiteMobile.ViewModels
             }
         });
 
+        public ICommand NewsCommand => new Command(async () =>
+        {
+            await Shell.Current.GoToAsync(nameof(NewsPage));
+        });
+
         public ICommand LocationCommand => new Command(async () =>
         {
             init();
@@ -149,13 +156,14 @@ namespace LandsiteMobile.ViewModels
             Pins?.Clear();
             foreach (var item in list)
             {
-                Pins.Add(new Pin
-                {
-                    Tag = item.Tag,
-                    Label = item.Title ?? "Landslide",
-                    Position = new Position(item.Latitude, item.Longitude),
-                    Type = PinType.SavedPin,
-                });
+                if (item.HasFixed == false)
+                    Pins.Add(new Pin
+                    {
+                        Tag = item.Tag,
+                        Label = item.Title ?? "Landslide",
+                        Position = new Position(item.Latitude, item.Longitude),
+                        Type = PinType.SavedPin,
+                    });
             }
         });
 

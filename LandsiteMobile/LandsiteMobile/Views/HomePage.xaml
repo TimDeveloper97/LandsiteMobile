@@ -54,16 +54,27 @@
             </Grid>
 
             <Grid HorizontalOptions="End" VerticalOptions="Start" Margin="0,20,20,0">
-                <mdc:MaterialFlatButton Icon="{AppThemeBinding Dark=location, Light=location}" CornerRadius="30" 
+                <StackLayout>
+                    <mdc:MaterialFlatButton Icon="{AppThemeBinding Dark=location, Light=location}" CornerRadius="30" 
                                         WidthRequest="50" HeightRequest="50" Command="{Binding LocationCommand}" IconSize="20"
                                         Padding="10,0,0,0"
                                         BackgroundColor="{AppThemeBinding Dark={StaticResource Black} ,Light={StaticResource White}}"
                                         BorderColor="{AppThemeBinding Dark={StaticResource BlackSmoke} ,Light={StaticResource WhiteSmoke}}"/>
+
+                    <mdc:MaterialFlatButton Icon="{AppThemeBinding Dark=news, Light=news}" CornerRadius="30" 
+                                        WidthRequest="50" HeightRequest="50" Command="{Binding NewsCommand}" IconSize="20"
+                                        Padding="10,0,0,0"
+                                        BackgroundColor="{AppThemeBinding Dark={StaticResource Black} ,Light={StaticResource White}}"
+                                        BorderColor="{AppThemeBinding Dark={StaticResource BlackSmoke} ,Light={StaticResource WhiteSmoke}}"/>
+                </StackLayout>
             </Grid>
 
             <mdc:MaterialButton HorizontalOptions="Fill" IsEnabled="{Binding HasPosition}"
-                                Text="{xct:Translate homeNewLandside}" Margin="60,0,60,30" 
+                                Text="{xct:Translate homeNewLandside}" Margin="70,0,70,30" 
                                 BackgroundColor="{StaticResource AppColor}"
+                                DisabledBackgroundColor="Transparent"
+                                DisabledBorderColor="Transparent"
+                                DisabledTextColor="Transparent"
                                 FontSize="{OnPlatform Android=18, iOS=16}" IsBusy="{Binding IsBusy}"
                                 BorderColor="{AppThemeBinding Dark={StaticResource Black} ,Light={StaticResource White}}"
                                 TextColor="{AppThemeBinding Dark={StaticResource Black} ,Light={StaticResource White}}"

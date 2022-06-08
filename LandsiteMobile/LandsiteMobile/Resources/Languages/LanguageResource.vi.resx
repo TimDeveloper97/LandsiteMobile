@@ -117,6 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="aboutCustomer" xml:space="preserve">
+    <value>Đối tượng</value>
+  </data>
+  <data name="aboutCustomerDetail" xml:space="preserve">
+    <value>    Đối tượng tôi hướng đến là mọi người dân trên thế giới những người không chịu ảnh hưởng với sạt lở đất hay những người hứng chịu trực tiếp.</value>
+  </data>
+  <data name="aboutFuture" xml:space="preserve">
+    <value>Tương lai</value>
+  </data>
+  <data name="aboutFutureDetail" xml:space="preserve">
+    <value>   Tôi rất mong được phát triển rộng rãi đến cộng đồng người Việt Nam cũng như cộng đồng các nước khác trên thế giới để cải thiện tin tức cũng như góp phần giúp cho đất nước ngày càng phát triển.</value>
+  </data>
+  <data name="aboutIntro" xml:space="preserve">
+    <value>   LandslideSurvey là một ứng dụng mở hướng tới sự tiện dụng và tin tức cho mọi người.
+   Ra mắt năm 2022, ứng dụng được phát triển với mục đích hướng đến mọi người sử dụng điện thoại một cách dễ dàng, an toàn và nhanh chóng khi cập nhật tin tức về các vụ sạt lở đất</value>
+  </data>
+  <data name="aboutSupport" xml:space="preserve">
+    <value>Hỗ trợ</value>
+  </data>
+  <data name="aboutSupportDetail" xml:space="preserve">
+    <value>  Tương lai nếu ứng dụng được phát triển mạnh với cộng đồng mạnh mẽ thì sẽ hướng đến đội ngũ nhân viên chúng tôi hỗ trợ 24/7 tất cả các vấn đề về việc sử dụng ứng dụng hay nền tảng và giúp đỡ các người dùng hiểu và cảm thấy thuận tiện nhất khi trải nhiệm ứng dụng.</value>
+  </data>
+  <data name="aboutTarget" xml:space="preserve">
+    <value>Mục tiêu</value>
+  </data>
+  <data name="aboutTargetDetail" xml:space="preserve">
+    <value>   Tôi tin tưởng vào sức mạnh của công nghệ và mong muốn phát triển và triển khai đến cộng đồng và làm cho hệ thống tin tức tại Việt Nam trở lên tốt đẹp hơn và phát triển hơn.</value>
+  </data>
   <data name="accountEditProfile" xml:space="preserve">
     <value>Chỉnh sửa hồ sơ</value>
   </data>
@@ -260,6 +288,9 @@
   </data>
   <data name="homeNewLandside" xml:space="preserve">
     <value>Thông kế sạt nở đất</value>
+  </data>
+  <data name="homeNews" xml:space="preserve">
+    <value>Tin tức về sạt lở đất</value>
   </data>
   <data name="homeNote" xml:space="preserve">
     <value>Thông tin thêm</value>
@@ -435,6 +466,9 @@
   <data name="messageUpload" xml:space="preserve">
     <value>Đang chờ tải lên</value>
   </data>
+  <data name="newDetail" xml:space="preserve">
+    <value>Chi tiết</value>
+  </data>
   <data name="occupEmployee" xml:space="preserve">
     <value>Nhân viên</value>
   </data>
@@ -455,6 +489,9 @@
   </data>
   <data name="radioYes" xml:space="preserve">
     <value>Đúng</value>
+  </data>
+  <data name="settingAbout" xml:space="preserve">
+    <value>Thông tin ứng dụng</value>
   </data>
   <data name="settingAccount" xml:space="preserve">
     <value>Tài khoản</value>
