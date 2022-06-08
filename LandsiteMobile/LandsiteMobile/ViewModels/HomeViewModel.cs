@@ -91,38 +91,48 @@ namespace LandsiteMobile.ViewModels
             Pins?.Clear();
             init();
 
-        try
-        {
-            var list = (await _firebaseDatabase
-              .Child("Pins")
-              .OnceAsync<ResponcePin>()).Select(item => new ResponcePin
-              {
-                  Damages = item.Object.Damages,
-                  Hill = item.Object.Hill,
-                  Vegetation = item.Object.Vegetation,
-                  Water = item.Object.Water,
-                  Material = item.Object.Material,
-                  Landslide = item.Object.Landslide,
-                  Longitude = item.Object.Longitude,
-                  Latitude = item.Object.Latitude,
-                  Notes = item.Object.Notes,
-                  Title = item.Object.Title,
-                  Tag = item.Object.Tag,
-                  Measure = item.Object.Measure,
-                  Photo = item.Object.Photo,
-                  System = item.Object.System,
-              }).ToList();
-
-            foreach (var item in list)
+            try
             {
-                if (item.HasFixed == false)
-                    Pins.Add(new Pin
-                    {
-                        Tag = item.Tag,
-                        Label = item.Title ?? "Landslide",
-                        Position = new Position(item.Latitude, item.Longitude),
-                        Type = PinType.SavedPin,
-                    });
+                var list = (await _firebaseDatabase
+                  .Child("Pins")
+                  .OnceAsync<ResponcePin>()).Select(item => new ResponcePin
+                  {
+                      Damages = item.Object.Damages,
+                      Hill = item.Object.Hill,
+                      Vegetation = item.Object.Vegetation,
+                      Water = item.Object.Water,
+                      Material = item.Object.Material,
+                      Landslide = item.Object.Landslide,
+                      Longitude = item.Object.Longitude,
+                      Latitude = item.Object.Latitude,
+                      Notes = item.Object.Notes,
+                      Title = item.Object.Title,
+                      Tag = item.Object.Tag,
+                      Measure = item.Object.Measure,
+                      Photo = item.Object.Photo,
+                      System = item.Object.System,
+                  }).ToList();
+
+                foreach (var item in list)
+                {
+                    if (item.HasFixed == false)
+                        Pins.Add(new Pin
+                        {
+                            Tag = item.Tag,
+                            Label = item.Title ?? "Landslide",
+                            Position = new Position(item.Latitude, item.Longitude),
+                            Type = PinType.SavedPin,
+                        });
+                }
+            }
+            catch (FirebaseException fe)
+            {
+                if (fe.ResponseData == "N/A")
+                    await MaterialDialog.Instance.SnackbarAsync(message: LanguageResource.messageInternet,
+                                     msDuration: MaterialSnackbar.DurationLong);
+                else if (fe.ResponseData == "")
+                    await MaterialDialog.Instance.SnackbarAsync(message: LanguageResource.messageTimeout,
+                                     msDuration: MaterialSnackbar.DurationLong);
             }
         });
 
