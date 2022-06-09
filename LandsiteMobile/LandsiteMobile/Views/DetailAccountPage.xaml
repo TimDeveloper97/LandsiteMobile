@@ -17,6 +17,11 @@
              x:Class="LandsiteMobile.Views.DetailAccountPage">
     <Shell.TitleView>
         <Grid>
+            <Label  Text="{xct:Translate accountEditProfile}"
+                    TextColor="{AppThemeBinding Dark={StaticResource Black} ,Light={StaticResource White}}"
+                    FontSize="Title" Margin="0,0,70,0"
+                    HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                    HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
             <StackLayout Orientation="Horizontal" HorizontalOptions="End">
                 <Label  Text="{x:Static icon:FontIcons.Check}" 
                         TextColor="{AppThemeBinding Dark={StaticResource White} ,Light={StaticResource White}}"

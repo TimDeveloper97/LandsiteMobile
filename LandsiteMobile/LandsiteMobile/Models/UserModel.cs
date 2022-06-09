@@ -7,8 +7,8 @@ namespace LandsiteMobile.Models
 {
     public class UserModel : User
     {
-        public string Age { get; set; }
-        public string Gender { get; set; }
-        public string Occupation { get; set; }
+        public int Age { get; set; }
+        public int Gender { get; set; }
+        public int Occupation { get; set; }
     }
 }

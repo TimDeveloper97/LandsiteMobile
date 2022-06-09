@@ -55,9 +55,9 @@ namespace LandsiteMobile.ViewModels
                         DisplayName = Email,
                         IsEmailVerified = false,
                         LocalId = content.User.LocalId,
-                        Age = SelectAge,
-                        Gender = SelectGender, 
-                        Occupation = SelectOccupation,
+                        Age = SelectAge == null ? -1 : Ages.IndexOf(SelectAge),
+                        Gender = SelectGender == null ? -1 : Genders.IndexOf(SelectGender),
+                        Occupation = SelectOccupation == null ? -1 : Occupations.IndexOf(SelectOccupation),
                     };
 
                     await _firebaseDatabase.Child("UsersLandslide")

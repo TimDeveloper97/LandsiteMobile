@@ -34,9 +34,9 @@ namespace LandsiteMobile.ViewModels
 
         public ICommand PageAppearingCommand => new Command(async () =>
         {
-            SelectAge = _usermodel.Age;
-            SelectGender = _usermodel.Gender;
-            SelectOccupation = _usermodel.Occupation;
+            SelectAge = _usermodel.Age < 0 ? null : Ages[_usermodel.Age];
+            SelectGender = _usermodel.Gender < 0 ? null : Genders[_usermodel.Gender];
+            SelectOccupation = _usermodel.Occupation < 0 ? null : Occupations[_usermodel.Occupation];
         });
 
         public ICommand UploadProfileUserCommand => new Command(async () => await ExecuteUploadProfileUserCommand());
@@ -75,9 +75,9 @@ namespace LandsiteMobile.ViewModels
             {
                 var user = (await _firebaseDatabase.Child("Users").OnceAsync<UserModel>()).Where(a => a.Object.LocalId == _usermodel.LocalId).FirstOrDefault();
 
-                _usermodel.Age = user.Object.Age = SelectAge;
-                _usermodel.Gender = user.Object.Gender = SelectGender;
-                _usermodel.Occupation = user.Object.Occupation = SelectOccupation;
+                _usermodel.Age = user.Object.Age = Ages.IndexOf(SelectAge);
+                _usermodel.Gender = user.Object.Gender = Genders.IndexOf(SelectGender);
+                _usermodel.Occupation = user.Object.Occupation = Occupations.IndexOf(SelectOccupation);
 
                 await _firebaseDatabase.Child("Users").Child(user.Key)
                         .PutAsync(user.Object);

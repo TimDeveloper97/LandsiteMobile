@@ -25,7 +25,6 @@ namespace LandsiteMobile.ViewModels
 
         public AccountSettingViewModel()
         {
-            Title = LanguageResource.settingAccount;
         }
     }
 }
